@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   get '/', to: 'welcome#index'
 
   get '/professors', to: 'professors#index'
+  get '/students', to: 'students#index'
 end
