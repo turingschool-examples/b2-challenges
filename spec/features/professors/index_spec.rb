@@ -10,7 +10,7 @@ RSpec.describe 'As a Visitor' do
    @professor_1.students << @student_1
   end
 
-  describe'I can visit a professors index page'do
+  describe'a professors index page'do
     it'displays the names of professors'do
       visit "/professors"
 
@@ -36,7 +36,6 @@ RSpec.describe 'As a Visitor' do
       visit "/professors/#{@professor_1.id}"
       within("##{@professor_1.id}s-students") do
         expect(page).to have_content(@student_1.name)
-
       end
     end
 	end
