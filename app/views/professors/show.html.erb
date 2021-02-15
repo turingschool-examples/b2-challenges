@@ -3,3 +3,9 @@
 	<p><%= @professor.age %></p>
 	<p><%= @professor.specialty %></p>
 </section>
+<h2>Students Enrolled:</h2>
+<% @professor.students.each do |student| %>
+	<section id="<%= @professor.id %>s-students">
+		<p><%= student.name %></p>
+	</section>
+<% end %>
