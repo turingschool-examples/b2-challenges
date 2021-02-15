@@ -47,5 +47,42 @@ RSpec.describe "professors show page" do
         expect("avreage student age: 13.33").to appear_before(@student1.name)
       end
     end
+
+    # User Story Extention
+    it "shows an 'unenroll' link next to each student" do
+      visit "professors/#{@professor1.id}"
+      within(".student_info") do
+        within("#student_#{@student1.id}") do
+          expect(page).to have_link("unenroll_student_#{@student1.id}")
+        end
+
+        within("#student_#{@student3.id}") do
+          expect(page).to have_link("unenroll_student_#{@student3.id}")
+        end
+      end
+
+      it "removed the student from the professors list of students when clicked" do
+        visit "professors/#{@professor1.id}"
+        click_link "unenroll_student_#{@student1.id}"
+
+        within(".student_info") do
+          expect(page).to_not have_content(@student1.name)
+          expect(page).to_not have_content(@student2.name)
+          expect(page).to have_content(@student3.name)
+          expect(page).to have_content(@student4.name)
+        end
+      end
+
+      it "does not delete the student entierly when unenrolled" do
+        visit "professors/#{@professor1.id}"
+        click_link "unenroll_student_#{@student3.id}"
+
+        visit "professors/#{@professor2.id}"
+
+        within(".student_info") do
+          expect(page).to have_content(@student3.name)
+        end
+      end
+    end
   end
 end
