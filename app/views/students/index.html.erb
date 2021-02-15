@@ -1,0 +1,8 @@
+<%= link_to 'Home Page', '/' %>
+<h1>Student Index</h1>
+
+<% @students.each do |stud| %>
+  <h3><%= stud.name %></h3>
+  <h4><%= stud.age %></h4>
+  <h4><%= stud.specialty %></h4>
+<% end %>
