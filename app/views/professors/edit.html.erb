@@ -1,0 +1,11 @@
+<section id="professor-<%= @professor.id %>-edit">
+  <%= form_with url: "/professors/#{@professor.id}", method: :patch, local: true do |form| %>
+    <p><%= form.label "Name: " %></p>
+    <p><%= form.text_field :name, value: "#{@professor.name}" %></p>
+    <p><%= form.label "Age: " %></p>
+    <p><%= form.text_field :age, value: "#{@professor.age}" %></p>
+    <p><%= form.label "Specialty: " %></p>
+    <p><%= form.text_field :specialty, value: "#{@professor.specialty}" %></p>
+    <%= form.submit "Submit" %>
+  <% end %>
+</section>
