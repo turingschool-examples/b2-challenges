@@ -3,6 +3,7 @@
   <p>Name: <%= @professor.name %></p>
   <p>Age: <%= @professor.age %></p>
   <p>Specialty: <%= @professor.specialty %></p>
+  <p>Students Average Age: <%= @professor.students.average_age %></p>
   <h2>Students: </h2>
   <% @professor.students.each do |student| %>
     <p><%= student.name %></p>
