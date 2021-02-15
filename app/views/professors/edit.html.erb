@@ -1,0 +1,12 @@
+<%= link_to 'Home Page', '/' %>
+<h1>Update Info for <%= @professor.name %></h1>
+
+<%= form_with url: "/professors/#{@professor.id}", method: :patch, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name%>
+  <%= form.label :age %>
+  <%= form.number_field :age %>
+  <%= form.label :specialty %>
+  <%= form.text_field :specialty %>
+  <%= form.submit 'Update Professor' %>
+<% end %>
