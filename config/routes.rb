@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get '/professors/:id', to: 'professors#show'
   get '/professors/:id/edit', to: 'professors#edit'
   patch '/professors/:id', to: 'professors#update'
+  post '/professors/:id', to: 'professors#unenroll_student'
 end
