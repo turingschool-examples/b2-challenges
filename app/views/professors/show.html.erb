@@ -1,7 +1,13 @@
-<h2>Professor Information</h2>
-
 <section id='prof-info'>
+  <h2>Professor Information</h2>
   <p>Name: <%= @professor.name %></p>
   <p>Age: <%= @professor.age %></p>
   <p>Specialty: <%= @professor.specialty %></p>
+</section>
+<br>
+<section id='prof-students'>
+  <h2>Students</h2>
+  <% @professor.students.each do |student| %>
+    <p>Name: <%= student.name %></p>
+  <% end %>
 </section>
