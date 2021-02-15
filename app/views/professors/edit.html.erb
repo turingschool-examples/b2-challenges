@@ -1,0 +1,9 @@
+<%= form_with url: "/professors/#{@professor.id}", model: @professor, method: :patch, local: true do |form| %>
+  <p><%= form.label :name %></br>
+  <%= form.text_field :name%></p>
+  <p><%= form.label :age%></br>
+  <%= form.number_field :age %></p>
+  <p><%= form.label :specialty %></br>
+  <%= form.text_field :specialty %></p>
+  <%= form.submit 'Update Professor' %>
+<% end %>
