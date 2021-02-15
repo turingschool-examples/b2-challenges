@@ -1,5 +1,9 @@
 class ProfessorsController < ApplicationController
 
+  def index
+    @professors = Professor.all
+  end
+
   def show
     @professor = Professor.find(params[:id])
     @pairs = ProfessorStudent.where(professor_id: "#{params[:id]}")
@@ -14,4 +18,9 @@ class ProfessorsController < ApplicationController
 
     @average_age = (total_age.to_f / @students.count).round(2)
   end
+
+  def edit
+    @professor = Professor.find(params[:id])
+  end
+
 end

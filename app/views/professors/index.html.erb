@@ -1,0 +1,4 @@
+<% @professors.each do |professor| %>
+  <h4 id="professor-<%=professor.id%>"><%= professor.name %>
+  <%= link_to "updeate", "/professors/#{professor.id}/edit", id: "update_professor_#{professor.id}"%></h4>
+<%end%>
