@@ -28,5 +28,7 @@ RSpec.describe "the Professor Index page" do
     expect(page).to have_content(@ron.name)
     expect(page).to have_content(@hermione.name)
     expect(page).to have_content(@draco.name)
+
+    expect(page).to have_content("Average age of students: 15.25")
   end
 end
