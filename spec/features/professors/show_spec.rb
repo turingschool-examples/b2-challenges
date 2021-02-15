@@ -19,11 +19,11 @@ RSpec.describe "As a visitor on a Professors show page" do
     )
     @student1 = Student.create!(
       name: "Whacky kid",
-      age: 15
+      age: 18
     )
     @student2 = Student.create!(
       name: "Funny one",
-      age: 14
+      age: 15
     )
     @student3 = Student.create!(
       name: "Loud kiddo",
@@ -43,12 +43,18 @@ RSpec.describe "As a visitor on a Professors show page" do
       expect(page).to have_content(@student2.name)
       expect(page).to have_content(@student3.name)
       visit "/professors/#{@professor1.id}"
-      save_and_open_page
       expect(page).to have_content(@professor1.name)
       expect(page).to have_content(@professor1.age)
       expect(page).to have_content(@professor1.specialty)
       expect(page).to have_content(@student1.name)
       expect(page).to have_content(@student3.name)
+    end
+  end
+
+  describe "When Im on a professor show page" do
+    it "Shows the average age of all students associated with prof" do
+      visit "/professors/#{@professor2.id}"
+      expect(page).to have_content("Average age of Students: 16.33")
     end
   end
 end
