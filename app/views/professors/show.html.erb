@@ -5,8 +5,8 @@
 </div>
 
 <div class="student_info">
-  <% @students.each do |entry| %>
-    <%= student = Student.find(entry.student.id) %>
+  <h4>avreage student age: <%= "#{@average_age}" %></h4>
+  <% @students.each do |student| %>
     <h4> <%= student.name %></h4>
   <%end%>
 </div>
