@@ -25,8 +25,6 @@ RSpec.describe 'Applications show page' do
   it "shows professor with correct attributes and names of students" do
     visit "/professors/#{@professor1.id}"
 
-    save_and_open_page
-
     expect(page).to have_content("Name: #{@professor1.name}")
     expect(page).to have_content("Age: #{@professor1.age}")
     expect(page).to have_content("Specialty: #{@professor1.specialty}")
@@ -36,5 +34,11 @@ RSpec.describe 'Applications show page' do
     expect(page).to have_content(@student3.name)
     expect(page).to have_content(@student4.name)
     expect(page).to have_content(@student4.name)
+  end
+
+  it "shows average age of students" do
+    visit "/professors/#{@professor1.id}"
+    expect(page).to have_content("Average Age of Students:")
+    expect(page).to have_content(@professor1.students.average_age)
   end
 end
