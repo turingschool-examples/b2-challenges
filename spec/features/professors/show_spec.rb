@@ -24,6 +24,11 @@ RSpec.describe 'Professor show page' do
       end
 
       it "And I see the names of all students associated with this professor" do
+        visit "/professors/#{@professor.id}"
+
+        expect(page).to have_content("Students:")
+        expect(page).to have_content(@harry.name)
+        expect(page).to have_content(@hermione.name)
       end
     end
   end
