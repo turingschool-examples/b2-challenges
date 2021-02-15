@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
+ #student-1 {
+  color: white;
+}

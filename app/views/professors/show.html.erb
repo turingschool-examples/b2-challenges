@@ -4,5 +4,11 @@
 <p>Average Student Age: <%= @professor.average_student_age %></p>
 <p>Students:</p>
 <% @professor.students.each do |student| %>
-<p><%= student.name %></p>
+<section id="student-<%= student.id %>">
+  <p><%= student.name %></p>
+  <%= form_with url:"/professor_students/#{@professor.id}", method: :delete, local: true do |form| %>
+  <%= form.hidden_field :student_id, value: "#{student.id}" %>
+  <%= form.submit 'Unenroll' %>
+  <% end %>
+</section>
 <% end %>
