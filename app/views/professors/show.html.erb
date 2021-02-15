@@ -7,6 +7,6 @@
 <div class="student_info">
   <h4>avreage student age: <%= "#{@average_age}" %></h4>
   <% @students.each do |student| %>
-    <h4> <%= student.name %></h4>
+    <h4 id="student_<%= student.id %>"> <%= student.name %> <%= link_to "Unenroll", "/professor_students/destroy?professor_id=#{@professor.id};student_id=#{student.id}", method: :delete, id: "unenroll_student_#{student.id}" %></h4>
   <%end%>
 </div>

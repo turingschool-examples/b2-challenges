@@ -60,28 +60,28 @@ RSpec.describe "professors show page" do
           expect(page).to have_link("unenroll_student_#{@student3.id}")
         end
       end
+    end
 
-      it "removed the student from the professors list of students when clicked" do
-        visit "professors/#{@professor1.id}"
-        click_link "unenroll_student_#{@student1.id}"
+    it "removed the student from the professors list of students when clicked" do
+      visit "professors/#{@professor1.id}"
+      click_link "unenroll_student_#{@student1.id}"
 
-        within(".student_info") do
-          expect(page).to_not have_content(@student1.name)
-          expect(page).to_not have_content(@student2.name)
-          expect(page).to have_content(@student3.name)
-          expect(page).to have_content(@student4.name)
-        end
+      within(".student_info") do
+        expect(page).to_not have_content(@student1.name)
+        expect(page).to_not have_content(@student2.name)
+        expect(page).to have_content(@student3.name)
+        expect(page).to have_content(@student4.name)
       end
+    end
 
-      it "does not delete the student entierly when unenrolled" do
-        visit "professors/#{@professor1.id}"
-        click_link "unenroll_student_#{@student3.id}"
+    it "does not delete the student entierly when unenrolled" do
+      visit "professors/#{@professor1.id}"
+      click_link "unenroll_student_#{@student3.id}"
 
-        visit "professors/#{@professor2.id}"
+      visit "/professors/#{@professor2.id}"
 
-        within(".student_info") do
-          expect(page).to have_content(@student3.name)
-        end
+      within(".student_info") do
+        expect(page).to have_content(@student3.name)
       end
     end
   end
