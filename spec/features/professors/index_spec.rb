@@ -27,9 +27,3 @@ RSpec.describe 'As a visitor' do
     end
   end
 end
-
-
-# When I click this link,
-# Then I am taken to a form where I can input a new name, age, and specialty
-# When I click the submit button,
-# Then I am taken back to the professors index where I see that professor has been updated
