@@ -1,4 +1,4 @@
-require 'rails-helper'
+require 'rails_helper'
 
 RSpec.describe 'the professor show page' do
   it 'displays prof attributes' do
