@@ -1,0 +1,5 @@
+<h1>All Professors</h1>
+
+<% @professors.each do |professor| %>
+  <h2>name: <%= link_to "#{professor.name}", "/professors/#{professor.id}" %></h2>
+<% end %>

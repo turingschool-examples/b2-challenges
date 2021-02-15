@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Applications show page' do
+RSpec.describe 'Professors show page' do
   before :each do
     Professor.destroy_all
     Student.destroy_all
