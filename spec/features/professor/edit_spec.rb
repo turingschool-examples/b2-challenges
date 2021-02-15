@@ -30,19 +30,20 @@ RSpec.describe "professors edit page" do
   end
 
   describe "when I visit a professors edit page" do
-    it "has a form to update the profewssors info" do
+    it "has a form to update the professors info" do
       visit "/professors/#{@professor1.id}/edit"
+      save_and_open_page
 
-      expect(find_field "name").to have_content(@professor1.name)
-      expect(find_field "age").to have_content(@professor1.age)
-      expect(find_field "specialty").to have_content(@professor1.specialty)
+      expect(find_field("name").value).to eq("#{@professor1.name}")
+      expect(find_field("age").value).to eq("#{@professor1.age}")
+      expect(find_field("specialty").value).to eq("#{@professor1.specialty}")
       expect(page).to have_button("Update")
     end
 
     it "redirects to the index page when the form is submitted" do
       visit "/professors/#{@professor1.id}/edit"
 
-      fill_field "name", with: "New Professor Name"
+      fill_in "name", with: "New Professor Name"
       click_button "Update"
 
       expect(current_path).to eq("/professors")
