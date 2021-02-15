@@ -2,9 +2,10 @@ require 'rails_helper'
 
 describe Professor, type: :model do
   before :each do
+    ProfessorStudent.destroy_all
     Professor.destroy_all
     Student.destroy_all
-    ProfessorStudent.destroy_all
+
 
     @professor = Professor.create!(name: 'Minerva McGonagall', age: 204, specialty: 'Transfiguration')
     @harry = Student.create!(name: 'Harry Potter', age: 14)

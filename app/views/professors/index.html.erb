@@ -1,4 +1,7 @@
 <h1>Professors</h1>
 <% @professors.each do |professor| %>
-<%= professor.name %>
+<section id="professor-<%=professor.id%>">
+  <%= professor.name %>
+  <%= button_to "Update Professor", "/professors/#{professor.id}/edit", method: :get %>
+</section>
 <% end %>

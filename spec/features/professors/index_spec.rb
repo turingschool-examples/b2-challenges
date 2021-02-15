@@ -2,12 +2,11 @@ require 'rails_helper'
 
 RSpec.describe 'Professor index page' do
   before :each do
+    ProfessorStudent.destroy_all
     Professor.destroy_all
     Student.destroy_all
-    ProfessorStudent.destroy_all
 
-    @professor1 = Professor.create!(name: 'Minerva McGonagall', age: 204, specialty: 'Transfiguration')
-    @professor2 = Professor.create!(name: 'Severus Snape', age: 25, specialty: 'Defense Against the Dark Arts')
+    @professor1 = Professor.create!(id:1, name: 'Minerva McGonagall', age: 204, specialty: 'Transfiguration')
   end
 
   describe "As a visitor," do
@@ -17,7 +16,7 @@ RSpec.describe 'Professor index page' do
 
         expect(page).to have_content("Professors")
         expect(page).to have_content(@professor1.name)
-        expect(page).to have_content(@professor2.name)
+        expect(page).to have_button("Update Professor")
       end
     end
   end
