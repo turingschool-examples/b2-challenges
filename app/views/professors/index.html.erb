@@ -6,6 +6,7 @@
   <section id="professor-<%= prof.id %>">
     <h3><a href="/professors/<%= prof.id %>"><%= prof.name %></a></h3>
     <h4>Age: <%= prof.age %></h4>
-    <h4>Specialty: <%= prof.specialty %></h4>
+    <h4>Specialty: <%= prof.specialty %></h4><br>
+    <%= link_to 'Update Professor Info', "/professors/#{prof.id}/edit" %>
   </section>
 <% end %>
