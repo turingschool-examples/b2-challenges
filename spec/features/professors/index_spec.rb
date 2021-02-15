@@ -11,11 +11,26 @@ RSpec.describe 'As a Visitor' do
   describe'I can visit a professors index page'do
   	it'displays the names of professors'do
   		visit "/professors"
-      
+
       within("#professor-#{@professor_1.id}")do
         expect(page).to have_content("#{@professor_1.name}")
-        expect(page).to have_link(href: "/professors.#{@professor_1.id}")
+        expect(page).to have_link(href: "/professors/#{@professor_1.id}/edit")
+        click_link("Update #{@professor_1.name}")
       end
+
+      fill_in("name", with: "Nimvera")
+      fill_in("age", with: 315)
+      fill_in("specialty", with: "Potions")
+      click_button("Update #{@professor_1.name}")
+
+      expect(current_path).to eq("/professors")
+
+      within("#professor-#{@professor_1.id}")do
+        expect(page).to have_content("Nimvera")
+      end
+
+      
+      
 
   	end
 	end
