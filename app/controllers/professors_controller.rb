@@ -3,6 +3,10 @@ class ProfessorsController < ApplicationController
     @profs = Professor.all
   end
 
+  def show
+    @professor = Professor.find(params[:id])
+  end
+
   private
   def professor_params
     # params.require(:)
