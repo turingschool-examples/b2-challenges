@@ -9,13 +9,23 @@ RSpec.describe 'As a visitor' do
   describe 'When I visit the professor show page' do
     it 'I see a button "Unenroll" next to each student' do
       visit "/professors/#{@professor1.id}"
-      expect(page).to have_button('Unenroll')
+      within(".student_list") do
+        expect(page).to have_button('Unenroll')
+      end
+    end
+
+    it 'I unenroll a student and I am taken back to the professors show page' do
+      visit "/professors/#{@professor1.id}"
+      within(".student_list") do
+        click_button('Unenroll')
+      end
+
+      expect(page).not_to have_content(@student1.name)
     end
   end
 end
 
-# When I visit the professor show page
-# Next to each students name I see a button "Unenroll"
+
 # When I click this button
 # Then I am taken back to the professor's show page
 # And I no longer see the student listed
