@@ -11,5 +11,6 @@ class Professor < ApplicationRecord
     age = students.reduce(0){|sum, num| sum + num.age.to_f}
     avg_age = age/students.count
     # will come back and try to do AR if I have time
+    # ran out of time, maybe a class method? I'm at least only iterating over a few students and not a whole db
   end
 end
