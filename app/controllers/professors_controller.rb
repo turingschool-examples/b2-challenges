@@ -18,7 +18,14 @@ class ProfessorsController < ApplicationController
     redirect_to '/professors'
   end
 
+  def unenroll_student
+    professor_student = ProfessorStudent.find_student_by(params[:unenroll_student_id])
+    ProfessorStudent.destroy(professor_student.last.id)
+    redirect_to '/professors'
+  end
+
   private
+
   def professor_params
     params.permit(:name, :age, :specialty)
   end
