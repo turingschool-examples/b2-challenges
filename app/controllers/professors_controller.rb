@@ -1,6 +1,6 @@
 class ProfessorsController < ApplicationController
 	def index
-		
+		@professors = Professor.all
 	end
 
 	def show
@@ -11,6 +11,17 @@ class ProfessorsController < ApplicationController
 		
 	end
 
+	def edit
+	 @professor = Professor.find(params[:id])
+	end
+
+	def update
+	 @professor = Professor.find(params[:id])
+	 @professor.update(professor_params)
+	 @professor.save
+	 redirect_to "/professors"
+	end
+
 	def create
 		professor = Professor.new(professor_params)
 		professor.save
@@ -19,7 +30,7 @@ class ProfessorsController < ApplicationController
 
 	private
 	def professor_params
-    params.require(:professor).permit(:name, :age, :specialty)
+    params.permit(:name, :age, :specialty)
   end
 
 end
