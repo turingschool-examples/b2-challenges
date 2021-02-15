@@ -12,6 +12,11 @@ RSpec.describe 'As a Visitor' do
   	it'displays the information about a professor'do
   		visit "/professors/#{@professor_1.id}"
 
+  		within("#shown-prof")do
+  			expect(page).to have_content("#{@professor_1.name}")
+  			expect(page).to have_content("#{@professor_1.age}")
+  			expect(page).to have_content("#{@professor_1.specialty}")
+  		end
   	end
 	end
 
