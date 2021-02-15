@@ -6,6 +6,7 @@
   <p>Students Average Age: <%= @professor.students.average_age %></p>
   <h2>Students: </h2>
   <% @professor.students.each do |student| %>
-    <p><%= student.name %></p>
+    <p><%= student.name %>
+    <%= button_to "Unenroll", "/professors/#{@professor.id}?unenroll_student_id=#{student.id}" %></p>
   <% end %>
 </section>
