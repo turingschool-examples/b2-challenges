@@ -1,0 +1,11 @@
+<h2>Edit Professor</h2>
+
+<%= form_with url: "/professors/#{@professor.id}", id: "edit-form", method: :patch do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name, value: @professor.name %><br>
+  <%= form.label :age %>
+  <%= form.text_field :age, value: @professor.age %><br>
+  <%= form.label :specialty %>
+  <%= form.text_field :specialty, value: @professor.specialty %><br>
+  <%= form.submit "Save Changes" %>
+<% end %>
