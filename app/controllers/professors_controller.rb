@@ -11,6 +11,12 @@ class ProfessorsController < ApplicationController
     @professor = Professor.find(params[:id])
   end
 
+  def update
+    professor = Professor.find(params[:id])
+    professor.update(professor_params)
+    redirect_to '/professors'
+  end
+
   private
   def professor_params
     # params.require(:)
