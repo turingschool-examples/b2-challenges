@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-@professor = Professor.create!(name: 'Minerva McGonagall', age: 204, specialty: 'Transfiguration')
-@student1 = @professor.students.create!(name: 'Angel', age: 61)
-@student2 = @professor.students.create!(name: 'Chris', age: 86)
+@professor1 = Professor.create!(name: 'Minerva McGonagall', age: 204, specialty: 'Transfiguration')
+@professor2 = Professor.create!(name: 'Remus Lupin', age: 204, specialty: 'Defense')
+@professor3 = Professor.create!(name: 'Gilderoy Lockhart', age: 204, specialty: 'Defense')
+@student1 = @professor1.students.create!(name: 'Angel', age: 61)
+@student2 = @professor1.students.create!(name: 'Chris', age: 86)
