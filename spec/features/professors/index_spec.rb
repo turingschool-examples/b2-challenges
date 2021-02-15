@@ -9,8 +9,14 @@ RSpec.describe "the Professor Index page" do
     visit '/professors'
     within("#professors") do 
       expect(page).to have_content(@snape.name)
+      expect(page).to have_content(@snape.age)
+      expect(page).to have_content(@snape.specialty)
       expect(page).to have_content(@lupin.name)
+      expect(page).to have_content(@lupin.age)
+      expect(page).to have_content(@lupin.specialty)
       expect(page).to have_content(@hagrid.name)
+      expect(page).to have_content(@hagrid.age)
+      expect(page).to have_content(@hagrid.specialty)
     end
   end
 end

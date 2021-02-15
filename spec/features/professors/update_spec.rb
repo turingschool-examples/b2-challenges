@@ -20,6 +20,12 @@ RSpec.describe "The Professors update info page" do
       click_button("Submit")
     end
 
-    # expect(current_path).to eq("/professors/#{@snape.id}")
+    expect(current_path).to eq("/professors")
+
+    within("#professors") do 
+      expect(page).to have_content("Name: Steve")
+      expect(page).to have_content("Age: 102")
+      expect(page).to have_content("Specialty: Cap")
+    end
   end
 end
