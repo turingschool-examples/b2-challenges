@@ -1,0 +1,13 @@
+<h1><%= @professor.name %>'s Class</h1>
+
+<ul id="professorinfo">
+  <li>Name: <%= @professor.name %></li>
+  <li>Age: <%= @professor.age %></li>
+  <li>Specialty: <%= @professor.specialty %></li>
+</ul>
+<br>
+<br>
+<h3>Student List</H3>
+<% @students.each do |s| %>
+  <p><%= s.name %></p>
+<% end %>
