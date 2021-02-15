@@ -8,7 +8,7 @@ RSpec.describe 'Professor show page' do
 
     @professor = Professor.create!(name: 'Minerva McGonagall', age: 204, specialty: 'Transfiguration')
     @harry = Student.create!(name: 'Harry Potter', age: 14)
-    @hermione = Student.create!(name: 'Hermione Granger', age: 14)
+    @hermione = Student.create!(name: 'Hermione Granger', age: 16)
     @professor_student1 = ProfessorStudent.create!(professor_id: @professor.id, student_id: @harry.id)
     @professor_student2 = ProfessorStudent.create!(professor_id: @professor.id, student_id: @hermione.id)
   end
@@ -29,6 +29,12 @@ RSpec.describe 'Professor show page' do
         expect(page).to have_content("Students:")
         expect(page).to have_content(@harry.name)
         expect(page).to have_content(@hermione.name)
+      end
+
+      it "Then I see the average age of all students associated with this professor" do
+        visit "/professors/#{@professor.id}"
+
+        expect(page).to have_content("Average Student Age: 15")
       end
     end
   end
