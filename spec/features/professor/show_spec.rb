@@ -23,13 +23,13 @@ RSpec.describe "professors show page" do
 
       visit "professors/#{@professor1.id}"
 
-      within("#professor_info") do
+      within(".professor_info") do
         expect(page).to have_content(@professor1.name)
         expect(page).to have_content(@professor1.age)
         expect(page).to have_content(@professor1.specialty)
       end
 
-      within("#student_info") do
+      within(".student_info") do
         expect(page).to have_content(@student1.name)
         expect(page).to_not have_content(@student2.name)
         expect(page).to have_content(@student3.name)

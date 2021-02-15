@@ -1,0 +1,12 @@
+<div class="professor_info">
+  <h1><%= @professor.name %></h1>
+  <h4>age: <%= @professor.age %></h4>
+  <h4>specialty: <%= @professor.specialty %></h4>
+</div>
+
+<div class="student_info">
+  <% @students.each do |entry| %>
+    <%= student = Student.find(entry.student.id) %>
+    <h4> <%= student.name %></h4>
+  <%end%>
+</div>
