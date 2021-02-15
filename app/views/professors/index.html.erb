@@ -2,5 +2,6 @@
 <section id='professors'>
   <% @professors.each do |prof| %>
     <h3><%= prof.name %></h3>
+    <a href="/professors/<%= prof.id %>/edit">Update</a>
   <% end %>
 </section>
