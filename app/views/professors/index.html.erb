@@ -1,0 +1,12 @@
+<section id='professors'>
+  <h2>All Professors</h2>
+  <ol>
+    <% @professors.each do |professor| %>
+      <li><%= professor.name %>
+        <ul><li>
+          <a id="edit-prof-<%= professor.id %>" class="prof-edit-link" href="professors/<%= professor.id %>/edit">Edit</a>
+        </li></ul>
+      </li>
+    <% end %>
+  </ol>
+</section>
