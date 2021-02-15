@@ -1,0 +1,13 @@
+<%= link_to 'Home Page', '/' %>
+
+<h1><%= @professor.name %></h1>
+<h2>Age: <%= @professor.age %></h2>
+<h2>Specialty: <%= @professor.specialty %></h2>
+
+<section class="students">
+  <h2>Students</h2>
+  <% @professor.students.each do |student| %>
+    <p><%= student.name %></p>
+  <% end %>
+  <h3>Average Student Age: <%= @professor.average_ages %></h3>
+</section>
