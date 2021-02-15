@@ -32,7 +32,6 @@ RSpec.describe "professors edit page" do
   describe "when I visit a professors edit page" do
     it "has a form to update the professors info" do
       visit "/professors/#{@professor1.id}/edit"
-      save_and_open_page
 
       expect(find_field("name").value).to eq("#{@professor1.name}")
       expect(find_field("age").value).to eq("#{@professor1.age}")
