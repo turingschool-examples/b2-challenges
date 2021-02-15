@@ -1,0 +1,7 @@
+<section class='professor_list'>
+  <h1>Professors:</h1>
+  <% @professors.each do |professor| %>
+    <p><%= professor.name %>
+    <%= link_to 'Update', '/professors/edit' %></p>
+  <% end %>
+</section>
