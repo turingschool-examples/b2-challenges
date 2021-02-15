@@ -12,9 +12,9 @@ RSpec.describe 'As a visitor' do
       visit '/professors'
 
       within(".professor_list") do
-        expect(page).to have_content(@professor1)
-        expect(page).to have_content(@professor2)
-        expect(page).to have_content(@professor3)
+        expect(page).to have_content(@professor1.name)
+        expect(page).to have_content(@professor2.name)
+        expect(page).to have_content(@professor3.name)
       end
     end
 
