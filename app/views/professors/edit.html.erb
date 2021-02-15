@@ -1,0 +1,9 @@
+<%= form_with url: "/professors/#{@professor.id}", method: :patch, local: true do |f| %>
+  <%= f.label        :name   %>
+  <%= f.text_field   :name, :placeholder => "#{@professor.name}", required: true %><br><br>
+  <%= f.label        :age %>
+  <%= f.number_field :age, :placeholder => "#{@professor.age}", required: true  %><br><br>
+  <%= f.label        :specialty  %>
+  <%= f.text_field   :specialy, :placeholder => "#{@professor.specialty}", required: true  %><br><br>
+  <%= f.submit 'Update Professor' %>
+<% end %>

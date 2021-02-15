@@ -1,0 +1,9 @@
+<h1> All Professors </h1>
+
+<% @professors.each do |pro| %>
+  <p><%= link_to "#{pro.name}", professor_path(pro.id) %></p>
+  <p> <%= pro.age %></p>
+  <p> <%= pro.specialty %></p>
+  <p><%= link_to "Update #{pro.name}", "/professors/#{pro.id}/edit" %></p>
+
+<% end %>
