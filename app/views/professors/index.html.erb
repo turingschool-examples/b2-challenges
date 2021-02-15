@@ -3,7 +3,7 @@
 <h1>Professor Index</h1>
 
 <% @profs.each do |prof| %>
-  <h3><%= prof.name %></h3>
-  <h4><%= prof.age %></h4>
-  <h4><%= prof.specialty %></h4>
+  <h3><a href="/professors/<%= prof.id %>"><%= prof.name %></a></h3>
+  <h4>Age: <%= prof.age %></h4>
+  <h4>Specialty: <%= prof.specialty %></h4>
 <% end %>
