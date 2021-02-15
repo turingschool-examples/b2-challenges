@@ -1,0 +1,8 @@
+<h1>Professors</h1>
+<%= link_to 'New Professor', '/professors/new' %>
+<% @professors.each do |professor| %>
+  <section id="professor-<%=professor.id%>">
+    <h2><%= professor.name %></h2>
+    <a href="/professors/<%= professor.id %>/edit">Edit professor</a>
+  </section>
+<% end %>

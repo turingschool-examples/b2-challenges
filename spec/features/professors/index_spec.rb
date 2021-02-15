@@ -18,7 +18,7 @@ RSpec.describe 'Professor index page' do
   it 'displays all professors' do
     visit '/professors'
 
-    expect(page).to have_content(@professor1)
-    expect(page).to have_content(@professor2)
+    expect(page).to have_content(@professor1.name)
+    expect(page).to have_content(@professor2.name)
   end
 end
