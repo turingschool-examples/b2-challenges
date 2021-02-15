@@ -1,0 +1,4 @@
+<% @professors.each do |pro| %>
+  <%= link_to "#{pro.name}", "/professors/#{pro.id}" %><br><br>
+  <%= button_to "Update Professor", "/professors/#{pro.id}/edit", method: :get %><br><br>
+<% end %>
