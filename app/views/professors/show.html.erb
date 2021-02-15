@@ -1,10 +1,14 @@
 <h2>Professor's name: <%= @professor.name %></h2>
-Professor's age: <%= @professor.age %>
-Professor's specialty: <%= @professor.specialty %>
+<p>Professor's age: <%= @professor.age %></p>
+<p>Professor's specialty: <%= @professor.specialty %></p>
 
 <section id="students">
   <%= "Professors students:" %>
   <% @professor.students.each do |student| %>
     <h3><%= student.name %></h3>
   <% end %>
+</section>
+
+<section id="statistics">
+  <h3> Average age: <%= @professor.students.average_age %> years old </h3>
 </section>
