@@ -35,6 +35,18 @@ RSpec.describe 'Professors show page' do
     expect(page).to have_content(@student4.name)
     expect(page).to have_content(@student4.name)
   end
+  it 'shows unenroll link for each student' do
+    visit "/professors/#{@professor1.id}"
+    within("#student-#{@student1.id}") do
+      expect(page).to have_button("Unenroll")
+    end
+    within("#student-#{@student2.id}") do
+      expect(page).to have_button("Unenroll")
+    end
+    within("#student-#{@student4.id}") do
+      expect(page).to have_button("Unenroll")
+    end
+  end
 
   it "shows average age of students" do
     visit "/professors/#{@professor1.id}"

@@ -2,6 +2,9 @@
 Age: <%= "#{@professor.age}" %><br>
 Specialty: <%= "#{@professor.specialty}" %><br>
 Students: <% @professor.students.each do |student| %><br>
+<section id="student-<%=student.id%>">
 <%= student.name %>
+<%= button_to 'Unenroll',:action=>"delete", controller: "student_professors", method: :delete %>
+</section>
 <% end %>
 Average Age of Students: <%= "#{@professor.students.average_age}" %>

@@ -1,6 +1,5 @@
 require 'rails_helper'
-
-RSpec.describe 'Professors index page' do
+RSpec.describe 'Professors edit page' do
   before :each do
     Professor.destroy_all
     Student.destroy_all
@@ -8,15 +7,7 @@ RSpec.describe 'Professors index page' do
     @professor1 = Professor.create!(name: "Minerva McGonagall", age: 204, specialty: "Transfiguration")
     @professor2 = Professor.create!(name: "Severus Snape", age: 52, specialty: "Defense Against the Dark Arts")
   end
-
-  it "can show all professor's names" do
-    visit "/professors"
-
-    expect(page).to have_content(@professor1.name)
-    expect(page).to have_content(@professor2.name)
-  end
-
-  it "can see and interact with edit button" do
+  it "can edit a professor's info" do
     visit "/professors"
 
     within("#professor-#{@professor1.id}") do
@@ -24,5 +15,15 @@ RSpec.describe 'Professors index page' do
       click_link "Update"
       expect(current_path).to eq("/professors/#{@professor1.id}/edit")
     end
+    fill_in "name", with: "Remus Lupin"
+    fill_in "age", with: 45
+    fill_in "specialty", with: "Werewolf"
+
+    click_button "Update"
+
+    expect(current_path).to eq("/professors")
+
+    expect(page).to have_content("Remus Lupin")
+    expect(page).to_not have_content("Minerva McGonagall")
   end
 end
