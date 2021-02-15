@@ -19,8 +19,10 @@ class ProfessorsController < ApplicationController
   end
 
   def unenroll_student
-    professor_student = ProfessorStudent.find_student_by(params[:unenroll_student_id])
-    ProfessorStudent.destroy(professor_student.last.id)
+    professor_id = params[:id]
+    student_id = params[:unenroll_student_id]
+    professor_student = ProfessorStudent.find_by(professor_id, student_id)
+    ProfessorStudent.destroy(professor_student.id)
     redirect_to '/professors'
   end
 
