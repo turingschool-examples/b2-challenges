@@ -18,6 +18,12 @@ class ProfessorsController < ApplicationController
     redirect_to "/professors"
   end
 
+  def unenroll
+    @professor = Professor.find(params[:id])
+    @professor.remove_student(params[:student_id])
+    redirect_to "/professors/#{@professor.id}"
+  end
+
   private
 
   def update_params
