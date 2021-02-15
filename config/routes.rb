@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   resources :professors, :students
 
   patch '/professors/:id', to: "professor_students#update"
-  delete '/professor_students/:id', to: "professor_students#destroy"
+  patch '/ps/professors/:id', to: "professors#destroy"
 end

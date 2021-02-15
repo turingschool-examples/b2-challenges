@@ -5,7 +5,7 @@
 <h1> <%= @professor.name %>'s Students </h1>
 <% @professor.students.each do |student| %>
 <p>  <%= student.name %></p>
-<%= button_to "Unenroll", professor_path(@professor.id), method: :delete, local: true %>
+<%= button_to "Unenroll #{student.name}", "/ps/professors/#{@professor.id}", method: :patch, local: true, params: {student_id: student.id} %>
 <% end %>
 
 <p> Average age of all students is <%= @professor.students.average_age %></p>

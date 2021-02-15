@@ -12,21 +12,19 @@ class ProfessorsController < ApplicationController
     @professor = Professor.find(params[:id])
   end
 
-  def create
-    @professor = Professor.create(professors_params)
-    professor.save
-    redirect_to "/professors"
-  end
-
   def update
     @professor = Professor.find(params[:id])
     @professor.update(professors_params)
-    redirect_to "/professors/#{@professor.id}"
+    redirect_to "/professors"
   end
 
   def destroy
-    Professor.destroy(params[:id])
-    redirect_to '/professors'
+    professor = Professor.find(params[:id])
+    student = Student.find(params[:student_id])
+    professor_student = professor.professor_students.where(student_id: params[:student_id])
+
+    professor.professor_students.destroy(professor_student)
+    redirect_to "/professors/#{professor.id}"
   end
 
 end
