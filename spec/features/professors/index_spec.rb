@@ -15,6 +15,16 @@ RSpec.describe 'the professor index page' do
     end
   end
   it 'has a link to an update form for each' do
+    visit '/professors'
+    within("#professor-#{@mine.id}") do
+      expect(page).to have_link('Update Professor Info')
+    end
+    within("#professor-#{@dumb.id}") do
+      expect(page).to have_link('Update Professor Info')
 
+      click_link 'Update Professor Info'
+
+      expect(current_path).to eq("/professors/#{@dumb.id}/edit")
+    end
   end
 end
