@@ -19,7 +19,7 @@
                       )
 
 @student2 = Student.create(name: "Ron Weasley",
-                      age: 27,
+                      age: 28,
                       id: 2,
                       professor_id: 1
                       )

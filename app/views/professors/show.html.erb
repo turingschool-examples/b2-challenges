@@ -4,4 +4,5 @@ Age: <%= @professor.age %><br>
 Specialty: <%= @professor.specialty %><br>
 Students: <% @students.each do |student| %>
     <%= "#{student.name}, " %>
-    <% end %>
+    <% end %><br>
+Average Student Age: <%= @average_student_age %>

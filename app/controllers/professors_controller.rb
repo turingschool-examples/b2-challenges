@@ -7,6 +7,7 @@ class ProfessorsController < ApplicationController
   def show
     @professor = Professor.find(params[:id])
     @students = @professor.students
+    @average_student_age = @professor.average_student_age
   end
 
   # def edit
