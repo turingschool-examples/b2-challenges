@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   get "/", to: "welcome#index"
 
   get "/professors/:id", to: "professors#show"
-end 
+  get "professors/:id/edit", to: "professors#edit"
+  patch "/professors/:id", to: "professors#update"
+end

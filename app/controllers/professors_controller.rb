@@ -10,19 +10,19 @@ class ProfessorsController < ApplicationController
     @average_student_age = @professor.average_student_age
   end
 
-  # def edit
-  #   @pet = Pet.find(params[:id])
-  # end
-  #
-  # def update
-  #   pet = Pet.find(params[:id])
-  #   pet.update(pets_params)
-  #   redirect_to "/pets/#{pet.id}"
-  # end
-  #
-  # def destroy
-  #   Pet.destroy(params[:id])
-  #   redirect_to '/pets'
-  # end
+  def edit
+    @professor = Professor.find(params[:id])
+  end
+
+  def update
+    professor = Professor.find(params[:id])
+    professor.update(professor_params)
+    redirect_to "/professors/#{professor.id}"
+  end
+
+  private
+  def professor_params
+    params.permit(:name, :age, :specialty)
+  end
 
 end

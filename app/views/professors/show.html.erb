@@ -5,4 +5,5 @@ Specialty: <%= @professor.specialty %><br>
 Students: <% @students.each do |student| %>
     <%= "#{student.name}, " %>
     <% end %><br>
-Average Student Age: <%= @average_student_age %>
+Average Student Age: <%= @average_student_age %><br>
+<a href="/professors/<%= @professor.id %>/edit">Update</a>
