@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe 'as a visitor' do
+  before :each do
+    @professor_1 = Professor.create!(name: "Gandalf", age: 72, specialty: "Potions")
+    @student_1 = @Professor_1.students.create!(name: "Timmy", age: 15)
+    @student_2 = @Professor_1.students.create!(name: "Sara", age: 14)
+    @student_3 = @Professor_1.students.create!(name: "Jenny", age: 13)
+  end
   describe 'when i visit the professor show page' do
     it 'i see that profesors name, age, and specialty' do
       visit "/professors/#{@professor_1.id}"
