@@ -4,7 +4,7 @@ class ProfessorsController < ApplicationController
     # @professor.all_students
   end
 
-  # def index
-  #   @professors = Professor.all
-  # end
+  def index
+    @professors = Professor.all
+  end
 end
