@@ -1,0 +1,12 @@
+<% @professors.each do |professor| %>
+  <%= professor.name %>
+  <form action="/professors/<%= professor.id %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="PATCH" />
+    <p>Edit Professor</p>
+    <input type='text' name='professor[name]' value="<%= professor.name %>"/><br/>
+    <input type='text' name='professor[age]' value="<%= professor.age %>"/><br/>
+    <input type='text' name='professor[specialty]' value="<%= professor.specialty %>"/><br/>
+    <input type='submit' value="Edit This Professor"/>
+  </form><br><br>
+<% end %>

@@ -19,21 +19,16 @@ RSpec.describe 'as a visitor' do
     end
     it 'i also see all the professors associated student names' do
       visit "/professors/#{@professor_1.id}"
-save_and_open_page
+
       expect(page).to have_content(@student_1.name)
       expect(page).to have_content(@student_2.name)
       expect(page).to have_content(@student_3.name)
       expect(page).not_to have_content(@student_4.name)
-      # require "pry"; binding.pry
     end
-    # it 'i also see the average age of all students for this professor' do
-    #   visit "/professors/#{@professor_1.id}"
-    #
-    #   expect(page).to have_content(14)
-    # end
+    it 'i also see the average age of all students for this professor' do
+      visit "/professors/#{@professor_1.id}"
+
+      expect(page).to have_content(14)
+    end
   end
 end
-# As a visitor,
-# When I visit a professor show page,
-# Then I see the average age of all students associated
-# with this professor
