@@ -12,13 +12,13 @@ RSpec.describe 'as a visitor' do
   describe 'when i visit the professor index' do
     it 'i see the name of each professor' do
       visit "/professors"
-
-      expect(page).to have_content(@professor_1.name)
-      expect(page).to have_content(@professor_2.name)
+save_and_open_page
+      expect(page).to have_content("Edit #{@professor_1.name}")
+      expect(page).to have_content("Edit #{@professor_2.name}")
     end
     it 'i see a link to update next to the professors names' do
       visit "/professors"
-save_and_open_page
+
       expect(page).to have_button(@professor_1.name)
       expect(page).to have_button(@professor_2.name)
 
