@@ -1,0 +1,7 @@
+<%= @professor.name %><br>
+<%= @professor.age %><br>
+<%= @professor.speciality %><br>
+
+<% @students_of_professor.each do |student| %>
+  <%= student.name %><br>
+<% end %>
