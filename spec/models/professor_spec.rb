@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Professor, model: :type do
   describe 'relationships' do
-    it {should have_many :students}
+    it {should have_many :professor_students}
   end
 
   describe 'instance methods' do
