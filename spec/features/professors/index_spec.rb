@@ -18,4 +18,29 @@ describe 'When I visit a professor index page' do
     expect(page).to have_content("Severus Snape")
     expect(page).to have_content("Alastor Moody")
   end
+
+  it 'and next to each name I see a link to Edit that professor' do
+    visit '/professors'
+
+    expect(page).to have_link("Update Minerva McGonagall")
+    expect(page).to have_link("Update Severus Snape")
+    expect(page).to have_link("Update Alastor Moody")
+  end
+
+  it 'I can click that link to edit and update the professors info' do
+    visit '/professors'
+    click_link "Update Minerva McGonagall"
+
+    expect(current_path).to eq("/professors/#{@professor1.id}/edit")
+
+    fill_in "name", with: "Mrs. Minerva McGonagall"
+    fill_in "age", with: "205"
+    fill_in "specialty", with: "Awesomeness"
+    click_button "Update"
+
+    expect(current_path).to eq("/professors/#{@professor1.id}")
+    expect(page).to have_content("Mrs. Minerva McGonagall")
+    expect(page).to have_content("205")
+    expect(page).to have_content("Awesomeness")
+  end
 end
