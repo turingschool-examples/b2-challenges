@@ -27,8 +27,20 @@ RSpec.describe "Professor Show Page" do
     
     it "shows the average age of all the students" do
       visit "/professors/#{@snape.id}"
-save_and_open_page
-      expect(page).to have_content(@snape.students.average_age)
+      
+      expect(page).to have_content(@snape.students.average_age.round(2))
+    end
+    it "has a button to Unenroll students that removes the student from professor" do
+      visit "/professors/#{@snape.id}"
+
+      within("#professor-student-#{@harry.id}") do
+        expect(page).to have_content(@harry.name)
+        expect(page).to have_button("Unenroll")
+        click_on("Unenroll")
+        expect(current_path).to eq(professor_path(@snape))
+      end
+
+      expect(page).to_not have_content(@harry.name)
     end
   end
 end

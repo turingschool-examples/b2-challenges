@@ -14,8 +14,14 @@ class ProfessorsController < ApplicationController
 
   def update
     @professor = Professor.find(params[:id])
-    @professor.update(professor_params)
-    redirect_to professors_path
+    if params[:student_id]
+      roll = Roll.find_by(student_id: params[:student_id], professor_id: params[:id])
+      Roll.destroy(roll.id)
+      redirect_to professor_path(@professor)
+    else
+      @professor.update(professor_params)
+      redirect_to professors_path
+    end
   end
 
   private

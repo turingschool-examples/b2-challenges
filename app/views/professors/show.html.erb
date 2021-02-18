@@ -1,12 +1,14 @@
 <h1> <%= @professor.name %></h1>
 <h4> <%= @professor.age %> </h4>
 <h4> <%= @professor.name %> teaches <%= @professor.specialty %> </h4>
-<h4> <%= @professor.students.average_age %></h4>
+<h4> <%= @professor.students.average_age.round(2) %></h4>
 <h5><%= @professor.name%>'s Students:</h5>
-<section>
-  <% @professor.students.each do |student| %>
+
+<% @professor.students.each do |student| %>
+  <section id="professor-student-<%= student.id %>">
     <p>
       <%= student.name %>
+      <%= button_to "Unenroll", professor_path(@professor), method: :patch, params: { student_id: student.id} %>
     </p>
+  </section>
   <% end %>
-</section>
