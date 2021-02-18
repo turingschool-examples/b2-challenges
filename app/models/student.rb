@@ -7,6 +7,6 @@ class Student < ApplicationRecord
   end
 
   def self.average_student_age(professor)
-    require "pry"; binding.pry
+    Student.joins(:professors).where("professor_id = ?", professor.id).average("age").to_f
   end
 end

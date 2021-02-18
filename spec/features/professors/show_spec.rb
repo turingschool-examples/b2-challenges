@@ -30,6 +30,21 @@ RSpec.describe 'show page' do
   it "when I visit a professor show page, it displays the average age of the professor's students" do
     visit "/professors/#{@prof_2.id}"
 
-    expect(page).to have_content(3)
+    expect(page).to have_content("3.0")
+  end
+
+  it "when I visit a professor index page and see the name of each professor, I see a link to update "do
+    visit "/professors"
+
+    within "#professor-#{@prof_1.id}" do
+      expect(page).to have_content(@prof_1.name)
+      expect(page).to have_button("Approve")
+    end
+
+    expect(page).to have_content(@prof_2.name)
+
+
   end
 end
+
+# where I can then update and then get back to the index page"
