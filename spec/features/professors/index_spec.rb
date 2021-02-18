@@ -9,6 +9,8 @@ describe 'When I visit a professor index page' do
     @student2 = @professor1.students.create(name: "Ronald Weasley", age: 17)
     @student3 = @professor2.students.create(name: "Hermione Granger", age: 18)
     @student4 = @professor2.students.create(name: "Neville Longbottom", age: 17)
+    @professor_students1 = ProfessorStudent.create(professor: @professor2, student: @student1)
+    @professor_students2 = ProfessorStudent.create(professor: @professor3, student: @student1)
   end
 
   it 'I see the name of each professor' do
