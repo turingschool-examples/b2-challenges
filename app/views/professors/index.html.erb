@@ -1,8 +1,7 @@
-<h1> All Professors </h1>
-
+<h1>Professors</h1>
 <% @professors.each do |professor| %>
-
-Name: <%=  professor.name %><br>
-Age: <%= professor.age %><br>
-Specialtiy: <%=  professor.specialty %><br>
+    <h2><%= professor.name %></h2>
+    Age: <%= professor.age %><br>
+    <%= professor.specialty %><br>
+  <%= link_to 'Update', "/professors/#{professor.id}/edit" %>
 <% end %>

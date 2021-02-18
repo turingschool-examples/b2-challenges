@@ -1,11 +1,7 @@
-<h2> Name: <%= "#{@professor.name}"%></h2><br>
-<h3>Average age: <%=  @average_age%> </h3>
-<% @professors.each do |professor| %>
-  <% @professor.students.each do |student| %>
-    Name: <%=  professor.name %><br>
-    Age: <%= professor.age %><br>
-    Specialtiy: <%=  professor.specialty %><br>
-    Students:<%= student.name %><br>
-    Average student age: <%= @professor.students.average_age %
-    <% end %>
+
+
+<h1><%= @professor.name %>'s Students</h1>
+Average age: <%= @professor.students.average_age  %><br>
+<% @professor.students.each do |student| %>
+  <%= student.name  %><br>
 <% end %>
