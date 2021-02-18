@@ -1,0 +1,8 @@
+<h1>Hogwart's Professors</h1>
+
+<% @professors.each do |prof|%>
+  <section id="professor-<%= prof.id %>">
+    <p> <%= prof.name %> </p>
+    <%= button_to "Update", edit_professor_path(prof), method: :get %>
+  </section>
+<% end %>

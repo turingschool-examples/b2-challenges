@@ -1,0 +1,11 @@
+<h1>Edit <%= @professor.name%> </h1>
+
+<%= form_with url: professor_path(@professor), method: :patch, local: true do |f| %>
+    <%= f.label :name %><br>
+    <%=  f.text_field :name%><br>
+    <%= f.label :age %><br>
+    <%=  f.text_field :age%><br>
+    <%= f.label :specialty %><br>
+    <%=  f.text_field :specialty%><br>
+    <%= submit_tag("Submit") %>
+<% end %>
