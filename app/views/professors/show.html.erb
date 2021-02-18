@@ -6,6 +6,10 @@
 
 <section id="students-info">
   <h3>Students</h3>
+  <% if !@professor.students_average_age.nil? %>
+    <h4>Average Age of Students: <%= @professor.students_average_age %></h4>
+  <% end %>
+
   <% @students.each do |student| %>
     <p>Name: <%= student.name %></p>
     <p>Age: <%= student.age %></p>
