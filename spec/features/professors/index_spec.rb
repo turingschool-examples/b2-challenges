@@ -28,7 +28,7 @@ RSpec.describe "professors index page", type: :feature do
         visit "/professors"
 
         click_link "Update"
-        expect(current_path).to eq("/professors/professor1.id/edit")
+        expect(current_path).to eq("/professors/#{professor1.id}/edit")
       end
     end
   end
