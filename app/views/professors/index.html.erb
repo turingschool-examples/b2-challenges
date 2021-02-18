@@ -2,4 +2,5 @@
 
 <% @professors.each do |professor| %>
   <h3><%= professor.name %></h3>
+  <%= link_to "Update #{professor.name}", "/professors/#{professor.id}/edit" %>
 <% end %>
