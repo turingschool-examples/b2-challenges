@@ -1,5 +1,5 @@
 <h1>Hogwarts Professors :</h1>
 <% @professors.each do |professor| %>
   <h3><%= professor.name %></h3>
-  <%= link_to "Update", "/professors/professor.id/edit", method: :get %>
+  <%= link_to "Update", professors_edit_path(professor), method: :get %>
 <% end %>
