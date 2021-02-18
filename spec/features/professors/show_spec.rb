@@ -38,13 +38,12 @@ RSpec.describe 'show page' do
 
     within "#professor-#{@prof_1.id}" do
       expect(page).to have_content(@prof_1.name)
-      expect(page).to have_button("Approve")
+      expect(page).to have_link("Update")
     end
 
-    expect(page).to have_content(@prof_2.name)
-
-
+    within "#professor-#{@prof_2.id}" do
+      expect(page).to have_content(@prof_2.name)
+      expect(page).to have_link("Update")
+    end
   end
 end
-
-# where I can then update and then get back to the index page"
