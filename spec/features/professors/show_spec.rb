@@ -47,7 +47,7 @@ describe 'When I visit a professor show page' do
 
     visit "/professors/#{@professor3.id}"
     within '#students-info' do
-      expect(page).to have_content("Average Age of Students: 0")
+      expect(page).not_to have_content("Average Age of Students: ")
     end
   end
 end

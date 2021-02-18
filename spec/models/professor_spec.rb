@@ -18,9 +18,9 @@ describe Professor, model: :type do
       end
 
       it 'returns average age of all students for that professor' do
-        expect(@professor1.students_average_age).to eq(17)
-        expect(@professor1.students_average_age).to eq(17.5)
-        expect(@professor1.students_average_age).to eq(0)
+        expect(@professor1.students_average_age).to eq(0.17e2)
+        expect(@professor2.students_average_age).to eq(0.175e2)
+        expect(@professor3.students_average_age).to be_nil
       end
     end
   end
