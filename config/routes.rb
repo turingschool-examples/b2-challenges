@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   get "/professors/:id", to: "professors#show"
   get "/professors", to: "professors#index"
   get "/professors/:id/edit", to: "professors#edit", as: "professors_edit"
+  patch "/professors/:id", to: "professors#update"
 end

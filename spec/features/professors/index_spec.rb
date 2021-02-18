@@ -30,6 +30,21 @@ RSpec.describe "professors index page", type: :feature do
         click_link "Update"
         expect(current_path).to eq("/professors/#{professor1.id}/edit")
       end
+      it "can edit a professor from the index page" do
+        professor1 = Professor.create!(name: "Minerva McGonagall", age: 204, specialty: "Transfiguration")
+
+        visit "/professors"
+
+        click_link "Update"
+
+        fill_in "name", with: "Hello World"
+        fill_in "age", with: "1"
+        fill_in "specialty", with: "Coding"
+        click_button "Submit"
+
+        expect(page).to have_content("Hello World")
+        expect(page).to_not have_content("Minerva McGonagall")
+      end
     end
   end
 end
