@@ -33,4 +33,21 @@ describe 'When I visit a professor show page' do
       expect(page).not_to have_content("Neville Longbottom")
     end
   end
+
+  it 'and I see the average age of all the students for this professor' do
+    visit "/professors/#{@professor1.id}"
+    within '#students-info' do
+      expect(page).to have_content("Average Age of Students: 17")
+    end
+
+    visit "/professors/#{@professor2.id}"
+    within '#students-info' do
+      expect(page).to have_content("Average Age of Students: 17.5")
+    end
+
+    visit "/professors/#{@professor3.id}"
+    within '#students-info' do
+      expect(page).to have_content("Average Age of Students: 0")
+    end
+  end
 end
