@@ -5,6 +5,10 @@
   <h3>Specialty: <%= @professor.specialty %></h3>
 </div>
 <div class="">
+  <h3>Average student age:</h3>
+  <h4><%= @average_student_age %></h4>
+</div>
+<div class="">
   <h3>Students :</h3>
   <% @professor.students.each do |student| %>
     <h5><%= student.name %></h5>
