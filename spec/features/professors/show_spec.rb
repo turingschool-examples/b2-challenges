@@ -2,9 +2,9 @@
 
   RSpec.describe 'When I visit a Professors show page' do
     it 'displays the professors name, age, and specialty' do
-      visit "/professors/#{minerva.id}"
+      visit "/professors/#{@minerva.id}"
 
-      minerva = Professor.create!(
+      @minerva = Professor.create!(
         name: "Minerva McGonagall",
         age: 204,
         specialty: "Transfiguration"
@@ -14,7 +14,7 @@
     end
 
     it 'displays all the Student names associated with this professor' do
-      visit "/professors/#{minerva.id}"
+      visit "/professors/#{@minerva.id}"
 
       @minerva = Professor.create!(
         name: "Minerva McGonagall",
