@@ -26,4 +26,22 @@ RSpec.describe "professors show page", type: :feature do
       expect(page).to have_content("17")
     end
   end
+  describe "I can not see students that get 'Unenrolled'" do
+    it "can 'Unenroll' students" do
+      professor = Professor.create!(name: "Minerva McGonagall", age: 204, specialty: "Transfiguration")
+      student1 = professor.students.create!(name: "July", age: 18, status: "Enrolled")
+
+
+      visit "/professors/#{professor.id}"
+
+      expect(page).to have_content(student1.name)
+
+      expect(page).to have_link("Unenroll")
+
+      click_link("Unenroll")
+
+      expect(page).to_not have_content(student1.name)
+
+    end
+  end
 end
