@@ -1,0 +1,12 @@
+<h1>Edit Professor :</h1>
+<article class="">
+<%= form_with url: "/professors/#{@professor.id}", local: true, method: :patch do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name, required: true %>
+  <%= form.label :age %>
+  <%= form.number_field :age, required: true %>
+  <%= form.label :specialty %>
+  <%= form.text_field :specialty, required: true %>
+  <%= form.submit 'Submit' %>
+<% end %>
+</article>
