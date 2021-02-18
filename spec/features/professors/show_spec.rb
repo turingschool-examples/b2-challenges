@@ -14,9 +14,16 @@ RSpec.describe "professors show page", type: :feature do
       expect(page).to have_content(professor.specialty)
       expect(page).to have_content(student1.name)
       expect(page).to have_content(student2.name)
+    end
+    it "I can see average age of students for specific professor" do
+      professor = Professor.create!(name: "Minerva McGonagall", age: 204, specialty: "Transfiguration")
+      student1 = professor.students.create!(name: "Harry", age: 20)
+      student2 = professor.students.create!(name: "Ron", age: 14)
 
+      visit "/professors/#{professor.id}"
 
-
+      expect(page).to have_content("Average student age:")
+      expect(page).to have_content("17")
     end
   end
 end
