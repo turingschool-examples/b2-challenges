@@ -1,3 +1,25 @@
 <header>
   <h1>All Mechanics</h1>
 </header>
+
+<section>
+  <ul>
+    <% @mechanics.each do |mechanic| %>
+      <li>
+        <span>Mechanic name: </span><%= mechanic.name %><br>
+        <span>Years experience: </span><%= mechanic.years_exp %><br>
+        <p>
+
+        </p>
+
+      </li>
+    <% end %>
+  </ul>
+</section>
+
+<div class="">
+  <header>
+    <h2>Average years experience across all mechanics:</h2>
+  </header>
+  <p> <%= @mechanics.avg_years_exp %></p>
+</div>
