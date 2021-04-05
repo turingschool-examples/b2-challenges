@@ -36,16 +36,9 @@ RSpec.describe 'When I visit the Mechanics show page' do
     expect(page).to have_content('Twin Dragons')
   end
 
-  # it 'the rides are listed by thrill rating in descending order (most thrills first)' do
-  #   visit "/mechanics/#{@brian.id}"
-  #
-  #   expect(page).to have_content('All Mechanics')
-  #   expect(page).to have_content(@kara.name)
-  #   expect(page).to have_content(@kara.years_of_experience)
-  #   expect(page).to have_content(@alex.name)
-  #   expect(page).to have_content(@alex.years_of_experience)
-  #   expect(page).to have_content(@brian.name)
-  #   expect(page).to have_content(@brian.years_of_experience)
-  #   # expect(page).to have_content(mechanics.average_years_of_experience)
-  # end
+  it 'the rides are listed by thrill rating in descending order (most thrills first)' do
+    visit "/mechanics/#{@brian.id}"
+    expect(all('.thrill')[0].text).to have_content(@twin_dragons.name)
+    expect(all('.thrill')[1].text).to have_content(@spider_man.name)
+  end
 end

@@ -24,4 +24,12 @@ RSpec.describe Ride do
     @Ride_Mechanic_5 = RideMechanic.create!(ride: @spider_man, mechanic: @brian )
     @Ride_Mechanic_5 = RideMechanic.create!(ride: @twin_dragons, mechanic: @brian)
   end
+
+  describe 'class methods'
+  describe '#open' do
+    it 'returns only rides that are open' do
+
+    expect(Ride.open).to match_array([@spider_man, @twin_dragons])
+    end
+  end
 end
