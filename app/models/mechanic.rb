@@ -3,10 +3,10 @@ class Mechanic < ApplicationRecord
   has_many :rides, through: :ride_mechanics
 
   def ride_names
-
-  end 
+    @rides.names
+  end
 
   def self.average_experience
-    (mechanics.sum {mechanic.experience}) / mechanics.count
+    # (@mechanics.sum {mechanic.experience}) / @mechanics.count
   end
 end
