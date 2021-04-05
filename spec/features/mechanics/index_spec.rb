@@ -1,4 +1,4 @@
-RSpec.describe "courses index page", type: :feature do
+RSpec.describe "mechanics index page", type: :feature do
   before :each do
     @mechanic_1 = Mechanic.create!(name: 'Kara Smith', years_experience: 11)
     @mechanic_2 = Mechanic.create!(name: 'John Doe', years_experience: 5)
@@ -6,8 +6,6 @@ RSpec.describe "courses index page", type: :feature do
 
   it "can see a list of mechanics names and years_experience" do
     visit "/mechanics"
-
-    save_and_open_page
 
     expect(page).to have_content('All Mechanics')
     expect(page).to have_content(@mechanic_1.name)
