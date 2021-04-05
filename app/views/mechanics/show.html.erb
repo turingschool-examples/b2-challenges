@@ -1,6 +1,6 @@
 <h1>Mechanic Name:</h1>
 <h2><%= @mechanic.name %></h2>
-<p><%= @mechanic.years %></p>
+<p>Numner of years: <%= @mechanic.years %></p>
 
 <section id="rides">
 <h3>Rides:</h3>
@@ -8,3 +8,12 @@
 <p><%= ride.name %> - Rating: <%= ride.rating %></p>
 <% end %>
 </section>
+
+<div class="add-ride">
+  <%= form_with url: mechanic_rides_path(@mechanic), method: :post, local: true do |form|%>
+  <h3>Add a new Ride: </h3>
+  <%= form.hidden_field :mechanic_id, value: @mechanic.id %>
+  <%= form.label :ride_id %>
+  <%= form.number_field :ride_id%><br>
+  <%= form.submit 'Submit' %>
+<% end %>
