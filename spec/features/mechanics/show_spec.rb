@@ -19,4 +19,19 @@ RSpec.describe 'mechanics show' do
     expect(page).to have_content(@mechanic_1.years_of_experience)
     expect(page).to have_content("Working On: [\"Top Thrill\"]")
   end
+
+  it 'shows button_to add ride to their workload and redirects once clicked' do
+    visit "/mechanics/#{@mechanic_1.id}"
+
+    expect(current_path).to eq("/mechanics/#{@mechanic_1.id}")
+
+    expect(page).to have_content("Add a ride")
+    fill_in('ride_id', with: "#{@ride_3.id}")
+
+    expect(page).to have_button("Submit")
+    click_button ("Submit")
+
+    expect(page).to have_content("Working On: [\"Falcon\", \"Top Thrill\"]")
+    expect(current_path).to eq("/mechanics/#{@mechanic_1.id}")
+  end
 end

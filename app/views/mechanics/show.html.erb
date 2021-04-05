@@ -1,3 +1,14 @@
 <h3><%= @mechanic.name %></h3>
-<p><%= @mechanic.years_of_experience %></p>
+<p> Years of Experience: <%= @mechanic.years_of_experience %></p>
 <p> Working On: <%= @mechanic.ordered_by_rating_where_open %></p>
+
+
+
+<%= form_with(url: mechanics_path, method: "patch") do |f| %>
+  <%= f.hidden_field :mechanic, :value => params[:id] %>
+
+  <%= f.label :add_a_ride %>
+  <%= f.number_field :ride_id %>
+
+  <%= f.submit :Submit %>
+<% end %>
