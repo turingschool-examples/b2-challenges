@@ -14,17 +14,17 @@ RSpec.describe "mechanics index page", type: :feature do
 
   it "displays all mechanics and their attributes" do
     expect(page).to have_content(@anna.name)
-    expect(page).to have_content(@anna.age)
+    expect(page).to have_content(@anna.years_experience)
     expect(page).to have_content(@bradley.name)
-    expect(page).to have_content(@bradley.age)
+    expect(page).to have_content(@bradley.years_experience)
     expect(page).to have_content(@chelsey.name)
-    expect(page).to have_content(@chelsey.age)
+    expect(page).to have_content(@chelsey.years_experience)
   end
 
   it "displays the average years of experience across all mechanics" do
     expect(page).to have_content("Average Years of Experience: 10")
   end
-  
+
   # it "displays only rides that are open" do
   #   expect(page).to have_content("")
   #   expect(page).to_not have_content("")
