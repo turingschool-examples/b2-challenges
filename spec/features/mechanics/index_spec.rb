@@ -2,9 +2,11 @@ require 'rails_helper'
 
 RSpec.describe 'Mechanics Index' do
   before :each do
-    @kara = Artist.create!(name: 'Kara Smith', years_of_experience: 11)
-    @alex = Artist.create!(name: 'Alex Potter', years_of_experience: 17)
-    @brian = Artist.create!(name: 'Brian Simpson', years_of_experience: 3)
+    Mechanic.destroy_all
+    Ride.destroy_all
+    @kara = Mechanic.create!(name: 'Kara Smith', years_of_experience: 11)
+    @alex = Mechanic.create!(name: 'Alex Potter', years_of_experience: 17)
+    @brian = Mechanic.create!(name: 'Brian Simpson', years_of_experience: 2)
   end
 
   it 'shows all mechanics name and their years of experience' do
