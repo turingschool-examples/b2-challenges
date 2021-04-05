@@ -6,7 +6,7 @@ describe "mechanics index page", type: :feature do
     bill = Mechanic.create!(name: 'Bill', years_experience: 6)
   end
 
-  describe "mechanics index page" do
+  it "shows all mechanics" do
     visit '/mechanics'
 
     expect(page).to have_content(steve.name)
