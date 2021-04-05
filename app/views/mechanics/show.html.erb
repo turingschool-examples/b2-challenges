@@ -1,0 +1,12 @@
+<h1><%= @mechanic.name %></h1>
+  <p>Years of Experience: <%= @mechanic.years_experience %><br><br>
+  Open rides this mechanic is currently working on: <br><br>
+    <% @mechanic.rides.order_desc_by_thrill_rating_and_open.each do |ride| %>
+      <%= ride.name %><br>
+    <% end %><br><br></p>
+<%= form_with url: mechanic_id_path, method: :patch, local: true do |form| %>
+
+  <%= form.label "ride id:" %>
+  <%= form.number_field :ride_id, in: 0..25, step: 1%><br>
+  <%= form.submit 'Add Ride to Mechanic Workload' %>
+<% end %>

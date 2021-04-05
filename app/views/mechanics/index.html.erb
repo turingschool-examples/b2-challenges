@@ -3,10 +3,7 @@
 <p><% @mechanics.each do |mechanic| %>
   Name: <%= mechanic.name %><br>
   Years of Experience: <%= mechanic.years_experience %><br>
-  Open rides this mechanic is currently working on: <br>
-    <% mechanic.rides.order_desc_by_thrill_rating_and_open.each do |ride| %>
-      <%= ride.name %><br>
-    <% end %><br><br>
+  Open rides this mechanic is currently working on: <br><br>
 <% end %></p>
 
 <p>Average years of experience for all mechanics:
