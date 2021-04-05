@@ -16,7 +16,13 @@ RSpec.describe Ride, type: :model do
     describe '#open_rides' do
       it 'can see only rides that are open' do
         expect(Ride.open_rides).to eq([@ride_2, @ride_3])
-      end 
+      end
+    end
+
+    describe '#order_by_thrill' do
+      it 'can see rides listed by thrill rating in descending order' do
+        expect(Ride.order_by_thrill).to eq([@ride_2, @ride_1, @ride_3])
+      end
     end
   end
 

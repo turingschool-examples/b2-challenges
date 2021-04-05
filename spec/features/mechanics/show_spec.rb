@@ -22,5 +22,11 @@ RSpec.describe "mechanics index page", type: :feature do
     expect(page).not_to have_content(@ride_1.name)
   end
 
+  it "can see rides in descending order of thrill" do
+    visit "/mechanics/#{@mechanic_2.id}"
+
+    expect(@ride_2.name).to appear_before(@ride_3.name)
+  end
+
 
 end
