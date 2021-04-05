@@ -4,5 +4,9 @@ class Ride < ApplicationRecord
 
   def self.open_rides
     where(ride_open: true)
-  end 
+  end
+
+  def self.rides_by_thrill
+    order(thrill_rating: :desc)
+  end
 end

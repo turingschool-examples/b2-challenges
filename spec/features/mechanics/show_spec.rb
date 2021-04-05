@@ -35,6 +35,5 @@ RSpec.describe "mechanic show page", type: :feature do
 
   it "displays rides in order of thrill rating high-to-low" do
     expect(@zoomy.name).to appear_before(@wizzer.name)
-    expect(@wizzer.name).to appear_before(@bumper_cars.name)
   end
 end

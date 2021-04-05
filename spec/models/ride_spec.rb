@@ -21,7 +21,7 @@ RSpec.describe Ride, type: :model do
 
     describe '::rides_by_thrill' do
       it 'shows rides by thrill rating in descending order' do
-        expect(@zoomy.name).to appear_before(@wizzer.name)
+        expect(Ride.rides_by_thrill.to_a).to eq([@zoomy, @bumper_cars, @wizzer])
       end
     end
   end
