@@ -1,8 +1,18 @@
-<h2><%= @mechanic.name %></h2>
-<section><%= @mechanic.experience %></section>
+<h2>Name: <%= @mechanic.name %></h2>
+<section>Experience: <%= @mechanic.experience %> years.</section>
 
 <section>
+  Rides: 
   <% @rides.each do |ride| %>
-    <%= ride.name %>
+    <%= ride.name %> 
+  <% end %>
+</section>
+
+<section>
+  <%= form_with url: "/mechanics/#{@mechanic.id}", params: :new_ride, method: :patch, local: true do |form| %>
+    <%= form.label "Add Ride to Mechanic" %>
+    <%= form.number_field :new_ride, step: 1%><br>
+
+    <%= form.submit 'Add Ride' %>
   <% end %>
 </section>
