@@ -1,6 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe 'Mechanics Index' do
+RSpec.describe Ride do
+  describe "relationships" do
+    it {should have_many(:ride_mechanics)}
+    it {should have_many(:mechanics).through(:ride_mechanics)}
+  end
+
   before :each do
     Mechanic.destroy_all
     Ride.destroy_all
@@ -11,25 +16,12 @@ RSpec.describe 'Mechanics Index' do
     @the_hurler = Ride.create!(name: 'The Hurler', thrill_rating: 7, open: false)
     @spider_man = Ride.create!(name: 'Spider Man', thrill_rating: 9, open: true)
     @twin_dragons = Ride.create!(name: 'Twin Dragons', thrill_rating: 10, open: true)
-
+    #
     # @Ride_Mechanic_1 = RideMechanics.create!(ride: @the_hurler, mechanic: @kara)
     # @Ride_Mechanic_2 = RideMechanics.create!(ride: @twin_dragons, mechanic: @kara)
     # @Ride_Mechanic_3 = RideMechanics.create!(ride: @the_hurler, mechanic: @alex)
     # @Ride_Mechanic_4 = RideMechanics.create!(ride: @the_hurler, mechanic: @brian)
     # @Ride_Mechanic_5 = RideMechanics.create!(ride: @spider_man, mechanic: @brian )
     # @Ride_Mechanic_5 = RideMechanics.create!(ride: @twin_dragons, mechanic: @brian)
-  end
-
-  it 'shows all mechanics name and their years of experience' do
-    visit '/mechanics'
-
-    expect(page).to have_content('All Mechanics')
-    expect(page).to have_content(@kara.name)
-    expect(page).to have_content(@kara.years_of_experience)
-    expect(page).to have_content(@alex.name)
-    expect(page).to have_content(@alex.years_of_experience)
-    expect(page).to have_content(@brian.name)
-    expect(page).to have_content(@brian.years_of_experience)
-    # expect(page).to have_content(mechanics.average_years_of_experience)
   end
 end
