@@ -24,8 +24,9 @@ RSpec.describe 'As a visitor' do
       expect(page).to have_content("#{@mechanic_3.years} years of experience")
     end
 
-    # it "And i see the average years of experience across all mechanics" do
-    #
-    # end
+    it "And i see the average years of experience across all mechanics" do
+      expect(page).to have_content("Average Experience of all Mechanics: 14.33 years")
+
+    end
   end
 end
