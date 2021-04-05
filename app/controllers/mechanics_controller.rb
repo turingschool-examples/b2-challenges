@@ -3,4 +3,8 @@ class MechanicsController < ApplicationController
     @mechanics = Mechanic.all
     @mechanics.average_years
   end
+
+  def show
+    @mechanic = Mechanic.find(params[:id])
+  end
 end
