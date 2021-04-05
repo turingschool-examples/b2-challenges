@@ -41,6 +41,9 @@ group :development, :test do
   gem 'pry'
   gem 'simplecov'
   gem 'shoulda-matchers', '~> 3.1'
+  gem "orderly"
+  gem 'did_you_mean'
+
 end
 
 group :development do
