@@ -4,7 +4,7 @@
 
 <section id="rides">
 <h3>Rides:</h3>
-<% @mechanic.rides.each do |ride| %>
+<% @mechanic.rides.sort_by_most_thrills.each do |ride| %>
 <p><%= ride.name %> - Rating: <%= ride.rating %></p>
 <% end %>
 </section>
