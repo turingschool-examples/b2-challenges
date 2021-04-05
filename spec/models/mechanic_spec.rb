@@ -1,5 +1,8 @@
 require 'rails_helper'
 
 describe Mechanic, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "relationships" do
+    it { should have_many :rides}
+    it { should have_many(:rides).through(:mechanic_rides)}
+  end
 end
