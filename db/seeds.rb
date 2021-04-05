@@ -13,3 +13,5 @@ ryan = Mechanic.create!(name: "Ryan", years_exp: 1 )
 joe = Mechanic.create!(name: "Joe", years_exp: 3 )
 
 kumba = kon.rides.create!(name: "Kumba", thrill_rating: 8, is_open: true)
+
+frogs = Ride.create!(name: "Frogs", thrill_rating: 1, is_open: true)
