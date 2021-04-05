@@ -9,3 +9,7 @@
 josie = Mechanic.create!(name: 'Josie', years_of_experience: 3)
 emmy = Mechanic.create!(name: 'Emmy', years_of_experience: 5)
 bella = Mechanic.create!(name: 'Bella', years_of_experience: 1)
+
+ride1 = Ride.create!(name: 'Spooky Coaster', open: true)
+ride2 = Ride.create!(name: 'Thrill Factory', open: false)
+ride3 = Ride.create!(name: 'Jurrasic Journey', open: true)

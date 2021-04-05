@@ -3,7 +3,7 @@ require "rails_helper"
 describe Mechanic do
   describe "relationships" do
     it {should have_many :rides}
-    it {should have_many(:rides).through(:mechanic_rides) }
+    it {should have_many(:rides).through(:mechanics_and_rides) }
   end
 
   before :each do
@@ -13,7 +13,7 @@ describe Mechanic do
   end
 
   describe "class methods" do
-    describe "average_years_experience" do
+    describe "::average_years_experience" do
       expect(Mechanic.all.average_years_experience).to eq(3)
     end
   end
