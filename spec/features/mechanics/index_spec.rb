@@ -1,4 +1,6 @@
 require "rails_helper"
+
+
 RSpec.describe "When I visit mechanics index" do
   before :each do
     @mechanic_1 = Mechanic.create!(name: 'Olafur', years_experience: 5)
