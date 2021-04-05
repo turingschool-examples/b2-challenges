@@ -24,9 +24,9 @@ RSpec.describe Mechanic, type: :model do
   end
 
   describe 'instance methods' do
-    describe '#ordered_ride_names' do
-      it 'returns all ride names a mechanic is working on in alphabetical order' do
-        expect(@mechanic_1.ordered_ride_names).to eq(["#{@ride_2.name}", "#{@ride_1.name}"])
+    describe '#ordered_by_rating_where_open' do
+      it 'returns all open rides ordered by thrill_rating' do
+        expect(@mechanic_1.ordered_by_rating_where_open).to eq(["Top Thrill"])
       end
     end
   end

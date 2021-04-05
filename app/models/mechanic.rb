@@ -6,7 +6,7 @@ class Mechanic < ApplicationRecord
     average(:years_of_experience)
   end
 
-  def ordered_ride_names
-    rides.select(:name).order(:name).pluck(:name)
+  def ordered_by_rating_where_open
+    rides.order('thrill_rating desc').where('open = true').pluck(:name)
   end
 end
