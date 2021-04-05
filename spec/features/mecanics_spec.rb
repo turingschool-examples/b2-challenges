@@ -21,5 +21,17 @@ RSpec.describe "when i visit mechanics" do
     expect(page).to have_content(mechanic_3.experiance)
   end
 
+  it "i see average work experiance of all mechanics" do
+
+    mechanic_1 = Mechanic.create!(name: "andrew", experiance: 1)
+    mechanic_2 = Mechanic.create!(name: "steven", experiance: 30)
+    mechanic_3 = Mechanic.create!(name: "roberta", experiance: 5)
+
+    visit "/mechanics"
+
+    expect(page).to have_content(Mechanic.all.average_exp)
+
+  end
+
 
 end
