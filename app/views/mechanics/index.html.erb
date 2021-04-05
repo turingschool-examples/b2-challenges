@@ -1,0 +1,8 @@
+<h3> <%= "All Mechanics" %> </h3>
+
+
+<% @mechanics.each do | mechanic | %>
+  <%= "#{mechanic.name}"%>
+  <%= ": " %>
+  <%= "#{mechanic.experiance} "%> <br>
+<% end %>
