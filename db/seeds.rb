@@ -15,10 +15,10 @@ mechanic_2 = Mechanic.create!(name: "steven", experiance: 30)
 mechanic_3 = Mechanic.create!(name: "roberta", experiance: 5)
 
 
-ride_1 = Ride.create!(name: "ride_1", thrill_rateing: 1)
-ride_2 = Ride.create!(name: "ride_2", thrill_rateing: 2)
-ride_3 = Ride.create!(name: "ride_3", thrill_rateing: 3)
-ride_4 = Ride.create!(name: "ride_4", thrill_rateing: 4)
+ride_1 = Ride.create!(name: "ride_1", thrill_rateing: 1, open: true)
+ride_2 = Ride.create!(name: "ride_2", thrill_rateing: 2, open: true)
+ride_3 = Ride.create!(name: "ride_3", thrill_rateing: 3, open: false)
+ride_4 = Ride.create!(name: "ride_4", thrill_rateing: 4, open: false)
 
 
 mechanic_ride_1a = MechanicRide.create!(ride: ride_1, mechanic: mechanic_1)
