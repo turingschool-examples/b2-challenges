@@ -1,9 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe 'As a visitor' do
-  describe "When I go to a mechanics show page" do
+  describe "When I go to a Parks show page" do
 
     before :each do
+      @park_1 = Park.create!(name: "Lakeside", price: "10.00")
+      @park_2 = Park.create!(name: "Elitches", price: "29.99")
+
+
       @mechanic_1 = Mechanic.create!(name: "Joey", years: 6)
       @mechanic_2 = Mechanic.create!(name: "Bobby", years: 14)
       @mechanic_3 = Mechanic.create!(name: "Annie", years: 23)
@@ -21,37 +25,15 @@ RSpec.describe 'As a visitor' do
       MechanicRide.create!(mechanic: @mechanic_3, ride: @ride3)
       MechanicRide.create!(mechanic: @mechanic_3, ride: @ride1)
       MechanicRide.create!(mechanic: @mechanic_3, ride: @ride4)
-      visit "/mechanics/#{@mechanic_1.id}"
-
+      visit "/parks/#{@park_1.id}"
     end
 
-    it "I see their name, years of experience, and names of all rides they’re working on" do
-
-      expect(page).to have_content(@mechanic_1.name)
-      expect(page).to have_content(@mechanic_1.years)
-      expect(page).to have_content(@ride1.name)
-      expect(page).to have_content(@ride2.name)
-      expect(page).to_not have_content(@ride3.name)
-    end
-
-    it "And i only see the rides that are open and Rides are sorted from most thrilling to least" do
-      # save_and_open_page
-
-      expect(@ride2.name).to appear_before(@ride1.name)
-      expect(page).to_not have_content(@ride3.name)
-
-    end
-
-    it "shows a form to add a ride to work load" do
-      expect(page).to have_content("Add a new Ride:")
-
-      within ".add-ride" do
-        fill_in 'ride_id', with: @ride5.id
-        expect(page).to have_button("Submit")
-        click_on 'Submit'
+    it "shows a name and price of admissions for that amusement park" do
+      within("#park-#{@park_1.id}") do
+        expect(page).to have_content(@park_1.name)
+        expect(page).to have_content(@park_1.price)
+        expect(page).not_to have_content(@park_2.name)
       end
-      expect(current_path).to eq("/mechanics/#{@mechanic_1.id}")
-      expect(page).to have_content(@ride5.name)
     end
   end
 end

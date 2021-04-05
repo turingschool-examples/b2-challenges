@@ -1,0 +1,7 @@
+<section id='park-<%= @park.id %>'>
+  <h1>Name: <%= @park.name %></h1>
+  <h2>Price: <%= @park.price %></h2>
+  <% @park.each do |ride| %>
+    <p><%= ride.name %></p>
+  <% end %>
+</section>
