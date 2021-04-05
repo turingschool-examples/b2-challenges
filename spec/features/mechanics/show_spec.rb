@@ -6,6 +6,7 @@ RSpec.describe 'mechanic show page' do
         @ride1 = Ride.create!(name: 'Montu', thrill_rating: 7, open: true)
         @ride2 = Ride.create!(name: 'Cheetah Chase', thrill_rating: 4, open: true)
         @ride3 = Ride.create!(name: 'Sheikra', thrill_rating: 8, open: false)
+        @ride4 = Ride.create!(name: 'Kumba', thrill_rating: 6, open: true)
         
         MaintenanceLog.create!(mechanic_id: @jane.id, ride_id: @ride1.id)
         MaintenanceLog.create!(mechanic_id: @jane.id, ride_id: @ride2.id)
@@ -27,5 +28,17 @@ RSpec.describe 'mechanic show page' do
         expect(page).to_not have_content(@ride3.name)
 
         expect(@ride1.name).to appear_before(@ride2.name)
+    end
+
+    it 'can add an existing ride to workload' do
+        visit "/mechanics/#{@jane.id}"
+        
+        fill_in :ride_id, with: @ride4.id
+        click_button 'Add'
+
+        expect(current_path).to eq("/mechanics/#{@jane.id}")
+        expect(page).to have_content(@ride4.name)
+        expect(@ride1.name).to appear_before(@ride4.name)
+        expect(@ride4.name).to appear_before(@ride2.name)
     end
 end

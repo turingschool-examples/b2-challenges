@@ -14,6 +14,7 @@ mech2 = Mechanic.create!(name: 'Jane Doe', years_experience: 9)
 
 ride1 = Ride.create!(name: 'Montu', thrill_rating: 7, open: true)
 ride2 = Ride.create!(name: 'Sheikra', thrill_rating: 8, open: false)
+ride3 = Ride.create!(name: 'Cheetah Chase', thrill_rating: 4, open: true)
 
 MaintenanceLog.create!(mechanic_id: mech1.id, ride_id: ride1.id)
 MaintenanceLog.create!(mechanic_id: mech2.id, ride_id: ride1.id)
