@@ -36,4 +36,14 @@ RSpec.describe "mechanic show page", type: :feature do
   it "displays rides in order of thrill rating high-to-low" do
     expect(@zoomy.name).to appear_before(@wizzer.name)
   end
+
+  it "has a form to add a ride by ride id" do
+    expect(find('form')).to have_content('Ride ID:')
+    fill_in "Ride ID:", with: "#{@bumper_cars.id}"
+
+    click_on "Submit"
+
+    expect(current_path).to eq("/mechanics/#{@anna.id}")
+    expect(page).to have_content("Bumper Cars")
+  end
 end
