@@ -5,7 +5,7 @@ class MechanicsController < ApplicationController
   end
 
   def show
-    @mechanics = Mechanic.find(params[:id])
+    @mechanic = Mechanic.find(params[:id])
   end
 
 

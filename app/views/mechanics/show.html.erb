@@ -1,0 +1,10 @@
+
+
+<%= "#{@mechanic.name}"%><br>
+<%= "experiance: "%>
+<%= "#{@mechanic.experiance} "%> <br>
+
+<%= "open rides they work on: "%><br>
+<% @mechanic.open_rides.each do | ride | %>
+  <%= "#{ride.name}"%><br>
+<% end %>
