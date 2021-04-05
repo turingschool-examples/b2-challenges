@@ -1,0 +1,7 @@
+<h1>Mechanic Name:<%=@mechanic.name%></h1>
+<h1>Mechanic Years of Experience:<%=@mechanic.years_experience%></h1>
+<%(((MechanicRide.return_associated_rides(@mechanic.id)).is_open).order).each do |ride|%>
+  <section id="ride-<%= ride.id %>">
+    <h1><%= ride.name %></h1>
+  </section>
+<%end%>

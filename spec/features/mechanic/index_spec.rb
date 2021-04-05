@@ -11,5 +11,21 @@ RSpec.describe "mechanics index", type: :feature do
     visit "/mechanics"
 
     expect(page).to have_content("All Mechanics")
+    within("#avg_years_exp") do 
+      expect(page).to have_content(9)
+    end
+    within("#mechanic-#{@steve.id}") do 
+      expect(page).to have_content(@steve.name)
+      expect(page).to have_content(10)
+    end
+    within("#mechanic-#{@bob.id}") do 
+      expect(page).to have_content(@bob.name)
+      expect(page).to have_content(8)
+    end
+    within("#mechanic-#{@joey.id}") do 
+      expect(page).to have_content(@joey.name)
+      expect(page).to have_content(9)
+    end
   end
+
 end
