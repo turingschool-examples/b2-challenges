@@ -8,11 +8,11 @@ RSpec.describe 'the mechanics show' do
     @hurler = Ride.create!(name: 'The Hurler', thrill_rating: 7, open: false)
     @spinner = Ride.create!(name: 'The Spinner', thrill_rating: 5, open: true)
     @elevator = Ride.create!(name: 'The Elevator', thrill_rating: 10, open: true)
-    @RideMechanic.create!(ride: hurler, mechanic:lee)
-    @RideMechanic.create!(ride: hurler, mechanic:amy)
-    @RideMechanic.create!(ride: hurler, mechanic:bob)
-    @RideMechanic.create!(ride: spinner, mechanic:bob)
-    @RideMechanic.create!(ride: elevator, mechanic:bob)
+    RideMechanic.create!(ride:@hurler, mechanic:@lee)
+    RideMechanic.create!(ride:@hurler, mechanic:@amy)
+    RideMechanic.create!(ride:@hurler, mechanic:@bob)
+    RideMechanic.create!(ride:@spinner, mechanic:@bob)
+    RideMechanic.create!(ride:@elevator, mechanic:@bob)
   end
 
   it "shows a mechanic and all of it's attributes including rides associated" do
@@ -23,3 +23,4 @@ RSpec.describe 'the mechanics show' do
     expect(page).to have_content(@spinner.name)
     expect(page).to have_content(@elevator.name)
   end
+end
