@@ -1,2 +1,7 @@
-<h1>Rides#index</h1>
-<p>Find me in app/views/rides/index.html.erb</p>
+<h1>All Mechanics</h1>
+
+<% @mechanics.each do |mechanic| %>
+  <h2>Name: <%= mechanic.name %></h2><br/>
+  <h2>Years of experience: <%= mechanic.years_experience %></h2><br/>
+  <p>---------------------</p>
+<% end %>
