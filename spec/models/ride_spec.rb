@@ -27,6 +27,6 @@ RSpec.describe Ride, type: :model do
       thrill_rating: 3,
       open: false
     )
-    expect(Ride.order_desc_by_thrill_rating).to eq([ride1, ride3, ride4, ride2])
+    expect(Ride.order_desc_by_thrill_rating_and_open).to eq([ride1, ride3, ride2])
   end
 end
