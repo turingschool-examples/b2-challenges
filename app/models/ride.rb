@@ -1,6 +1,6 @@
 class Ride < ApplicationRecord
-  has_many :mechanics
   has_many :ride_mechanics
+  has_many :mechanics, through: :ride_mechanics
 
   # def shelter_name
   #   shelter.name
