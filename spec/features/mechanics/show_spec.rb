@@ -16,7 +16,6 @@ RSpec.describe "When I visit a Mechanic show page" do
     expect(page).to have_content(@kon.years_exp)
     expect(page).to have_content("Kumba")
     expect(page).to have_content("Ship")
-    # save_and_open_page
   end
 
   it "I see a form to add a ride to mechanics workload" do
@@ -35,12 +34,6 @@ RSpec.describe "When I visit a Mechanic show page" do
       expect(current_path).to eq("/mechanics/#{@kon.id}")
       expect(page).to have_content("Kumba")
       expect(page).to have_content("Ship")
-      save_and_open_page
     end
   end
-
-  #   I see a form to add a ride to their workload
-  # When I fill in that field with an id of an existing ride and hit submit
-  # I’m taken back to that mechanic's show page
-  # And I see the name of that newly added ride on this mechanics show page
 end
