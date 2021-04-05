@@ -1,0 +1,2 @@
+class MechanicRidesController < ApplicationController
+end
