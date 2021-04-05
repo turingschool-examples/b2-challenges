@@ -56,8 +56,8 @@ RSpec.describe "when i visit /mechanics" do
 
       expect(page).to have_content(ride_1.name)
       expect(page).to have_content(ride_2.name)
-      expect(page).to_not have_content(ride_3.name)
-      expect(page).to_not have_content(ride_4.name)
+      expect(page).to have_no_content(ride_3.name)
+      expect(page).to have_content(ride_4.name)
     end
 
     # it "i see the rides listed in order of thrill rating"  do
