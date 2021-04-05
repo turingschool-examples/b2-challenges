@@ -12,3 +12,12 @@ RSpec.describe "When I visit mechanics show page" do
     expect(page).to have_content("Mechanic: Olafur")
     expect(page).to have_content("Years of Experience: 5")
     expect(page).to have_content("Current rides they are working on:")
+    expect(page).to have_content(@ride_1.name)
+    expect(page).to have_content(@ride_2.name)
+    expect(page).to have_content(@ride_3.name)
+
+    expect(@ride_3.name).to appear_before(@ride_2.name)
+    expect(@ride_2.name).to appear_before(@ride_1.name)
+ end
+end
+    
