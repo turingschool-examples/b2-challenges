@@ -14,7 +14,7 @@ describe Mechanic do
 
   describe "class methods" do
     describe "average_years_experience" do
-      expect(Mechanic.average_years_of_experience).to eq(3)
+      expect(Mechanic.all.average_years_experience).to eq(3)
     end
   end
 
