@@ -41,5 +41,20 @@ RSpec.describe 'the mechanics show page' do
 
     expect(Ride.ride_order.first).to eq(bender)
     expect(Ride.ride_order.last).to eq(ferry)
-  end 
+  end
+
+  it 'shows a form to add a ride to their workload' do
+    mechanic1 = Mechanic.find_or_create_by!(name: "Klaud", years_experience: 3)
+    twister = Ride.find_or_create_by!(name: "Twister", thrill_rating: 4, open: true)
+
+    visit "/mechanics/#{mechanic1.id}"
+
+    # fill_in 'number', with: '#{twister.id}', visible: false
+    within("#get_form") do
+      fill_in "Number", :with => "#{twister.id}"
+    end
+
+    expect(page).to have_current_path("/mechanics/#{mechanic1.id}")
+    expect(page).to have_content("Twister")
+  end
 end

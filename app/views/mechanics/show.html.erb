@@ -1,6 +1,18 @@
 <h1>Mechanics Show Page</h1>
 <p><u>Mechanics Name:</u> <%= @mechanic.name %></p>
 <p><u>Mechanics Years of Experience:</u> <%= @mechanic.years_experience %></p>
-<p><u>Mechanics Rides:</u> <% @mechanic.rides.ride_open.ride_order.each do |ride| %>
-  <%= ride.name %>
-<% end %></p>
+<p>
+  <u>Mechanics Rides:</u>
+  <% @mechanic.rides.ride_open.ride_order.each do |ride| %>
+    <%= ride.name %>
+<% end %></p></br>
+
+<%= form_with url: "/mechanics/#{@mechanic.id}", method: :get, local: true do |f| %>
+  <%= f.label :number_for_ride %>
+  <%= f.text_field :number, id: :get_form %>
+
+  <%= f.submit :submit%>
+<% end %></br>
+<u>New Rides for <%= "#{@mechanic.name}" %>: </u><% if params[:number] %>
+  <li><%= Ride.find(params[:number]).name %>
+<% end %></li>
