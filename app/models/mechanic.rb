@@ -5,4 +5,8 @@ class Mechanic < ApplicationRecord
   def self.average_years_of_experience
     average(:years_of_experience)
   end
+
+  def ordered_ride_names
+    rides.select(:name).order(:name).pluck(:name)
+  end
 end
