@@ -17,6 +17,20 @@ describe 'mechanic show page' do
     expect(ride_3.name).to appear_before(ride_1.name)
 
     expect(page).to_not have_content(ride_2.name)
-    expect(page).to_not have_content(ride_2.thrill_rating)
+  end
+
+  it 'add a ride to a mechanic' do
+    ride_1 = Ride.create!(name: 'fast', thrill_rating: 5, open: true)
+    ride_3 = Ride.create!(name: 'slow', thrill_rating: 7, open: true)
+    mech_1 = Mechanic.create!(name: 'bob', years_experience: 10)
+
+    visit "/mechanics/#{mech_1.id}"
+
+    expect(page).to_not have_content(ride_1.name)
+
+    fill_in "ride_id", with: ride_1.id
+    click_on "Submit"
+
+    expect(page).to have_content(ride_1.name)
   end
 end
