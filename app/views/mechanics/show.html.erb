@@ -5,3 +5,11 @@
   <% @mechanic.working_rides.each do |ride|%>
   <p><%=ride.name%></p>
   <%end%>
+
+<div>
+  <%= form_with url: "/mechanics/#{@mechanic.id}", method: :post, local: true do |f| %>
+    <%= f.label "Rid Id:"%>
+    <%=f.number_field :ride_id, required: true%>
+    <%= f.submit "Add New Job"%>
+    <%end%>
+</div>
