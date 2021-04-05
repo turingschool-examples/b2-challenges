@@ -1,6 +1,6 @@
 class RidesController < ApplicationController
 
   def index
-    @rides = Ridel.all
+    @rides = Ride.all
   end
 end
