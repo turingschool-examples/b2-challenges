@@ -1,0 +1,8 @@
+<h1><%=@mechanic.name%>'s Record</h1>
+<h2>Mechanic Name: <%=@mechanic.name%></h2>
+<h2>Years Experience: <%=@mechanic.years_of_experience%></h2>
+
+<%@mechanic.rides.each do |ride|%>
+  <%=ride.name%>
+  <%binding.pry%>
+<%end%>

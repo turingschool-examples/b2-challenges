@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_05_164103) do
+ActiveRecord::Schema.define(version: 2021_04_05_170942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,10 +20,19 @@ ActiveRecord::Schema.define(version: 2021_04_05_164103) do
     t.integer "years_of_experience"
   end
 
+  create_table "ride_mechanics", force: :cascade do |t|
+    t.bigint "ride_id"
+    t.bigint "mechanic_id"
+    t.index ["mechanic_id"], name: "index_ride_mechanics_on_mechanic_id"
+    t.index ["ride_id"], name: "index_ride_mechanics_on_ride_id"
+  end
+
   create_table "rides", force: :cascade do |t|
     t.string "name"
     t.boolean "is_open"
     t.integer "thrill_rating"
   end
 
+  add_foreign_key "ride_mechanics", "mechanics"
+  add_foreign_key "ride_mechanics", "rides"
 end
