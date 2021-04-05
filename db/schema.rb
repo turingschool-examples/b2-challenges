@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2021_04_05_155637) do
     t.boolean "open"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "thrill_score"
   end
 
   add_foreign_key "mechanics_and_rides", "mechanics"

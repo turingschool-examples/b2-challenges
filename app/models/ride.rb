@@ -3,6 +3,11 @@ class Ride < ApplicationRecord
   has_many :mechanics, through: :mechanics_and_rides
 
   def self.ride_open?
-    Ride.where(open: true)
+    where(open: true)
+    order('thrill_score DESC')
   end
-end
+
+#   def self.order_by_thrill_score
+#     order('thrill_score DESC')
+#   end
+# end
