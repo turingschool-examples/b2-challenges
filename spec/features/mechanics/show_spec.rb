@@ -1,7 +1,20 @@
 require 'rails_helper'
 
-RSspec.describe 'User Story 2', type: :feature do
+RSpec.describe 'User Story 2', type: :feature do
   it 'can display the mechanic show page' do
+    steve = Mechanic.create!(name: "Steve Brown", years_of_experience: 27)
+    loop_de_loop = Ride.create!(name: "Loop de Loop", is_open: true, thrill_rating: 8)
+    x_treme = Ride.create!(name: "XTreme Scream", is_open: false, thrill_rating: 10)
+    sling = Ride.create!(name: "Sling Shot", is_open: true, thrill_rating: 5)
+
+    visit "/mechanics/#{steve.id}"
+
+    expect(page).to have_content("Steve Brown")
+    expect(page).to have_content("27")
+    expect(page).to have_content("Loop de Loop")
+    expect(page).to have_content("8")
+    expect(page).to have_content("Sling")
+    expect(page).to have_content("5")
     
   end
 end
