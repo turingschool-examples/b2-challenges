@@ -35,11 +35,23 @@ RSpec.describe 'As a visitor' do
     end
 
     it "And i only see the rides that are open and Rides are sorted from most thrilling to least" do
-      # save_and_open_page
+      save_and_open_page
 
       expect(@ride2.name).to appear_before(@ride1.name)
       expect(page).to_not have_content(@ride3.name)
 
+    end
+
+    it "shows a form to add a ride to work load" do
+      expect(page).to have_content("Add a new Ride:")
+
+      within ".add-ride" do
+        fill_in 'ride_id', with: @ride5.id
+        expect(page).to have_button("Submit")
+        click_on 'Submit'
+      end
+      expect(current_path).to eq("/mechanics/#{@mechanic_1.id}")
+      expect(page).to have_content(@ride5.name)
     end
   end
 end
