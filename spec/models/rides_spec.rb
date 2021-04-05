@@ -3,8 +3,9 @@ require "rails_helper"
 describe Ride, type: :model do
 
   describe "relationships" do
-    it {should have_many :mechanics}
+    it {should have_many(:mechanics)}
     it {should have_many(:mechanics).through(:mechanics_and_rides) }
+    binding.pry
   end
 
   describe "class methods" do
