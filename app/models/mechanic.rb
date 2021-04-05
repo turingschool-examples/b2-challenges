@@ -9,4 +9,10 @@ class Mechanic < ApplicationRecord
     end
     exp_sum.to_f/self.all.length
   end
+
+  def open_rides
+    self.rides.find_all do |ride|
+      ride.open == true
+    end 
+  end
 end
