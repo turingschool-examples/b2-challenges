@@ -5,10 +5,7 @@ class MechanicsController < ApplicationController
 
   def show
     @mechanic = Mechanic.find(params[:id])
+    @rides = Mechanic.rides.all
   end
-
-  # def average_experience
-  #   # @shelter = Shelter.find(params[:shelter_id])
-  # end
 
 end

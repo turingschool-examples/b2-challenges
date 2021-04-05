@@ -7,6 +7,7 @@ class Mechanic < ApplicationRecord
   end
 
   def self.average_experience
+    # select(*).count(mechanics.id)
     # (@mechanics.sum {mechanic.experience}) / @mechanics.count
   end
 end
