@@ -6,10 +6,10 @@ RSpec.describe 'User Story 2', type: :feature do
     loop_de_loop = Ride.create!(name: "Loop de Loop", is_open: true, thrill_rating: 8)
     x_treme = Ride.create!(name: "XTreme Scream", is_open: false, thrill_rating: 10)
     sling = Ride.create!(name: "Sling Shot", is_open: true, thrill_rating: 5)
-    record_1 = Ride
+    record_1 = RideMechanic.create!(mechanic_id: steve.id, ride_id: ride.id)
 
     visit "/mechanics/#{steve.id}"
-    require 'pry'; binding.pry
+    # require 'pry'; binding.pry
     expect(page).to have_content("Steve Brown")
     expect(page).to have_content("27")
     expect(page).to have_content("Loop de Loop")
