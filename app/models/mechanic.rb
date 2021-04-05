@@ -9,4 +9,8 @@ class Mechanic < ApplicationRecord
   def mechanics_open_rides
     rides.where(open: true)
   end
+
+  # def order_rides
+  #   order(thrill_rating: :desc)
+  # end
 end

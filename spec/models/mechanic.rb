@@ -18,7 +18,7 @@ RSpec.describe "Mechanic Model" do
       ride2 = Ride.create!(name: "Twister2", thrill_rating: 8, open: true)
       ride3 = Ride.create!(name: "Loopdy Loop", thrill_rating: 4, open: false)
       ride4 = Ride.create!(name: "Super Loopdy Loop", thrill_rating: 11, open: false)
-
+      
       bob.rides.push(ride1, ride2, ride3, ride4)
       expect(bob.mechanics_open_rides).to eq([ride1, ride2])
     end 
