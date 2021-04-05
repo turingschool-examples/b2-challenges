@@ -15,20 +15,20 @@ ActiveRecord::Schema.define(version: 2021_04_05_152038) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "mechanic_rides", force: :cascade do |t|
+    t.bigint "mechanic_id"
+    t.bigint "ride_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["mechanic_id"], name: "index_mechanic_rides_on_mechanic_id"
+    t.index ["ride_id"], name: "index_mechanic_rides_on_ride_id"
+  end
+
   create_table "mechanics", force: :cascade do |t|
     t.string "name"
     t.integer "years_experience"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "mechanics_rides", force: :cascade do |t|
-    t.bigint "mechanic_id"
-    t.bigint "ride_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["mechanic_id"], name: "index_mechanics_rides_on_mechanic_id"
-    t.index ["ride_id"], name: "index_mechanics_rides_on_ride_id"
   end
 
   create_table "rides", force: :cascade do |t|
@@ -39,6 +39,6 @@ ActiveRecord::Schema.define(version: 2021_04_05_152038) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "mechanics_rides", "mechanics"
-  add_foreign_key "mechanics_rides", "rides"
+  add_foreign_key "mechanic_rides", "mechanics"
+  add_foreign_key "mechanic_rides", "rides"
 end
