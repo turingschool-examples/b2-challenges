@@ -28,5 +28,13 @@ RSpec.describe "mechanics index page", type: :feature do
     expect(@ride_2.name).to appear_before(@ride_3.name)
   end
 
+  it "can see form to add a ride to mechanic" do
+    visit "/mechanics/#{@mechanic_1.id}"
 
+    fill_in 'Ride Id', with: "#{@ride_3.id}"
+    click_on 'Submit'
+
+    expect(current_path).to eq("/mechanics/#{@mechanic_1.id}")
+    expect(page).to have_content("#{@ride_3.name}")
+  end
 end
