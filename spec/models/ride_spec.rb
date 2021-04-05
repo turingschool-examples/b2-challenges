@@ -18,5 +18,17 @@ RSpec.describe Ride, type: :model do
         expect(Ride.desc_thrill_rating).to eq([@ride_3, @ride_1, @ride_2])
       end
     end
+
+    describe '#avg_thrill_rating' do
+      it 'orders the rides by thrill rating' do
+        expect(Ride.avg_thrill_rating).to eq(5.0)
+      end
+    end
+
+    describe '#alpha_names' do
+      it 'orders the names by alphabet' do
+        expect(Ride.alpha_names).to eq([@ride_1, @ride_2, @ride_3])
+      end
+    end
   end
 end
