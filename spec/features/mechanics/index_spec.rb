@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe 'User Story 1', type: :feature do
   it 'can list all mechanics, their years of experience and the average total years' do
-    @steve = Mechanic.create! (name: "Steve Brown", years_of_experience: 27)
-    @doug = Mechanic.create! (name: "Doug Wood", years_of_experience: 17)
-    @greg = Mechanic.create! (name: "Greg Marshall", years_of_experience: 10)
+    @steve = Mechanic.create!(name: "Steve Brown", years_of_experience: 27)
+    @doug = Mechanic.create!(name: "Doug Wood", years_of_experience: 17)
+    @greg = Mechanic.create!(name: "Greg Marshall", years_of_experience: 10)
 
     visit '/mechanics'
 
