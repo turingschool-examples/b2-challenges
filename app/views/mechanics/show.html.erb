@@ -15,3 +15,11 @@
 <%= form.text_field :add_ride %><br>
 <%= form.submit "Submit" %>
 <% end %>
+
+<%# REFACTOR ADD RIDE FORM BELOW %>
+<%= form_with url: "/mechanics/#{@mechanic.id}/mechanic_rides", method: :post, local: true do |form|%>
+<h3><%= form.label "Add a ride to workload:" %></h3><br>
+<%= form.number_field :ride_id %>
+<br>
+<%= form.submit "Submit" %>
+<% end %>
