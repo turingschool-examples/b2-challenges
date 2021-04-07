@@ -1,21 +1,26 @@
 require "rails_helper"
 
-RSpec.describe 'Mechanics Index' do
+RSpec.describe 'mechanic index page' do
   before :each do
-    @josie = Mechanic.create!(name: 'Josie', years_of_experience: 3)
-    @emmy = Mechanic.create!(name: 'Emmy', years_of_experience: 5)
-    @bella = Mechanic.create!(name: 'Bella', years_of_experience: 1)
+    @mechanic1 = Mechanic.create!(name: 'Josie', years_of_experience: 3)
+    @mechanic2= Mechanic.create!(name: 'Emmy', years_of_experience: 5)
   end
 
-  it 'shows all mechanic names and years of experience' do
+  it 'shows mechanic attributes' do
     visit '/mechanics'
+    within "#mechanic-#{@mechanic_1.id}" do
+      expect(page).to have_content(@mechanic1.name)
+      expect(page).to have_content(@mechanic1.years_of_experience)
+    end
 
-    expect(page).to have_content(@josie.name)
-    expect(page).to have_content(@josie.years_of_experience)
-    expect(page).to have_content(@emmy.name)
-    expect(page).to have_content(@emmy.years_of_experience)
-    expect(page).to have_content(@bella.name)
-    expect(page).to have_content(@bella.years_of_experience)
+    within "#mechanic-#{@mechanic_2.id}" do
+      expect(page).to have_content(@mechanic2.name)
+      expect(page).to have_content(@mechanic2.years_of_experience)
+    end
   end
 
+  it 'shows the average years of experience' do
+    visit '/mechanics'
+    expect(page).to have_content("Average years experience: #{Mechanic.average_years_experience}")
+  end
 end
