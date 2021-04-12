@@ -39,7 +39,7 @@ RSpec.describe "mechanic show page", type: :feature do
 
   it "has a form to add a ride by ride id" do
     expect(find('form')).to have_content('Ride ID:')
-    fill_in "Ride ID:", with: "#{@bumper_cars.id}"
+    fill_in :ride_id, with: @bumper_cars.id
 
     click_on "Submit"
 

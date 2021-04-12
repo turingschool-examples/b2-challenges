@@ -12,17 +12,6 @@ RSpec.describe Ride, type: :model do
     it {should have_many(:mechanics).through(:mechanic_rides)}
   end
 
-  describe 'class methods' do
-    describe '::open_rides' do
-      it 'only shows ride if ride_open is true' do
-        expect(Ride.open_rides.to_a).to eq([@wizzer, @zoomy])
-      end
-    end
-
-    describe '::rides_by_thrill' do
-      it 'shows rides by thrill rating in descending order' do
-        expect(Ride.rides_by_thrill.to_a).to eq([@zoomy, @bumper_cars, @wizzer])
-      end
-    end
-  end
+  # describe 'class methods' do
+  # end
 end

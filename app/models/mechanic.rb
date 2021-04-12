@@ -6,13 +6,13 @@ class Mechanic < ApplicationRecord
      average(:years_experience)
    end
 
-# REFACTOR BELOW (REMOVE FROM RIDES MODEL)
-   # def self.open_rides
-   #  rides.where(open: true)
-   # end
-   #
-   # def self.open_rides_by_thrills
-   #   rides.where(open: true)
-   #        .order(thrill_rating: :desc)
-   # end
+# REFACTOR BELOW
+   def open_rides
+    rides.where(ride_open: true)
+   end
+
+   def open_rides_by_thrill
+     rides.where(ride_open: true)
+          .order(thrill_rating: :desc)
+   end
 end
