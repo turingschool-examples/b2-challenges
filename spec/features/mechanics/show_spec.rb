@@ -38,4 +38,21 @@ RSpec.describe 'Mechanic show page' do
     expect(page.all(".ride")[1].text).to eq(@ride_1.name)
     expect(page.all(".ride")[2].text).to eq(@ride_2.name)
   end
+
+  it 'can add a ride to a mechanic' do
+    # Story 3 - Add a Ride to a Mechanic
+    # As a user,
+    # When I go to a mechanics show page
+    # I see a form to add a ride to their workload
+    # When I fill in that field with an id of an existing ride and hit submit
+    # I’m taken back to that mechanic's show page
+    # And I see the name of that newly added ride on this mechanics show page
+    ride = Ride.create!(name: 'Tea Cups', thrill_rating: 3, open: true)
+    visit "/mechanics/#{@mechanic.id}"
+    expect(page).to_not have_content(ride.name)
+    fill_in :ride_id, with: ride.id
+    click_button('Add ride to mechanic')
+    expect(current_path).to eq("/mechanics/#{@mechanic.id}")
+    expect(page).to have_content(ride.name)
+  end
 end

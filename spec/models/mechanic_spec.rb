@@ -33,10 +33,6 @@ RSpec.describe Mechanic do
       it 'returns rides that are open in descending thrill order' do
         expect(@mechanic.open_rides_by_thrills).to eq([@ride_3, @ride_1, @ride_2])
       end
-
-      it 'does not returns rides for other mechanic'
-        # expect(@mechanic.open_rides_by_thrills).to eq([@ride_1, @ride_2, @ride_3])
-
     end
   end
 end

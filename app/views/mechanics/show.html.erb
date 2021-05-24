@@ -3,3 +3,8 @@
 <% @mechanic.open_rides_by_thrills.each do |ride| %>
   <p class="ride"><%= ride.name %></p>
 <% end %>
+
+<%= form_with url: "/mechanics/#{@mechanic.id}/ride_mechanics", method: :post do |f| %>
+  <%= f.number_field :ride_id %>
+  <%= f.submit "Add ride to mechanic" %>
+<% end %>
