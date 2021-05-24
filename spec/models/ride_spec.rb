@@ -41,4 +41,20 @@ RSpec.describe Ride do
       expect(rides).to eq([@ride_1])
     end
   end
+
+  describe '#names_for_open_rides' do
+    it 'returns the names of all open rides being worked on' do
+      join_table = RideMechanic.where('mechanic_id = ?', @mech_1.id)
+
+      rides = join_table.map do |table|
+        Ride.current_rides(table)
+        end
+
+      open_rides = rides.map do |ride|
+        Ride.names_for_open_rides
+      end.uniq
+
+      expect(open_rides).to eq([['ThrillHouse', 'Thrillinator 500']])
+    end
+  end
 end
