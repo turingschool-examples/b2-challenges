@@ -1,0 +1,12 @@
+<h1>Mechanics</h1>
+
+<% @mechanics.each do |mechanic|%>
+<p>Name: <%= mechanic.name %></p>
+<p>Years Experience: <%= mechanic.years_experience %></p>
+<% end %>
+
+<% total = [] %>
+<% @mechanics.each do |mechanic|%>
+<% total << mechanic.years_experience%>
+<% end %>
+<p>Average Years Experience: <%= total.sum/total.length%></p>
