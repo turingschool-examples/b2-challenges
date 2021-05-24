@@ -13,3 +13,7 @@ end
 10.times do
   Ride.create(name: Faker::Superhero.name, thrill_rating: rand(1..5), open: Faker::Boolean.boolean)
 end
+
+10.times do
+  Mechanic.all.sample.rides << Ride.all.sample
+end
