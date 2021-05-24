@@ -25,4 +25,13 @@ RSpec.describe 'mechanics show page', type: :feature do
   it 'lists rides descending in order of thrill' do
     expect(@ride2.name).to appear_before(@ride1.name)
   end
+
+  it 'has a form to add a new ride to that mechanic taking ride id' do
+    expect(page).to have_content("Add a ride to workload:")
+    expect(page).to have_field(:ride_id)
+    expect(page).to have_button(:submit)
+  end
+
+  it 'shows the new ride on the mechanic show page upon submission'
+  it 'does not show rides added that are not open on show page'
 end
