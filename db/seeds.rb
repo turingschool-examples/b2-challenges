@@ -8,6 +8,7 @@
 
 Mechanic.destroy_all
 Ride.destroy_all
+RideMechanic.destroy_all
 
 
 @hurler = Ride.create!(name: 'The Hurler', rating: 7, open: true)
