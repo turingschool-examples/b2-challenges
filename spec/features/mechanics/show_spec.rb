@@ -49,4 +49,16 @@ RSpec.describe 'mechanic show page' do
 
     expect(page).to_not have_content 'Strawberry Fields'
   end
+
+  it 'can add a ride to mechanic workload' do
+    new_ride = Ride.create!(name: 'Scrambler', thrill_rating: 4, open: true)
+
+    visit "/mechanics/#{@jim.id}"
+
+    expect(page).to have_content 'Add a ride to workload:'
+    fill_in 'Ride Id', with: new_ride.id
+    click_on 'Submit'
+
+    expect(page).to have_content 'Scramber'
+  end
 end
