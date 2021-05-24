@@ -5,3 +5,10 @@
 <% @rides.each do |ride|%>
   Rides Working On: <%= ride.name %>,
 <% end %>
+
+<h2>Add Ride to Mechanic's Workload</h2>
+<%= form_with url: "/mechanics/#{@mechanic.id}", method: :get, local: true do |form| %>
+  <%= form.label :ride_id %>
+  <%= form.text_field :ride_id %>
+  <%= form.submit "Submit" %>
+<% end %>
