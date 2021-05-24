@@ -4,4 +4,5 @@
 <h2><%= mech.name %></h2>
 <h2><%= mech.open %></h2>
 <h2><%= mech.thrill_rating %></h2>
-<% end %>
+<% end %> <%=link_to "add ride", "/mechanics/#{@mechanic.id}/ride_mechanics/new"
+%>
