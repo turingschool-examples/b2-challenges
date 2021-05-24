@@ -26,5 +26,11 @@ RSpec.describe Ride, type: :model do
   end
 
   describe 'class methods' do
+    describe '#sort_by_thrill_filter_open' do
+      it 'sorts the rides by most thrills to least and only returns open rides' do
+
+        expect(Ride.sort_by_thrill_filter_open).to eq([@ride_4, @ride_1, @ride_2])
+      end
+    end
   end
 end
