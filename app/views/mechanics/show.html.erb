@@ -1,0 +1,21 @@
+<h1><%= @mechanic.name %></h1>
+
+<p>Experience: <%= @mechanic.years_experience %> years</p>
+
+<div>
+  <p>Currently working on:</p>
+  <ul>
+    <% @mechanic.open_rides_by_thrill_rating.each do |ride| %>
+      <li><%= ride.name %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div>
+  <h3>Add a ride to workload:</h3>
+  <%= form_with url: "/mechanics/#{@mechanic.id}", method: :get, local: true do |f| %>
+    <%= f.label :ride_id, 'Ride Id' %>
+    <%= f.text_field :ride_id, required: true %>
+    <%= f.submit 'Submit' %>
+  <% end %>
+</div>
