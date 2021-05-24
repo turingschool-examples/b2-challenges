@@ -2,7 +2,7 @@ class ParksController < ApplicationController
 
   def show
     @park = Park.find(params[:id])
-    @rides = @park.rides.order(:name)
-    @avg_thrill = @rides.average(:thrill_rating).round(2)
+    @rides = @park.rides.rides_by_name
+    @avg_thrill = @rides.avg_thrill
   end
 end
