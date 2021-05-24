@@ -1,5 +1,4 @@
 class Ride < ApplicationRecord
-  belongs_to :amusement_park
   belongs_to :mechanic
 
   def self.show_only_open

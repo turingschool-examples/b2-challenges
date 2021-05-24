@@ -36,10 +36,8 @@ ActiveRecord::Schema.define(version: 2021_05_24_174648) do
     t.integer "thrill_rating"
     t.boolean "open"
     t.bigint "mechanic_id"
-    t.bigint "amusement_park_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["amusement_park_id"], name: "index_rides_on_amusement_park_id"
     t.index ["mechanic_id"], name: "index_rides_on_mechanic_id"
   end
 

@@ -5,8 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+AmusementPark.destroy_all
 Mechanic.destroy_all
 Ride.destroy_all 
+
+yay_world = AmusementPark.create!(name: "Yay World", price: 18.99)
 
 mechanic_1 = Mechanic.create!(name: "Ryan", exp_in_years: 11)
 mechanic_2 = Mechanic.create!(name: "Bryan", exp_in_years: 5)
