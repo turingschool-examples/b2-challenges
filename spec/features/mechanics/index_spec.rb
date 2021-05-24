@@ -25,8 +25,7 @@ RSpec.describe 'mechanics index page' do
         expect(page).to have_content @mech.name
         expect(page).to have_content @mech2.years_experience
       end
-      expected_average = (3 + 15 + 7) / 3
-      expect(page).to have_content("Our mechanics have an average of #{expected_average} years of experience.")
+      expect(page).to have_content("Our mechanics have an average of #{Mechanic.all.avg_exp} years of experience.")
     end
   end
 
