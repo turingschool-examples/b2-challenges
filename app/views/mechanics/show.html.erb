@@ -10,3 +10,12 @@
     <% end %>
   </ul>
 </div>
+
+<div>
+  <h3>Add a ride to workload:</h3>
+  <%= form_with url: "/mechanics/#{@mechanic.id}", method: :get, local: true do |f| %>
+    <%= f.label :ride_id, 'Ride Id' %>
+    <%= f.text_field :ride_id, required: true %>
+    <%= f.submit 'Submit' %>
+  <% end %>
+</div>
