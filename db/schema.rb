@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 2021_04_05_154909) do
   create_table "mechanic_rides", force: :cascade do |t|
     t.bigint "mechanic_id"
     t.bigint "ride_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["mechanic_id"], name: "index_mechanic_rides_on_mechanic_id"
     t.index ["ride_id"], name: "index_mechanic_rides_on_ride_id"
   end
