@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe 'Mechanics index page' do
   describe 'display' do
     before :each do
-      @yay_world = AmusementPark.create!(name: "Yay World", price: 18.99)
+      @yay_world = AmusementPark.create!(name: "Yay World", price: 18)
       @mechanic_1 = @yay_world.mechanics.create!(name: "Ryan", exp_in_years: 11)
       @mechanic_2 = @yay_world.mechanics.create!(name: "Bryan", exp_in_years: 5)
     end
