@@ -14,7 +14,7 @@ describe 'Ride' do
         ambler = Ride.create!(name:'Ambler', open: true, thrill_rating: 7)
         bler = Ride.create!(name: 'Bler', open: true, thrill_rating: 8)
 
-        expected = Ride.display
+        expected = Ride.open_by_thrill
 
         expect(expected.include?(scrambler)).to eq false
         expect(expected).to eq ([bler, ambler, rambler])
