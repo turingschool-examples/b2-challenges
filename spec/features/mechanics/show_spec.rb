@@ -25,4 +25,8 @@ describe 'mechanics show page' do
   it 'displays the rides in descending order of thrill rating' do
     expect('Tim is working on: Ambler').to appear_before('Tim is working on: Rambler')
   end
+  it 'contains a form to add a ride to mechanics workload' do
+    expect(page).to have_content("Add a ride to Tim's workload")
+    expect(page).to have_field('Ride Id')
+  end
 end

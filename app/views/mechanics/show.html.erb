@@ -7,3 +7,6 @@
 <%= "Which has a thrill rating of #{ride.thrill_rating} " %>
 <%= "And is open? #{ride.open} " %>
 <% end %>
+<% form_with url: "mechanics/#{@mechanic.id}", method: :get, local: :true do |f| %>
+<%= f.label '' %>
+<% %>
