@@ -30,5 +30,27 @@ RSpec.describe Mechanic, type: :feature do
       expect(page).to_not have_content("Whiz Bang")
       expect(page).to_not have_content(8)
     end
+
+    it 'can add rides to the mechanic' do
+      mechanic = Mechanic.create!(name: 'Jim Bob', years_experience: 10)
+      ride_1 = Ride.create!(name: "Whip Around", thrill_rating: 6, open: true)
+      ride_2 = Ride.create!(name: "Whiz Bang", thrill_rating: 8, open: true)
+      ride_3 = Ride.create!(name: "Wowza!", thrill_rating: 9, open: true)
+
+      visit "mechanics/#{mechanic.id}"
+
+      expect(page).to_not have_content("whip Around")
+
+      fill_in 'ride_id', with: "#{ride_1.id}"
+      click_button "Add ride to workload"
+
+      expect(page).to have_content("Whip Around")
+
+      fill_in 'ride_id', with: "#{ride_2.id}"
+      click_button "Add ride to workload"
+
+      expect(page).to have_content("Whip Around")
+      expect(page).to have_content("Whiz Bang")
+    end
   end
 end

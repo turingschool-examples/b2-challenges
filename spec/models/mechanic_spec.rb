@@ -25,5 +25,33 @@ RSpec.describe Mechanic, type: :model do
         expect(mechanic.rides.sort_thrill.first).to eq(ride_3)
       end
     end
+
+    describe '#add_ride' do
+      it 'can add rides to the mechanic' do
+        mechanic = Mechanic.create!(name: 'Jim Bob', years_experience: 10)
+        ride_1 = Ride.create!(name: "Whip Around", thrill_rating: 6, open: true)
+        ride_2 = Ride.create!(name: "Whiz Bang", thrill_rating: 8, open: false)
+        ride_3 = Ride.create!(name: "Wowza!", thrill_rating: 9, open: true)
+
+        mechanic.add_ride(mechanic, ride_1)
+        expect(mechanic.rides.count).to eq(1)
+        mechanic.add_ride(mechanic, ride_2)
+        expect(mechanic.rides.count).to eq(2)
+      end
+
+      it 'wont add rides twice' do
+        mechanic = Mechanic.create!(name: 'Jim Bob', years_experience: 10)
+        ride_1 = Ride.create!(name: "Whip Around", thrill_rating: 6, open: true)
+        ride_2 = Ride.create!(name: "Whiz Bang", thrill_rating: 8, open: false)
+        ride_3 = Ride.create!(name: "Wowza!", thrill_rating: 9, open: true)
+
+        mechanic.add_ride(mechanic, ride_1)
+        expect(mechanic.rides.count).to eq(1)
+        mechanic.add_ride(mechanic, ride_2)
+        expect(mechanic.rides.count).to eq(2)
+        mechanic.add_ride(mechanic, ride_1)
+        expect(mechanic.rides.count).to eq(2)
+      end
+    end
   end
 end
