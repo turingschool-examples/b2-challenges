@@ -10,7 +10,6 @@ RSpec.describe 'Mechanics show page' do
       @viking = @mechanic_1.rides.create!(name: "The Viking", thrill_rating: 5, open: true)
       @teacups = @mechanic_1.rides.create!(name: "Spinning Teacup", thrill_rating: 3, open: true)
       @bouncy_house = @mechanic_1.rides.create!(name: "The Bouncy House", thrill_rating: 1, open: false)
-
     end
 
     it 'lists mechanic and their attributes' do
@@ -27,6 +26,7 @@ RSpec.describe 'Mechanics show page' do
       expect(page).to have_content(@hurler.name)
       expect(page).to have_content(@viking.name)
       expect(page).to have_content(@teacups.name)
+      expect(page).to_not have_content(@bouncy_house.name)
     end
   end
 end
