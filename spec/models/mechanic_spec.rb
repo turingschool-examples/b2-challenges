@@ -27,5 +27,11 @@ RSpec.describe Mechanic, type: :model do
   end
 
   describe 'class methods' do
+    describe '#average_experience' do
+      it 'returns the average of all years of experience' do
+
+        expect(Mechanic.average_experience).to eq(4)
+      end
+    end
   end
 end
