@@ -1,0 +1,2 @@
+class Maintenance < ActiveRecord
+end
