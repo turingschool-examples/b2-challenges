@@ -13,3 +13,11 @@
     </tr>
   <% end %>
 </table>
+
+<%= form_with url: '/mechanics', local: true, method: :post do |form| %>
+  <h3>Add a ride to workload:</h3>
+  <%= form.hidden_field :mechanic_id, value: @mechanic.id %>
+  <%= label :add_ride, :ride_id, 'Ride Id:' %>
+  <%= text_field :add_ride, :ride_id %>
+  <%= form.submit 'Add Ride to Workload' %>
+<% end %>
