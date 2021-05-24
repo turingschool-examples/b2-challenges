@@ -52,7 +52,6 @@ RSpec.describe 'mechanics show page', type: :feature do
     click_button 'Submit'
 
     expect(page).to_not have_content(@ride4.name)
-
   end
 
 end

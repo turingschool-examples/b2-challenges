@@ -17,7 +17,6 @@ RSpec.describe Ride, type: :model do
 
   describe 'class methods' do
     it '#open_rides_by_thrill returns a list of open rides sorted by thrill rating' do
-
       expect(Ride.open_rides_by_thrill).to eq([@ride2, @ride1])
       expect(@mechanic1.rides.open_rides_by_thrill).to eq([@ride2, @ride1])
     end
