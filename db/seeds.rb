@@ -15,6 +15,7 @@ RideMechanic.destroy_all
 @carousel = Ride.create!(name: 'Magical Carousel', rating: 1, open: false)
 @swings = Ride.create!(name: 'Wild Swings', rating: 5, open: true)
 @teacup = Ride.create!(name: 'Teacups', rating: 2, open: false)
+@chipmunk = Ride.create!(name: 'Wild Chipmunk', rating: 9, open: true)
 
 
 @jones = Mechanic.create!(name: 'Pat Jones', experience: 3)
@@ -25,3 +26,4 @@ RideMechanic.create!(ride: @carousel, mechanic: @jones)
 RideMechanic.create!(ride: @swings, mechanic: @jones)
 RideMechanic.create!(ride: @swings, mechanic: @smith)
 RideMechanic.create!(ride: @teacup, mechanic: @smith)
+RideMechanic.create!(ride: @chipmunk, mechanic: @smith)

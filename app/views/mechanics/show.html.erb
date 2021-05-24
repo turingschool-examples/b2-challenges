@@ -2,8 +2,11 @@
 <h3><%= @mechanic.experience %></h3><br/><br/>
 
 <p>Current Rides Working on: </p>
+
 <% @rides.each do |ride| %>
-  <h3><%= ride.name %></h3>
+  <section id="ride-<%= ride.id %>">
+    <h3><%= ride.name %></h3>
+  </section>
 <% end %>
 <br/><br/>
 
