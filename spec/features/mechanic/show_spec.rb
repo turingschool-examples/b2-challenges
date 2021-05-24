@@ -19,5 +19,11 @@ describe 'Mechanic show page' do
     otherotherthing = RideMechanic.create(mechanic: jim, ride: ride3)
 
     visit "/mechanics/#{jim.id}"
+    expect(page).to have_content('Jim Bob')
+    expect(page).to have_content(2)
+    expect(page).to have_content('slow, boring ride')
+    expect(page).to have_content('flying death trap')
+    expect(page).to have_content(1)
+    expect(page).to have_content(10)
   end
 end
