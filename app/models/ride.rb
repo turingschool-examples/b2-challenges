@@ -1,5 +1,5 @@
 class Ride < ApplicationRecord
-  belongs_to :mechanic
+  has_many :mechanics
 
   validates_presence_of :name, :thrill_rating, :open
 
