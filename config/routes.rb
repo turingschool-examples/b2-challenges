@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   get '/mechanics', to: 'mechanics#index'
   get '/mechanics/:id', to: 'mechanics#show'
 
-  get '/rides/new', to: 'rides#new'
-  post '/mechanics/:id', to: 'rides#create'
+  post '/mechanics/:mechanic_id/add_ride', to: 'ride_mechanics#create'
+  # get '/rides/new', to: 'rides#new'
+  # post '/mechanics/:id', to: 'rides#create'
 
 end

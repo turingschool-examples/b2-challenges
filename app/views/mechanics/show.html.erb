@@ -11,9 +11,9 @@
 <br/><br/>
 
 <p>Add a Ride to Workload:</p><br/>
-<%= form_with url: "/mechanics", method: :post, local: true do |form| %>
-  <%= form.label 'Ride Id:' %>
+<%= form_with url: "/mechanics/#{@mechanic.id}", method: :post, local: true do |form| %>
+  <%= form.label :ride_id %>
   <%= form.number_field :ride_id %><br/>
 
-  <%= form.submit 'Submit' %>
+  <%= form.submit 'Submit Ride to Mechanic' %>
 <% end %>
