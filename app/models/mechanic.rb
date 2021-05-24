@@ -9,5 +9,7 @@ class Mechanic < ApplicationRecord
   def self.average_experience
     # select(*).count(mechanics.id)
     # (@mechanics.sum {mechanic.experience}) / @mechanics.count
+    # average("experience").to_i
+    sum("experience")/self.count.to_i
   end
 end
