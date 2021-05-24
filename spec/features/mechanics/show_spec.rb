@@ -43,5 +43,15 @@ RSpec.describe 'mechanics show page', type: :feature do
   end
 
 
-  it 'does not show rides added that are not open on show page'
+  it 'does not show rides added that are not open on show page' do
+    @mechanic2 = Mechanic.create!(name: "Sally Fields", years_experience: 23)
+    @ride4 = @mechanic2.rides.create!(name: "Superman", thrill_rating: 8, open: false)
+
+    fill_in 'ride_id', with: @ride4.id
+    click_button 'Submit'
+
+    expect(page).to_not have_content(@ride4.name)
+
+  end
+
 end
