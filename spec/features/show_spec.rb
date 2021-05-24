@@ -30,6 +30,14 @@ RSpec.describe 'The show page for mechanics,' do
     expect(page).to have_selector('h3', text: "Years of Experience: #{@rich.years_experience}")
   end
 
+  describe 'add ride to workload,' do
+    it 'has a header'
+
+    it 'has a textfield to enter a ride id'
+
+    it 'navigates back to show page and shows the added ride to workload'
+  end
+
   describe 'current rides they are working on,' do
     it 'has a header' do
       within '#rides_list' do
