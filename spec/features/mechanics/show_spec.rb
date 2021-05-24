@@ -19,11 +19,24 @@ RSpec.describe 'mechanic show page', type: :feature do
   end
 
   context 'mechanics and rides' do
-    it 'can list mechanics and their rides' do
+    it 'can list a mechanic and their rides' do
       visit "/mechanics/#{@kassy.id}"
 
       expect(page).to have_content(@kassy.name)
       expect(page).to have_content(@kassy.years_experience)
+      expect(page).to have_content(@huller.name)
+      expect(page).to have_content(@carousel.name)
+      expect(page).to_not have_content(@teacups.name)
+    end
+
+    it 'can list another mechanic and their rides' do
+      visit "/mechanics/#{@katie.id}"
+
+      expect(page).to have_content(@katie.name)
+      expect(page).to have_content(@katie.years_experience)
+      expect(page).to have_content(@teacups.name)
+      expect(page).to have_content(@bungee.name)
+      expect(page).to_not have_content(@huller.name)
     end
   end
 end
