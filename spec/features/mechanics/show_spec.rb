@@ -37,9 +37,8 @@ RSpec.describe 'When I visit the mechanic show page' do
     bad_idea = mechanic_1.rides.create(name: 'Was A Bad Idea', thrill_rating: 10, open: true)
 
     visit "/mechanics/#{mechanic_1.id}"
-    expect(page).to have_content("Was A Bad Idea")
-    expect(page).to have_content("Hold On To Yer Butts")
-    expect(page).to have_content("Topsy Turvey")
-    #Find assertion for content order
+    expect("Was A Bad Idea").to appear_before("Hold On To Yer Butts")
+    expect("Hold On To Yer Butts").to appear_before("Topsy Turvey")
+    expect(page).to_not have_content("Whirly Doo")
   end
 end
