@@ -9,6 +9,7 @@ RSpec.describe 'The show page for mechanics,' do
     @ride_2 = Ride.create(name: Faker::Name.name, thrill_rating: 8, open:false)
     @ride_3 = Ride.create(name: Faker::Name.name, thrill_rating: 10, open:true)
     @ride_4 = Ride.create(name: Faker::Name.name, thrill_rating: 3, open:true)
+    @ride_5 = Ride.create(name: Faker::Name.name, thrill_rating: 11, open:true)
 
     @rich.rides << @ride_1 << @ride_2 << @ride_3 << @ride_4
   end
@@ -31,11 +32,30 @@ RSpec.describe 'The show page for mechanics,' do
   end
 
   describe 'add ride to workload,' do
-    it 'has a header'
+    it 'has a header' do
+      within 'form' do
+        expect(page).to have_selector('h3', text: 'Add a ride to workload:')
+      end
+    end
 
-    it 'has a textfield to enter a ride id'
+    it 'has a textfield to enter a ride id' do
+      within 'form' do
+        expect(page).to have_field('add_ride[ride_id]')
+      end
+    end
 
-    it 'navigates back to show page and shows the added ride to workload'
+    it 'navigates back to show page and shows the added ride to workload' do
+      within 'form' do
+        fill_in 'add_ride[ride_id]', with: @ride_5.id
+        click_button 'Add Ride to Workload'
+      end
+
+      current_path.should eq "/mechanics/#{@rich.id}"
+
+      within '#rides_list' do
+        expect(page).to have_selector("#ride_#{@ride_5.id}", text: @ride.name)
+      end
+    end
   end
 
   describe 'current rides they are working on,' do
