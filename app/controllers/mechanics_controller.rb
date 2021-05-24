@@ -8,8 +8,9 @@ class MechanicsController < ApplicationController
     @mechanic = Mechanic.find(params[:id])
     @working = @mechanic.rides_working_on
     if params[:new_ride_id]
-      new_ride = Ride.find(params[:ride_id])
-      MechanicRide.create!(mechanic: @mechanic, ride:new_ride)
+      new_ride = Ride.find(params[:new_ride_id])
+      MechanicRide.create!(mechanic: @mechanic, ride: new_ride)
+      @working = @mechanic.rides_working_on
     end
   end
 end

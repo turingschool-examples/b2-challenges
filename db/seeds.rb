@@ -17,6 +17,7 @@ Mechanic.create!(name:'Derek', experience:8)
 scrambler = Ride.create!(name:'Scrambler', open: false, thrill_rating: 5)
 rambler = Ride.create!(name:'Rambler', open: true, thrill_rating: 6)
 ambler = Ride.create!(name:'Ambler', open: true, thrill_rating: 7)
+loop = Ride.create!(name: 'Loop', open:true, thrill_rating: 10 )
 
 MechanicRide.create!(mechanic: tim, ride: scrambler)
 MechanicRide.create!(mechanic: tim, ride: rambler)
