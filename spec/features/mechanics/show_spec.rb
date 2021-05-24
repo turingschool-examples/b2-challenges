@@ -3,10 +3,11 @@ require 'rails_helper'
 RSpec.describe 'mechanics show page', type: :feature do
   before :each do
     @mechanic1 = Mechanic.create!(name: "Bob Jones", years_experience: 12)
+    @park = Park.create!(name: "Six Flags Great Adventure", admission_price: 49.99)
 
-    @ride1 = @mechanic1.rides.create!(name: "Teacups", thrill_rating: 3, open: true)
-    @ride2 = @mechanic1.rides.create!(name: "Twirl-a-whirl", thrill_rating: 7, open: true)
-    @ride3 = @mechanic1.rides.create!(name: "Skull Mountain", thrill_rating: 9, open: false)
+    @ride1 = @mechanic1.rides.create!(name: "Teacups", thrill_rating: 3, open: true, park_id: @park.id)
+    @ride2 = @mechanic1.rides.create!(name: "Twirl-a-whirl", thrill_rating: 7, open: true, park_id: @park.id)
+    @ride3 = @mechanic1.rides.create!(name: "Skull Mountain", thrill_rating: 9, open: false, park_id: @park.id)
 
     visit "/mechanics/#{@mechanic1.id}"
   end
@@ -34,7 +35,7 @@ RSpec.describe 'mechanics show page', type: :feature do
 
   it 'shows the new ride on the mechanic show page upon submission' do
     @mechanic2 = Mechanic.create!(name: "Sally Fields", years_experience: 23)
-    @ride4 = @mechanic2.rides.create!(name: "Medusa", thrill_rating: 9, open: true)
+    @ride4 = @mechanic2.rides.create!(name: "Medusa", thrill_rating: 9, open: true, park_id: @park.id)
 
     fill_in 'ride_id', with: @ride4.id
     click_button 'Submit'
@@ -45,7 +46,7 @@ RSpec.describe 'mechanics show page', type: :feature do
 
   it 'does not show rides added that are not open on show page' do
     @mechanic2 = Mechanic.create!(name: "Sally Fields", years_experience: 23)
-    @ride4 = @mechanic2.rides.create!(name: "Superman", thrill_rating: 8, open: false)
+    @ride4 = @mechanic2.rides.create!(name: "Superman", thrill_rating: 8, open: false, park_id: @park.id)
 
     fill_in 'ride_id', with: @ride4.id
     click_button 'Submit'
