@@ -1,0 +1,13 @@
+<html>
+<head>
+  <h1><%= @mechanic.name %>'s Page</h1>
+</head>
+
+<body style="font-size:20px">
+  <div>Years of experience: <%= @mechanic.years_experience %></div><br>
+
+  <% @mechanic.thrill_rating_order_on_open_rides.each do |open_ride| %>
+  <div><%= open_ride.name %> and thrill rating at <%= open_ride.thrill_rating %></div><br>
+  <% end %>
+</body>
+</html>
