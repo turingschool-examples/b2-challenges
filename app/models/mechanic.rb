@@ -9,7 +9,7 @@ class Mechanic < ApplicationRecord
     self.rides.where('open = true')
   end
 
-  def sorted_rides_thrill
-    self.rides.order('thrill_rating desc')
+  def sorted_open_rides_thrill
+    open_rides.order('thrill_rating desc')
   end
 end
