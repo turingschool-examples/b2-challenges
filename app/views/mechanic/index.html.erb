@@ -1,0 +1,11 @@
+<div class="columns small-12">
+  <h1>All Mechanics</h1>
+  <% @mechanics.each do |mech| %>
+    <p><%= mech.name %> | Years Experience: <%= mech.years_experience %></p>
+  <% end %>
+
+</div>
+
+<div class="columns small-12">
+  <p>Average Years Experience: <%= @avg_years_exp %></p>
+</div>
