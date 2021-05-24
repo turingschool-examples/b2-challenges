@@ -37,7 +37,7 @@ describe 'Mechanic show page' do
 # And I see the name of that newly added ride on this mechanics show page
 
   it 'has a link to a form to add a ride to mechanic. give ID of existing ride, back to mech show page, shows updated with new ride' do
-    jim = Mechanic.create(name:'Jim Bob', years_experience: 2)
+    jim = Mechanic.create(name:'Jim Bob', years_experience: 2) 
     ride1 = Ride.create(name:'death trap', thrill_rating: 7, open: false)
     ride2 = Ride.create(name:'slow, boring ride', thrill_rating: 1, open: true)
     ride3 = Ride.create(name:'flying death trap', thrill_rating: 10, open: true)
