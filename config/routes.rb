@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  get '/mechanics', to: 'mechanics#index'
-  get '/mechanics/:id', to: 'mechanic#show'
+  resources :mechanics
+  resources :rides
 end

@@ -26,10 +26,9 @@ RSpec.describe 'When I visit the mechanics index page' do
 
   it 'S1: I see average years experience of all mechanics' do
     mechanic_1 = Mechanic.create(name: 'Jeffrey Dee', years_experience: 7)
-    mechanic_2 = Mechanic.create(name: 'Johnny Bee', years_experience: 6)
-    mechanic_3 = Mechanic.create(name: 'Molly Lee', years_experience: 5)
+    mechanic_2 = Mechanic.create(name: 'Johnny Bee', years_experience: 13)
 
     visit "/mechanics"
-    expect(page).to have_content('Average Years Experience: ')
+    expect(page).to have_content('Average Years Experience: 10')
   end
 end
