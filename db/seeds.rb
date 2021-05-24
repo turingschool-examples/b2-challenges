@@ -5,6 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+# MechanicRide.destroy_all
+# Mechanic.destroy_all
+# Ride.destroy_all
 
 mechanic1 = Mechanic.create!(name: 'Kara', years_experience: 11)
 mechanic2 = Mechanic.create!(name: 'James', years_experience: 5)
@@ -13,4 +16,8 @@ mechanic2 = Mechanic.create!(name: 'James', years_experience: 5)
 ride1 = Ride.create!(name: 'Scrambler', thrill_rating: 5, open: false)
 ride2 = Ride.create!(name: 'Nitro', thrill_rating: 10, open: false)
 ride3 = Ride.create!(name: 'Zipper', thrill_rating: 3, open: true)
-ride4 = Ride.create!(name: 'El Toro', thrill_rating: 8, open: true)
+
+set1 = MechanicRide.create!(mechanic_id: 1, ride_id: 1)
+set2 = MechanicRide.create!(mechanic_id: 1, ride_id: 3)
+set3 = MechanicRide.create!(mechanic_id: 2, ride_id: 2)
+set4 = MechanicRide.create!(mechanic_id: 2, ride_id: 1)
