@@ -4,3 +4,9 @@
 <% @rides.each do |ride| %>
       <p><%= ride.name %></p>
   <% end %>
+
+<%= form_with url: "/mechanics/#{@mechanic.id}", method: :post, local: true do |form| %>
+  <%= form.label :name %><br/>
+  <%= form.text_field :name %><br/>
+  <%= form.submit 'Submit' %>
+<% end %>
