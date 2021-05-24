@@ -35,4 +35,22 @@ RSpec.describe 'the mechanics index' do
       expect(page).to_not have_content(@ride_2.name)
     end
   end
+  describe 'page functionality' do
+    describe 'assigning a ride' do
+      it 'should have a form that allows users to enter data to assign a ride' do
+        visit "/mechanics/#{@mechanic_2.id}"
+
+        expect(page).to have_content('Assign a Ride to Mechanic')
+        expect(page).to have_content('Please enter the ID of the ride below')
+      end
+      it 'should add a ride to the mechanics assignments when the user enters a ride id' do
+        visit "/mechanics/#{@mechanic_2.id}"
+
+        fill_in 'ride_id', with: "#{@ride_4.id}"
+        click_button('Assign Ride')
+
+        expect(page).to have_content('Tower of Doom')
+      end
+    end
+  end
 end

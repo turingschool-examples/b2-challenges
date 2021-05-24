@@ -14,10 +14,18 @@
     <td><%= @mechanic.years_experience %></td>
   </tr>
   <tr>
-    <td>Rides Working On</td>
+    <td>Assigned Rides</td>
     <td><ul><% @mechanic.rides_working_on.each do |ride| %>
       <li><%= ride.name %></li>
       <% end %></ul></td>
   </tr>
 </table>
     <br><br>
+
+<h3>Assign a Ride to Mechanic</h3>
+<p>Please enter the ID of the ride below</p>
+<%= form_with url: "/mechanics/#{@mechanic.id}", method: :get, local: true do |f| %>
+  <%= f.label :ride_id %>
+  <%= f.text_field :ride_id %>
+  <%= f.submit "Assign Ride" %>
+<% end %><br>
