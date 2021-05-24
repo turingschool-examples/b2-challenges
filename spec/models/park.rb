@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Mechanic, type: :model do
+RSpec.describe Park, type: :model do
   before (:each) do
     @park_1 = Park.create!(name: 'Elitches', admission_price: 20)
 
@@ -19,21 +19,13 @@ RSpec.describe Mechanic, type: :model do
     @mechanic_ride_4 = MechanicRide.create!(ride: @ride_4, mechanic: @mechanic_3)
   end
 
-
   describe 'relationships' do
-    it {should have_many :mechanic_rides}
-    it {should have_many(:rides).through(:mechanic_rides)}
+    it {should have_many :rides}
   end
 
   describe 'instance methods' do
   end
 
   describe 'class methods' do
-    describe '#average_experience' do
-      it 'returns the average of all years of experience' do
-
-        expect(Mechanic.average_experience).to eq(4)
-      end
-    end
   end
 end

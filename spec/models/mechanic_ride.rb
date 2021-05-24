@@ -2,10 +2,12 @@ require 'rails_helper'
 
 RSpec.describe MechanicRide, type: :model do
   before (:each) do
-    @ride_1 = Ride.create(name: 'Scrambler', thrill_rating: 8, open: true)
-    @ride_2 = Ride.create(name: 'Tea Cups', thrill_rating: 2, open: true)
-    @ride_3 = Ride.create(name: 'Log Ride', thrill_rating: 4, open: false)
-    @ride_4 = Ride.create(name: 'Tower of Doom', thrill_rating: 10, open: true)
+    @park_1 = Park.create!(name: 'Elitches', admission_price: 20)
+
+    @ride_1 = @park_1.rides.create(name: 'Scrambler', thrill_rating: 8, open: true)
+    @ride_2 = @park_1.rides.create(name: 'Tea Cups', thrill_rating: 2, open: true)
+    @ride_3 = @park_1.rides.create(name: 'Log Ride', thrill_rating: 4, open: false)
+    @ride_4 = @park_1.rides.create(name: 'Tower of Doom', thrill_rating: 10, open: true)
 
     @mechanic_1 = Mechanic.create!(name: "Suzie Q", years_experience: 2)
     @mechanic_2 = Mechanic.create!(name: "Jane Doe", years_experience: 4)
