@@ -7,7 +7,4 @@ Rails.application.routes.draw do
   get '/mechanics/:id', to: 'mechanics#show'
 
   post '/mechanics/:mechanic_id/add_ride', to: 'ride_mechanics#create'
-  # get '/rides/new', to: 'rides#new'
-  # post '/mechanics/:id', to: 'rides#create'
-
 end

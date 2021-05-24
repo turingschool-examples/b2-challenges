@@ -57,8 +57,11 @@ RSpec.describe 'Mechanic show page' do
   it 'has form to add a ride to the mechanics rides' do
     visit "/mechanics/#{@mechanic_1.id}"
 
-    expect(find('form')).to have_content('Ride id')
-    expect(page).to have_button("Submit Ride to Mechanic")
-      # click_on "Submit Ride to Mechanic"
+    expect(page).to_not have_content(@ride_5.name)
+    fill_in :ride_id, with: @ride_5.id
+    click_on "Submit Ride to Mechanic"
+
+    expect(current_path).to ep("/mechanics/#{@mechanic_1.id}")
+    expect(page).to have_content(@ride_5.name)
   end
 end
