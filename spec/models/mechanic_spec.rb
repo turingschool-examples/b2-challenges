@@ -1,6 +1,10 @@
 require 'rails_helper'
 
-describe 'Mechanic' do
+describe 'Mechanic', type: :model do
+  describe 'relationships' do
+    it{should have_many(:mechanic_rides)}
+    it{should have_many(:rides).through(:mechanic_rides)}
+  end
   describe 'class methods' do
     describe '.average_experience' do
       it 'calculates the average experience of mechanics' do
