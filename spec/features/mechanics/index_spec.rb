@@ -1,4 +1,4 @@
-
+require 'rails_helper'
 
 RSpec.describe 'mechanic index' do
   before(:each) do
@@ -11,5 +11,8 @@ RSpec.describe 'mechanic index' do
   it 'lists mechanics' do
     expect(page).to have_content(@mechanic_1.name)
     expect(page).to have_content(@mechanic_2.name)
+    expect(page).to have_content(@mechanic_1.years_experience)
+    expect(page).to have_content(@mechanic_2.years_experience)
+    expect(page).to have_content("Average Years Experience")
   end
 end
