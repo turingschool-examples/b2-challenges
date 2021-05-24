@@ -3,4 +3,6 @@ Rails.application.routes.draw do
 
   resources :mechanics, only: [:index, :show]
   patch '/mechanics/:mechanic_id', to: 'mechanics#add_ride'
+
+  resources :amusement_parks, only: [:show]
 end

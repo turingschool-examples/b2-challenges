@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe 'Mechanics show page' do
   describe 'display' do
     before :each do
-      @yay_world = AmusementPark.create!(name: "Yay World", price: 18.99)
+      @yay_world = AmusementPark.create!(name: "Yay World", price: 18)
       @mechanic_1 = @yay_world.mechanics.create!(name: "Ryan", exp_in_years: 11)
       @hurler = @mechanic_1.rides.create!(name: "The Hurler", thrill_rating: 7, open: true)
       @viking = @mechanic_1.rides.create!(name: "The Viking", thrill_rating: 2, open: true)
@@ -16,10 +16,10 @@ RSpec.describe 'Mechanics show page' do
     end
 
     it 'lists amusement park and its attributes' do
-      visit "/amusementpark/#{@yay_world.id}"
+      visit "/amusement_parks/#{@yay_world.id}"
       
       expect(page).to have_content("Yay World")
-      expect(page).to have_content("Price: 18.99")
+      expect(page).to have_content("Price: 18")
     end
   end
 end
