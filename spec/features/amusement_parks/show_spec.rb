@@ -27,7 +27,8 @@ RSpec.describe 'amusement park show page' do
   it 'can show the rides associated with the park alphabetically' do
     visit "/amusement_parks/#{@park.id}"
 
-    expect(page.all('ord')[0]).to eq("#{@ride_2.name}")    expect(page.all('ord')[1]).to eq("#{@ride_1.name}")
+    expect(page.all('ord')[0]).to eq("#{@ride_2.name}")
+    expect(page.all('ord')[1]).to eq("#{@ride_1.name}")
     expect(page.all('ord')[2]).to eq("#{@ride_3.name}")
     expect(page.all('ord')[3]).to eq("#{@ride_4.name}")
     expect(page.all('ord')[4]).to eq("#{@ride_5.name}")
