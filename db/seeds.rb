@@ -6,10 +6,24 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+MechanicRide.delete_all
+Ride.delete_all
+Mechanic.delete_all
+Park.delete_all
+
+park = Park.create! name: Faker::Color.color_name, price: 10.00
+
 5.times do
   Mechanic.create!(name: Faker::Name.name, years_experience: rand(0..21))
-  Ride.create!(name: Faker::Game.title, thrill_rating: rand(0..11), open: true)
+  r = Ride.new(name: Faker::Game.title, thrill_rating: rand(0..11), open: true)
+  r.park = park
+  r.save!
 end
 
-Ride.create!(name: Faker::Game.title, thrill_rating: rand(0..11), open: false)
-Ride.create!(name: Faker::Game.title, thrill_rating: rand(0..11), open: false)
+r = Ride.new(name: Faker::Game.title, thrill_rating: rand(0..11), open: false)
+r.park = park
+r.save!
+r = Ride.new(name: Faker::Game.title, thrill_rating: rand(0..11), open: false)
+r.park = park
+r.save!
+

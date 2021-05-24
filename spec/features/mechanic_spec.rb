@@ -7,9 +7,16 @@ RSpec.describe 'Mechanic Features' do
     @mech2 = Mechanic.create!(name: Faker::Name.name, years_experience: 10)
     @mech3 = Mechanic.create!(name: Faker::Name.name, years_experience: 15)
     @mechs = [@mech1, @mech2, @mech3]
-    @ride1 = Ride.create!(name: Faker::Game.title, thrill_rating: 1, open: true)
-    @ride2 = Ride.create!(name: Faker::Game.title, thrill_rating: 3, open: true)
-    @ride3 = Ride.create!(name: Faker::Game.title, thrill_rating: 2, open: false)
+    @park = Park.create! name: Faker::Color.color_name, price: 10.00
+    @ride1 = Ride.new(name: Faker::Game.title, thrill_rating: 1, open: true)
+    @ride1.park = @park
+    @ride1.save!
+    @ride2 = Ride.new(name: Faker::Game.title, thrill_rating: 3, open: true)
+    @ride2.park = @park
+    @ride2.save!
+    @ride3 = Ride.new(name: Faker::Game.title, thrill_rating: 2, open: false)
+    @ride3.park = @park
+    @ride3.save!
     @rides = [@ride1,@ride3,@ride3]
   end
 

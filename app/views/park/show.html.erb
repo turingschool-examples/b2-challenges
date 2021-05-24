@@ -1,0 +1,14 @@
+<div class="columns small-12">
+  <h1><%= @park.name %></h1>
+  <h4>Admission: <%= number_to_currency @park.price %></h4>
+</div>
+
+<div class="columns small-12">
+  <h4>Rides</h4>
+  <ul>
+    <% @rides.each do |r| %>
+      <ol><%= r.name %></ol>
+    <% end %>
+  </ul>
+  <p>Average Thrill Rating: <%= @rides.average(:thrill_rating).round(2) %></p>
+</div>
