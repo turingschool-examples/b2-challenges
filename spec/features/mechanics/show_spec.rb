@@ -50,8 +50,9 @@ RSpec.describe 'mechanic show page' do
   it 'has a form to add a ride' do
     visit "/mechanics/#{@mechanic_1.id}"
 
-    expect(page).to have_button('Add Ride')
-    expect(page).to have_content('Ride Id')
+    expect(page).to have_content("Add a ride to workload:")
+    expect(page).to have_button('Submit')
+    expect(page).to have_content('Ride Id:')
     expect(page).to have_css('#ride_id')
   end
 
@@ -59,17 +60,20 @@ RSpec.describe 'mechanic show page' do
     visit "/mechanics/#{@mechanic_1.id}"
 
     fill_in('Ride Id', with: "#{@ride_2.id}")
-    click_button('Add Ride')
+    click_button('Submit')
 
-    expect(current_path).to be("/mechanics/#{@mechanic_1.id}")
+    expect(current_path).to eq("/mechanics/#{@mechanic_1.id}")
     expect(page).to have_content("#{@ride_2.name}")
   end
 
   it 'still shows the updated rides in the correct order' do
     visit "/mechanics/#{@mechanic_1.id}"
 
-      expect(page.all('h3')[0]).to have_content("#{@ride_5.name}")
-      expect(page.all('h3')[1]).to have_content("#{@ride_1.name}")
-      expect(page.all('h3')[2]).to have_content("#{@ride_2.name}")
+    fill_in('Ride Id', with: "#{@ride_2.id}")
+    click_button('Submit')
+
+    expect(page.all('h3')[0]).to have_content("#{@ride_2.name}")
+    expect(page.all('h3')[1]).to have_content("#{@ride_5.name}")
+    expect(page.all('h3')[2]).to have_content("#{@ride_1.name}")
   end
 end
