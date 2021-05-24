@@ -9,7 +9,7 @@ RSpec.describe 'the mechanic show' do
     ride_3 = mechanic_1.rides.create!(name: 'Tower of Doom', thrill_rating: 20, open: false)
 
     visit "/mechanics/#{mechanic_1.id}"
-    # save_and_open_page
+    
     expect(page).to have_content(mechanic_1.name)
     expect(page).to have_content(mechanic_1.years_experience)
     expect(page).to have_content('Crazy Coaster')
