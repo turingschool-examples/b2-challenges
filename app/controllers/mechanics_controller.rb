@@ -15,7 +15,8 @@ class MechanicsController < ApplicationController
       end
 
     @open_rides = rides.map do |ride|
-      Ride.names_for_open_rides_ordered_by_thrill_desc
+      # Ride.names_for_open_rides_ordered_by_thrill_desc
+      ride.where('open = ?', true).order(thrill_rating: :desc).pluck(:name)
     end.uniq
 
     if params[:ride_id] != nil

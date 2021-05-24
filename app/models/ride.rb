@@ -10,6 +10,6 @@ class Ride < ApplicationRecord
   end
 
   def self.names_for_open_rides_ordered_by_thrill_desc
-    where('open = ?', true).order(thrill_rating: :desc).pluck(:name)
+    Ride.where('open = ?', true).order(thrill_rating: :desc).pluck(:name)
   end
 end
