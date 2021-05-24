@@ -1,7 +1,16 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+@mech_1 = Mechanic.create!(name: 'Roald', years_experience: 25)
+@mech_2 = Mechanic.create!(name: 'Larry', years_experience: 10)
+@mech_3 = Mechanic.create!(name: 'Samantha', years_experience: 30)
+
+@ride_1 = Ride.create!(name: 'ThrillHouse', thrill_rating: 4, open: true)
+@ride_2 = Ride.create!(name: 'Thrillinator 500', thrill_rating: 7, open: true)
+@ride_3 = Ride.create!(name: 'Merry-go-round', thrill_rating: 1, open: false)
+@ride_4 = Ride.create!(name: 'Scrambled Eggs', thrill_rating: 0, open: true)
+@ride_5 = Ride.create!(name: 'Log Flume', thrill_rating: 0, open: true)
+
+@r_m_1 = RideMechanic.create!(ride_id: @ride_1.id, mechanic_id: @mech_1.id)
+@r_m_2 = RideMechanic.create!(ride_id: @ride_2.id, mechanic_id: @mech_1.id)
+@r_m_3 = RideMechanic.create!(ride_id: @ride_2.id, mechanic_id: @mech_2.id)
+@r_m_4 = RideMechanic.create!(ride_id: @ride_2.id, mechanic_id: @mech_3.id)
+@r_m_5 = RideMechanic.create!(ride_id: @ride_3.id, mechanic_id: @mech_3.id)
+@r_m_5 = RideMechanic.create!(ride_id: @ride_1.id, mechanic_id: @mech_3.id)
