@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   get '/mechanics/:id', to:'mechanics#show'
   patch '/mechanics/:id', to:'mechanics#update'
 
+  get '/parks/:id', to:'parks#show'
 end
