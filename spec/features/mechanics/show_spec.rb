@@ -49,7 +49,7 @@ RSpec.describe 'Mechanics show page' do
       
       fill_in "Ride ID:", with: "#{@haunted_house.id}"
       click_on("Add New Ride")
-      save_and_open_page
+
       expect(page).to have_content(@haunted_house.name)
     end
   end

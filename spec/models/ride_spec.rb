@@ -31,7 +31,7 @@ RSpec.describe Ride, type: :model do
       expect(Ride.order_alphabetically).to eq([@teacups, @bouncy_house, @hurler, @viking])
     end
 
-    it '::average_thrill_rating' do
+    xit '::average_thrill_rating' do
       
       expect(Ride.average_thrill_rating).to eq(2.1)
     end
