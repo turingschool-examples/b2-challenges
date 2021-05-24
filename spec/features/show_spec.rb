@@ -53,7 +53,7 @@ RSpec.describe 'The show page for mechanics,' do
       current_path.should eq "/mechanics/#{@rich.id}"
 
       within '#rides_list' do
-        expect(page).to have_selector("#ride_#{@ride_5.id}", text: @ride.name)
+        expect(page).to have_selector("#ride_#{@ride_5.id}", text: @ride_5.name)
       end
     end
   end
