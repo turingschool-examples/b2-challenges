@@ -6,3 +6,11 @@
 <% @rides.each do |ride| %>
   <h3><%= ride.name %></h3>
 <% end %>
+
+<div>Add a ride to workload:</div>
+<%= form_with url: "/mechanics/#{@mechanic.id}", method: :create, local: true do |f| %>
+  <%= f.label :ride_id, 'Ride Id:' %>
+  <%= f.text_field :ride_id %>
+
+  <%= f.submit 'Submit' %>
+<% end %>

@@ -10,4 +10,12 @@ class MechanicsController < ApplicationController
     @rides = @mechanic.open_thrill
   end
 
+  def add_ride
+    mechanic = Mechanic.find(params[:id])
+    ride = Ride.find(params[:ride_id])
+    RideMechanic.create!(mechanic: mechanic, ride: ride)
+
+    redirect_to "/mechanics/#{params[:id]}"
+  end
+
 end

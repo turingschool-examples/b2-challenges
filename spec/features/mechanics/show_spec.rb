@@ -9,6 +9,7 @@ RSpec.describe 'the mechanic show' do
     expect(page).to have_content(mechanic_1.name)
     expect(page).to have_content(mechanic_1.years_experience)
   end
+
   it 'shows all the open rides the mechanic is working on by thrill rating' do
     mechanic_1 = Mechanic.create!(name: 'Tina', years_experience: 12)
     ride_1 = Ride.create!(name: 'Twister', thrill_rating: '8', open: 'false')
@@ -24,5 +25,20 @@ RSpec.describe 'the mechanic show' do
     expect(page).to have_content(ride_2.name)
     expect(page).to have_content(ride_3.name)
     expect(ride_3.name).to appear_before(ride_2.name)
+  end
+
+  it 'can add a ride to the mechanics worklist' do
+    mechanic_1 = Mechanic.create!(name: 'Tina', years_experience: 12)
+    ride_1 = Ride.create!(name: 'Twister', thrill_rating: '8', open: 'true')
+
+    visit "/mechanics/#{mechanic_1.id}"
+
+    expect(page).to_not have_content(ride_1.name)
+    expect(find('form')).to have_content('Ride Id:')
+    fill_in('Ride Id:', with: "#{ride_1.id}")
+    click_button('Submit')
+
+    expect(page).to have_current_path("/mechanics/#{mechanic_1.id}")
+    expect(page).to have_content(ride_1.name)
   end
 end

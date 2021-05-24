@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Mechanic.create!(name: 'Tina', years_experience: 12)
 Ride.create(name: 'Twister', thrill_rating: '8', open: 'false')
 Ride.create(name: 'Winder', thrill_rating: '2', open: 'true')
-Ride.create(name: 'Throttle', thrill_rating: '5', open: 'true'
+Ride.create(name: 'Throttle', thrill_rating: '5', open: 'true')
