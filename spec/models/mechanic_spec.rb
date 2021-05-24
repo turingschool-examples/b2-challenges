@@ -14,4 +14,6 @@ RSpec.describe Mechanic do
   it 'can find the average years of experience for all mechanics' do
     expect(Mechanic.average_years_experience).to eq(8)
   end
+
+  
 end

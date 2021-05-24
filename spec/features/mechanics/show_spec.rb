@@ -43,7 +43,7 @@ RSpec.describe 'mechanic show page' do
   it 'displays the names of the rides associated by most to least thrills' do
     visit "/mechanics/#{@mechanic_1.id}"
 
-      expect(page.all('<h3>')[0]).to have_content("#{@ride_5.name}")
-      expect(page.all('<h3>')[1]).to have_content("#{@ride_1.name}")
+      expect(page.all('h3')[0]).to have_content("#{@ride_5.name}")
+      expect(page.all('h3')[1]).to have_content("#{@ride_1.name}")
   end
 end
