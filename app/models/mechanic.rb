@@ -7,8 +7,7 @@ class Mechanic < ApplicationRecord
   end
 
   def rides_working_on
-    ride_ids = MechanicRides.where(mechanic: self.id).pluck(:ride_id)
-    rides = Ride.where(id: ride_id)
-    #keep working on this
+    ride_ids = MechanicRide.where(mechanic: self.id).pluck(:ride_id)
+    rides = Ride.sort_by_thrill_filter_open.where(id: ride_ids)
   end
 end

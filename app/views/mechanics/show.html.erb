@@ -1,0 +1,23 @@
+<h1><%= "#{@mechanic.name}'s employment details" %></h1>
+
+<table style='width:100%'>
+  <tr>
+    <th>Detail</th>
+    <th>Value</th>
+  </tr>
+  <tr>
+    <td>Name</td>
+    <td><%= @mechanic.name %></td>
+  </tr>
+  <tr>
+    <td>Years Experience</td>
+    <td><%= @mechanic.years_experience %></td>
+  </tr>
+  <tr>
+    <td>Rides Working On</td>
+    <td><ul><% @mechanic.rides_working_on.each do |ride| %>
+      <li><%= ride.name %></li>
+      <% end %></ul></td>
+  </tr>
+</table>
+    <br><br>
