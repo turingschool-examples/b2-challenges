@@ -1,0 +1,19 @@
+<h2><%= @mechanic.name %></h2>
+<h3><%= @mechanic.experience %></h3><br/><br/>
+
+<p>Current Rides Working on: </p>
+
+<% @rides.each do |ride| %>
+  <section id="ride-<%= ride.id %>">
+    <h3 class="ride"><%= ride.name %></h3>
+  </section>
+<% end %>
+<br/><br/>
+
+<p>Add a Ride to Workload:</p><br/>
+<%= form_with url: "/mechanics/#{@mechanic.id}/add_ride", method: :post, local: true do |form| %>
+  <%= form.label :ride_id %>
+  <%= form.number_field :ride_id %><br/>
+
+  <%= form.submit 'Submit Ride to Mechanic' %>
+<% end %>

@@ -10,6 +10,15 @@
   </head>
 
   <body>
+    <% flash.each do |type, msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
+  <section>
+    <p><%= link_to "HOME", "/" %></p>
+    <p><%= link_to "Index", "/mechanics" %></p>
+  </section>
     <%= yield %>
   </body>
 </html>
