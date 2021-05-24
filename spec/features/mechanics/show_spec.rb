@@ -30,7 +30,27 @@ RSpec.describe 'mechanic info page' do
       expect(page).not_to have_content @ride1.name
       expect(@ride2.name).to appear_before(@ride4.name)
     end
-
   end
 
+  describe 'add ride functionality' do
+    it 'can add a ride to mechanic queue' do
+      #Story 3 - Add a Ride to a Mechanic
+      #As a user,
+      #When I go to a mechanics show page
+      #I see a form to add a ride to their workload
+      #When I fill in that field with an id of an existing ride and hit submit
+      #I’m taken back to that mechanic's show page
+      #And I see the name of that newly added ride on this mechanics show page
+
+      #Add a ride to workload:
+      #Ride Id: _pretend_this_is_a_textfield_
+      #Submit
+      visit "/mechanics/#{@mech.id}"
+      expect(page).not_to have_content @ride3.name
+      fill_in "ride_id", with: @ride3.id
+      click_button 'Submit'
+      expect(current_path).to eq "/mechanics/#{@mech.id}"
+      expect(page).to have_content @ride3.name
+    end
+  end
 end
