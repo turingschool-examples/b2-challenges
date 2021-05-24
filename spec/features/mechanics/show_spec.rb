@@ -39,6 +39,9 @@ RSpec.describe 'Mechanic show page' do
     within("#ride-#{@ride_1.id}") do
       expect(page).to have_content(@ride_1.name)
     end
+
+    expect(page.all(".ride")[0].text).to eq(@ride_3.name)
+    expect(page.all(".ride")[1].text).to eq(@ride_1.name)
   end
 
   it 'does not lists the mechanics rides, that are closed' do
@@ -49,5 +52,11 @@ RSpec.describe 'Mechanic show page' do
   it 'does not lists another mechanics open rides' do
     visit "/mechanics/#{@mechanic_1.id}"
     expect(page).to_not have_content(@ride_5.name)
+  end
+
+  it 'has form to add a ride to the mechanics rides' do
+    visit "/mechanics/#{@mechanic_1.id}"
+
+
   end
 end
