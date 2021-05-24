@@ -1,0 +1,10 @@
+<div class="columns small-12">
+  <h1><%= @mechanic.name %></h1>
+  <p><%= @mechanic.years_experience %></p>
+</div>
+<div class="columns small-12">
+  <h4>Rides currently working on</h4>
+  <% @rides.each do |r| %>
+    <p><%= r.name %></p>
+  <% end %>
+</div>
