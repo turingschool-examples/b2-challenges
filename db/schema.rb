@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_24_154501) do
+ActiveRecord::Schema.define(version: 2021_05_24_164720) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,10 +24,8 @@ ActiveRecord::Schema.define(version: 2021_05_24_154501) do
 
   create_table "ride_mechanics", force: :cascade do |t|
     t.bigint "ride_id"
-    t.bigint "mechanics_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["mechanics_id"], name: "index_ride_mechanics_on_mechanics_id"
+    t.bigint "mechanic_id"
+    t.index ["mechanic_id"], name: "index_ride_mechanics_on_mechanic_id"
     t.index ["ride_id"], name: "index_ride_mechanics_on_ride_id"
   end
 
@@ -39,6 +37,6 @@ ActiveRecord::Schema.define(version: 2021_05_24_154501) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "ride_mechanics", "mechanics", column: "mechanics_id"
+  add_foreign_key "ride_mechanics", "mechanics"
   add_foreign_key "ride_mechanics", "rides"
 end
