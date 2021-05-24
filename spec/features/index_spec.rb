@@ -16,12 +16,12 @@ RSpec.describe 'The index page for mechanics,' do
   end
 
   it 'should have a header' do
-    expect(page).to have_selector('h2', with: 'All Mechanics')
+    expect(page).to have_selector('h2', text: 'All Mechanics')
   end
 
   it 'shows average years of experience across all mechanics' do
     within '#mechanics_section' do
-      expect(page).to have_selector('h3', with: "Average Years Experience for all: #{Mechanic.average_experience}")
+      expect(page).to have_selector('h3', text: "Average Years Experience for all: #{Mechanic.average_experience}")
     end
   end
 
