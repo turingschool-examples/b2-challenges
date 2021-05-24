@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'MechanicRides model' do
+RSpec.describe RideMechanic do
 
   describe 'relationships' do
     it {should belong_to :ride}
