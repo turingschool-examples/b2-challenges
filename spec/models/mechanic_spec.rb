@@ -2,6 +2,10 @@
 require 'rails_helper'
 
 RSpec.describe Mechanic, type: :model do
+  describe 'relationships' do
+    it {should have_many :rides}
+  end
+  
   describe 'class methods' do
     it '::exp_in_years_average' do
       mechanic_1 = Mechanic.create!(name: "Ryan", exp_in_years: 11)
