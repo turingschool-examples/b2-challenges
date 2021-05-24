@@ -7,7 +7,8 @@ RSpec.describe Ride, type: :model do
   end
 
   before :each do
-    @mechanic_1 = Mechanic.create!(name: "Ryan", exp_in_years: 11)
+    @yay_world = AmusementPark.create!(name: "Yay World", price: 18.99)
+    @mechanic_1 = @yay_world.mechanics.create!(name: "Ryan", exp_in_years: 11)
     @hurler = @mechanic_1.rides.create!(name: "The Hurler", thrill_rating: 7, open: true)
     @viking = @mechanic_1.rides.create!(name: "The Viking", thrill_rating: 2, open: true)
     @teacups = @mechanic_1.rides.create!(name: "Spinning Teacup", thrill_rating: 3, open: true)
