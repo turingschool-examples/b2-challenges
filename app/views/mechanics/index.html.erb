@@ -2,7 +2,7 @@
 
 <% @mechanics.each do |mechanic| %>
   <div id="mechanic-<%= mechanic.id %>">
-    <h3><%= mechanic.name %></h3>
+    <h3><a href="/mechanics/<%= mechanic.id %>"><%= mechanic.name %></a></h3>
     <p>Experience: <%= mechanic.years_experience %> years</p>
   </div>
 <% end %>
