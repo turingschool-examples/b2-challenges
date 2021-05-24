@@ -18,8 +18,8 @@ RSpec.describe 'the mechanic show' do
     expect(page).to_not have_content('Tower of Doom')
     expect('Crazy Coaster').to appear_before('Kiddy Carts')
   end
-  #need to change from one to many to many to many
-  xit 'adds a ride to the mechanic' do
+  
+  it 'adds a ride to the mechanic' do
     mechanic_1 = Mechanic.create!(name: 'Fix it Felix Jr.', years_experience: 20)
     ride_1 = Ride.create!(name: 'Crazy Coaster', thrill_rating: 10, open: true)
 
