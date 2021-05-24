@@ -1,0 +1,7 @@
+<h1><%=@park.name%></h1>
+<h1><%=@park.price%></h1>
+<% @park.rides.sort_alpha.each do |ride| %>
+<p><%=ride.name%></p>
+<p><%=ride.thrill_rating%></p>
+<%end%>
+<p><%=@park.rides.average_thrill%></p>

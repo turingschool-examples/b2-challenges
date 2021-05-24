@@ -10,4 +10,12 @@ class Ride < ApplicationRecord
   def self.sort_by_thrill
     order(thrill_rating: :desc )
   end
+
+  def self.sort_alpha
+    order(name: :asc)
+  end
+
+  def self.average_thrill
+    average(:thrill_rating)
+  end
 end
