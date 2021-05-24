@@ -15,7 +15,7 @@ class MechanicsController < ApplicationController
       end
 
     @open_rides = rides.map do |ride|
-      Ride.names_for_open_rides
+      Ride.names_for_open_rides_ordered_by_thrill_desc
     end.uniq
   end
 end

@@ -51,10 +51,10 @@ RSpec.describe Ride do
         end
 
       open_rides = rides.map do |ride|
-        Ride.names_for_open_rides
+        Ride.names_for_open_rides_ordered_by_thrill_desc
       end.uniq
 
-      expect(open_rides).to eq([['ThrillHouse', 'Thrillinator 500']])
+      expect(open_rides).to eq([['Thrillinator 500', 'ThrillHouse']])
     end
   end
 end

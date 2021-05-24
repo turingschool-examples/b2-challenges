@@ -34,8 +34,8 @@ RSpec.describe 'Mechanic Show Page' do
     expect(page).to_not have_content(@ride_3.name)
   end
 
-  xit 'shows rides listed by thrill rating in descending order' do
+  it 'shows rides listed by thrill rating in descending order' do
 
-    expect(page).to have_content('First')
+    expect('Thrillinator 500').to appear_before('ThrillHouse')
   end
 end

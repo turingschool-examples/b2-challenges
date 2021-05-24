@@ -9,7 +9,7 @@ class Ride < ApplicationRecord
     where('id = ?', block_variable.ride_id)
   end
 
-  def self.names_for_open_rides
-    where('open = ?', true).pluck(:name)
+  def self.names_for_open_rides_ordered_by_thrill_desc
+    where('open = ?', true).order(thrill_rating: :desc).pluck(:name)
   end
 end
