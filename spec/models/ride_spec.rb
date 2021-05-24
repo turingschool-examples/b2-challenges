@@ -1,4 +1,3 @@
-# spec/models/ride.rb
 
 require "rails_helper"
 

@@ -1,4 +1,3 @@
-# spec/models/mechanic.rb
 
 require "rails_helper"
 
