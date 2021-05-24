@@ -10,4 +10,8 @@ class Ride < ApplicationRecord
   def self.open_only
     where(open: true)
   end
+
+  def self.by_name
+    order(Arel.sql('lower(name)'))
+  end 
 end

@@ -22,6 +22,12 @@ RSpec.describe Ride do
       end
     end
 
+    describe '::by_name' do
+      it 'returns rides ordered by name, alphabetically' do
+        expect(Ride.by_name).to eq [@strawberry, @swings, @tea_cups, @tot]
+      end
+    end
+
     describe '::open_only' do
       it 'returns only the open rides' do
         expect(Ride.open_only).to include @tot

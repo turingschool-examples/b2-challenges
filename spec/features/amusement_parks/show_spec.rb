@@ -31,7 +31,13 @@ RSpec.describe 'amusement park show' do
     expect(page).to have_content 'Admissions: $50.00'
   end
 
-  it 'displays the names of all of the rides in alphabetical order'
+  it 'displays the names of all of the rides in alphabetical order' do
+    visit "/amusement_parks/#{@hershey.id}"
+
+    expect(@strawberry.name).to appear_before(@swings.name)
+    expect(@swings.name).to appear_before(@tea_cups.name)
+    expect(@tea_cups.name).to appear_before(@tot.name)
+  end
 
   it 'displays the average thrill rating of this parks rides'
 end
