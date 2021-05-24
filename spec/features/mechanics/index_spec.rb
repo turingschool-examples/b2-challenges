@@ -5,7 +5,7 @@ RSpec.describe 'mechanics index page', type: :feature do
     @mechanic1 = Mechanic.create!( name:"Joe Meek",
                                    years_experience: 10,
                                   )
-    @mechanic2 = FlowerShop.create!( name:"Sara Fix",
+    @mechanic2 = Mechanic.create!( name:"Sara Fix",
                                      years_experience: 6,
                                   )
   end
