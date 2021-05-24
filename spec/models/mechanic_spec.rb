@@ -21,12 +21,27 @@ RSpec.describe Mechanic, type: :model do
   end
 
   describe 'instance method,' do
-    describe '#rides_by_thrill_rating_desc' do
-      it 'returns the list of rides the mechanic is working on'
+    describe '#rides_working_on' do
+      before :all do
+        @rich = Mechanic.create(name: 'Rich', years_experience: 12)
 
-      it 'returns the list in descending order by thrill rating'
+        @ride_1 = Ride.create(name: Faker::Name.name, thrill_rating: 5, open:true)
+        @ride_2 = Ride.create(name: Faker::Name.name, thrill_rating: 8, open:false)
+        @ride_3 = Ride.create(name: Faker::Name.name, thrill_rating: 10, open:true)
+        @ride_4 = Ride.create(name: Faker::Name.name, thrill_rating: 3, open:true)
 
-      it 'returns the list with rides that are open'
+        @rich.rides << @ride_1 << @ride_2 << @ride_3 << @ride_4
+      end
+
+      after :all do
+        Mechanic.destroy_all
+        Ride.destroy_all
+      end
+
+      it 'returns the list of rides the mechanic is working on' do
+        expected_rides = [@ride_3, @ride_1, @ride_4]
+        expect(@rich.rides_working_on).to eq expected_rides
+      end
     end
   end
 end

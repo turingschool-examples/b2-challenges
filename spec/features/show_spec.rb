@@ -38,7 +38,7 @@ RSpec.describe 'The show page for mechanics,' do
     end
 
     it 'shows rides this mechanic is working on' do
-      @rich.rides_by_thrill_rating_desc.each do |ride|
+      @rich.rides_working_on.each do |ride|
         within "#ride_#{ride.id}" do
           expect(page).to have_content(ride.name)
         end
