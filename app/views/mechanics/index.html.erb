@@ -13,8 +13,8 @@
     </tr>
     <% @mechanics.each do |mechanic| %>
       <tr id='mechanic_<%=mechanic.id%>'>
-        <td><%=mechanic.name%></td>
-        <td><%=mechanic.years_experience%></td>
+        <td><%= link_to mechanic.name, "/mechanics/#{mechanic.id}" %></td>
+        <td><%= mechanic.years_experience %></td>
       </tr>
     <% end %>
   </table>
