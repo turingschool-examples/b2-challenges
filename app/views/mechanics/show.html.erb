@@ -6,6 +6,16 @@
 <body style="font-size:20px">
   <div>Years of experience: <%= @mechanic.years_experience %></div><br>
 
+  <section>
+    <%= form_with url: "/mechanics/#{@mechanic.id}", method: :patch, local: true do |f| %>
+      <div><%= f.label :id, 'Ride ID:' %> <%= f.text_field :id %></div><br>
+      <div><%= f.label :name, 'Name:' %> <%= f.text_field :name %></div><br>
+      <div><%= f.label :thrill_rating, 'Thrill Rating (1-10):' %> <%= f.number_field :thrill_rating %></div><br>
+      <div><%= f.label :open, 'Open? (true or false):' %> <%= f.text_field :open %></div><br>
+      <div><%= f.submit "Submit" %></div>
+    <% end %>
+  </section><br>
+
   <% @mechanic.thrill_rating_order_on_open_rides.each do |open_ride| %>
   <div><%= open_ride.name %> and thrill rating at <%= open_ride.thrill_rating %></div><br>
   <% end %>

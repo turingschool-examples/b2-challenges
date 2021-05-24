@@ -14,6 +14,7 @@ RSpec.describe 'Mechanic Show Page' do
 
     expect(page).to have_content(@ride_1.name)
     expect(page).to have_content(@ride_2.name)
+    expect(page).to_not have_content(@ride_3.name)
     expect(page).to have_content(@ride_4.name)
   end
 
@@ -23,6 +24,19 @@ RSpec.describe 'Mechanic Show Page' do
     expect(@ride_4.name).to appear_before(@ride_2.name)
     expect(@ride_4.name).to appear_before(@ride_1.name)
     expect(@ride_2.name).to appear_before(@ride_1.name)
+  end
+
+  it 'can create a new workload for mechanic' do
+    visit "/mechanics/#{@mechanic_1.id}"
+
+    fill_in('Ride ID:', with: 5)
+    fill_in('Name:', with: 'The Frog Hopper')
+    fill_in('Thrill Rating (1-10):', with: 3)
+    fill_in('Open? (true or false)', with: true)
+    click_button('Submit')
+
+    expect(current_path).to eq("/mechanics/#{@mechanic_1.id}")
+    expect(page).to have_content('The Frog Hopper and thrill rating at 3')
   end
 
 end
