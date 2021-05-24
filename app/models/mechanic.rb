@@ -6,7 +6,4 @@ class Mechanic < ApplicationRecord
     average(:years_experience)
   end
 
-  def self.is_open?
-    self.rides.where("open = true")
-  end
 end

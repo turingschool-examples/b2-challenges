@@ -21,6 +21,7 @@ RSpec.describe Mechanic do
       expect(page).to have_content(ride_1.name)
 
       visit "/mechanics/#{mechanic_2.id}"
+      
       expect(page).to have_content(mechanic_2.name)
       expect(page).to have_content(mechanic_2.years_experience)
       expect(page).to have_content(ride_2.name)

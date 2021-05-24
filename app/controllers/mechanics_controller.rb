@@ -5,10 +5,6 @@ class MechanicsController < ApplicationController
 
   def show
     @mechanic = Mechanic.find(params[:id])
-    @ride = @mechanic.rides
-    binding.pry
-    if params[:is_open?]
-      @ride.name
-    end
+    @rides = @mechanic.rides.where("open = true")
   end
 end
