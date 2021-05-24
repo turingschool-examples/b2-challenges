@@ -42,7 +42,7 @@ describe Mechanic, type: :model do
 
     describe '#added_rides' do
       it "add rides to mechanic" do
-        expect(@steve.added_rides(@ride7)).to eq([@ride1, @ride2, @ride3, @ride7])
+        expect(@steve.added_rides(@ride7.id)).to eq([@ride7, @ride2, @ride1])
       end
     end
   end
