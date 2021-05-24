@@ -18,8 +18,6 @@ ActiveRecord::Schema.define(version: 2021_05_24_154048) do
   create_table "mechanics", force: :cascade do |t|
     t.string "name"
     t.integer "years_experience"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "ride_mechanics", force: :cascade do |t|
@@ -31,10 +29,8 @@ ActiveRecord::Schema.define(version: 2021_05_24_154048) do
 
   create_table "rides", force: :cascade do |t|
     t.string "name"
-    t.integer "thrill_rateing"
+    t.integer "thrill_rating"
     t.boolean "open"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "ride_mechanics", "mechanics"

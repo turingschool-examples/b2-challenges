@@ -7,6 +7,7 @@ class MechanicsController < ApplicationController
 
   def show
     @mechanic = Mechanic.find(params[:id])
+    @rides = @mechanic.open_thrill
   end
 
 end
