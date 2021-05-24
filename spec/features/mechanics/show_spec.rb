@@ -29,7 +29,7 @@ RSpec.describe 'Mechanic Show Page' do
     expect(page).to_not have_content(@ride_4.name)
   end
 
-  xit 'Only shows open rides' do
+  it 'Only shows open rides' do
 
     expect(page).to_not have_content(@ride_3.name)
   end

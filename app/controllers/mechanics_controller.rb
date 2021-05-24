@@ -10,8 +10,12 @@ class MechanicsController < ApplicationController
 
     join_table = RideMechanic.where('mechanic_id = ?', @mechanic.id)
 
-    @rides = join_table.map do |table|
-      Ride.ride_names_for_rides_worked_on(table)
-    end
+    rides = join_table.map do |table|
+      Ride.current_rides(table)
+      end
+
+    @open_rides = rides.map do |ride|
+      Ride.names_for_open_rides
+    end.uniq
   end
 end

@@ -5,7 +5,11 @@ class Ride < ApplicationRecord
   validates :open, inclusion: [true, false]
   validates :open, exclusion: [nil]
 
-  def self.ride_names_for_rides_worked_on(block_variable)
-    where('id = ?', block_variable.ride_id).pluck(:name)
+  def self.current_rides(block_variable)
+    where('id = ?', block_variable.ride_id)
+  end
+
+  def self.names_for_open_rides
+    where('open = ?', true).pluck(:name)
   end
 end

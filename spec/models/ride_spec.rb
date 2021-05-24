@@ -30,15 +30,15 @@ RSpec.describe Ride do
     it {should have_many(:mechanics).through(:ride_mechanics)}
   end
 
-  describe '#ride_names_for_rides_worked_on' do
-    it 'returns the names of all rides a mechanic works on' do
+  describe '#current_rides' do
+    xit 'displays the instances of the current rides being worked on' do
       join_table = RideMechanic.where('mechanic_id = ?', @mech_1.id)
 
       rides = join_table.map do |table|
-        Ride.ride_names_for_rides_worked_on(table)
+        Ride.current_rides(table)
       end
 
-      expect(rides).to eq([['ThrillHouse'], ['Thrillinator 500']])
+      expect(rides).to eq([@ride_1])
     end
   end
 end
