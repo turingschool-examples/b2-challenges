@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-describe 'Ride' do
+describe Ride do
   describe 'relationships' do
-    xit {should have_many(:mechanic_rides)}
-    xit {should have_many(:mechanics).through(:mechanic_rides) }
+    it {should have_many(:mechanic_rides)}
+    it {should have_many(:mechanics).through(:mechanic_rides) }
   end
 
   describe 'class methods' do
