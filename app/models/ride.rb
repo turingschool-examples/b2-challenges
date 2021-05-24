@@ -1,5 +1,5 @@
 class Ride < ApplicationRecord
-  belongs_to :mechanic, optional: true #is this ok?
+  has_and_belongs_to_many :mechanic
 
   default_scope {order(thrill_rating: :desc)}
 
