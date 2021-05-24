@@ -12,7 +12,6 @@ RSpec.describe Ride, type: :model do
     @ride_3 = Ride.create!(name: 'Wild Swings', rating: 5, open: true)
     @ride_4 = Ride.create!(name: 'Teacups', rating: 2, open: false)
 
-
     @mechanic_1 = Mechanic.create!(name: 'Pat Jones', experience: 3)
     @mechanic_2 = Mechanic.create!(name: 'Jaime Smith', experience: 5)
 
@@ -26,7 +25,13 @@ RSpec.describe Ride, type: :model do
   describe 'class methods' do
     describe '#only_open' do
       it 'returns only the open rides' do
-        expect(Ride.only_open).to eq(4)
+        expect(Ride.only_open).to eq([@ride_1, @ride_3])
+      end
+    end
+
+    describe '#thrillers_first' do
+      it 'returns rides in descending thrill rating' do
+        expect(Ride.thrillers_first).to eq([@ride_1, @ride_3, @ride_4, @ride_2])
       end
     end
   end
