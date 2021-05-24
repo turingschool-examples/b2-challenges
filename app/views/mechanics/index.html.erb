@@ -1,0 +1,15 @@
+<h1>All Mechanics</h1>
+
+<table style='width:100%'>
+  <tr>
+    <th>Name</th>
+    <th>Years of Experience</th>
+  </tr>
+    <% @mechanics.each do |mechanic| %>
+      <tr>
+      <td><%= mechanic.name %></td>
+      <td><%= mechanic.years_experience %></td>
+      </tr>
+      <% end %>
+</table>
+    <br><br>
