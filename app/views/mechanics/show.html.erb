@@ -1,0 +1,7 @@
+<h2><%= @mechanic.name %></h2>
+<h2><%= @mechanic.years_experience %></h2>
+<% @mechanic.rides.open.sort_by_thrill.each do |mech| %>
+<h2><%= mech.name %></h2>
+<h2><%= mech.open %></h2>
+<h2><%= mech.thrill_rating %></h2>
+<% end %>

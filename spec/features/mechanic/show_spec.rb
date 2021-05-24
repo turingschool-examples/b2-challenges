@@ -25,5 +25,7 @@ describe 'Mechanic show page' do
     expect(page).to have_content('flying death trap')
     expect(page).to have_content(1)
     expect(page).to have_content(10)
+    expect(page).to_not have_content(7)
+    expect(page.text.index(ride3.name)).to be < page.text.index(ride2.name)
   end
 end

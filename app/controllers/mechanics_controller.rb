@@ -3,6 +3,6 @@ class MechanicsController < ApplicationController
     @mechanics = Mechanic.all
   end
   def show
-    
+    @mechanic = Mechanic.find(params[:id])
   end
 end
