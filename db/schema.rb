@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_24_162626) do
+ActiveRecord::Schema.define(version: 2021_05_24_171359) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,9 @@ ActiveRecord::Schema.define(version: 2021_05_24_162626) do
     t.string "name"
     t.integer "thrill_rating"
     t.boolean "open"
+    t.bigint "mechanics_id"
+    t.index ["mechanics_id"], name: "index_rides_on_mechanics_id"
   end
 
+  add_foreign_key "mechanics", "rides", column: "rides_id"
 end
