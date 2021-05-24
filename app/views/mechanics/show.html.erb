@@ -1,7 +1,17 @@
 <h1>Mechanic</h1>
 
 <h2><%= @mechanic.name %>: </h2>
-<ul>
   <p>Years of Experience: <%= @mechanic.years_experience %></p>
-  <p>Rides working on: <%= @mechanic.rides.name %></p>
-</ul>
+  <p>Rides working on: </p>
+  <% @mechanic_rides.each do |ride| %>
+  <ul>
+  <p><%= ride.name %></p>
+  </ul>
+<% end %><br/>
+
+<p>Add a ride to workload: </p>
+<%= form_with url: mechanic_path(@mechanic), method: :get, local: true do |f| %>
+  <%= f.label :search, "Ride Id:" %>
+  <%= f.text_field :search %>
+  <%= f.submit 'Submit' %>
+<% end %>

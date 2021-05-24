@@ -6,5 +6,11 @@ class MechanicsController < ApplicationController
 
   def show
     @mechanic = Mechanic.find(params[:id])
+
+    if params[:search]
+      @mechanic_rides = @mechanic.added_rides(params[:search])
+    else
+      @mechanic_rides = @mechanic.open_rides_by_thrill_rating
+    end
   end
 end
