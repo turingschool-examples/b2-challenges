@@ -28,9 +28,21 @@ RSpec.describe 'Mechanic Features' do
     visit "mechanics/#{@mech1.id}"
     expect(page).to have_content @mech1.name
     expect(page).to have_content @mech1.years_experience
-    expect(page).to have_content @ride1.name
-    expect(page).to have_content @ride2.name
-    expect(page).to have_no_content @ride3.name
-    expect(@ride2.name).to appear_before(@ride1.name)
+    within '#rides' do
+      expect(page).to have_content @ride1.name
+      expect(page).to have_content @ride2.name
+      expect(page).to have_no_content @ride3.name
+      expect(@ride2.name).to appear_before(@ride1.name)
+    end
+  end
+
+  it 'should add ride to mechanic' do
+    visit "/mechanics/#{@mech1.id}"
+    expect(page).to have_select('ride', :options => [@ride1.name,@ride2.name,@ride3.name])
+    click_on 'commit'
+    expect(page).to have_current_path "/mechanics/#{@mech1.id}"
+    within '#rides' do
+      expect(page).to have_content @ride1.name
+    end
   end
 end

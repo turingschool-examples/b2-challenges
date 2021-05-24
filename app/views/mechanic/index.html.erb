@@ -1,7 +1,7 @@
 <div class="columns small-12">
   <h1>All Mechanics</h1>
   <% @mechanics.each do |mech| %>
-    <p><%= mech.name %> | Years Experience: <%= mech.years_experience %></p>
+    <p><%= link_to mech.name, mechanic_show_path(mech) %> | Years Experience: <%= mech.years_experience %></p>
   <% end %>
 
 </div>

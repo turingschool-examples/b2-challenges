@@ -2,9 +2,15 @@
   <h1><%= @mechanic.name %></h1>
   <p><%= @mechanic.years_experience %></p>
 </div>
-<div class="columns small-12">
+
+<%= form_with url: "/mechanics/#{@mechanic.id}/add_ride", method: :post, local: true do |f| %>
+  <%= f.select :ride, @other_rides.map{|r| [r.name, r.id]}%>
+  <%= f.submit %>
+<% end %>
+
+<div class="columns small-12" id="rides">
   <h4>Rides currently working on</h4>
   <% @rides.each do |r| %>
-    <p><%= r.name %></p>
+    <p><%= r.name %> | Thrill Rating: <%= r.thrill_rating %></p>
   <% end %>
 </div>
