@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'mechanic index page' do
+RSpec.describe 'mechanic index page', type: :feature do
   before :each do
     @kassy = Mechanic.create!(name: "Kassy Cooper", years_experience: 10)
     @james = Mechanic.create!(name: "James White", years_experience: 21)

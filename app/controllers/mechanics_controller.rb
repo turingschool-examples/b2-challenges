@@ -3,7 +3,12 @@ class MechanicsController < ApplicationController
     @mechanics = Mechanic.all
   end
 
-  # def create
-  #
-  # end
+  def show
+    @mechanic = Mechanic.find(params[:id])
+  end
+
+  private
+    def mech_params
+      params.permit(:name, :years_experience)
+    end
 end
