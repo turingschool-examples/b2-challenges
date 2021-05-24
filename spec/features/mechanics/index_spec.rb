@@ -20,7 +20,7 @@ RSpec.describe 'Mechanic index page', type: :feature do
   end
 
   it 'shows average years of experience across all mechanics' do
-    expect(page).to have_content("Average years experience: 13")
+    expect(page).to have_content("Average years experience: 13.0")
   end
 
 end
