@@ -3,10 +3,10 @@ require 'rails_helper'
 RSpec.describe 'mechanics index page', type: :feature do
     before :each do
     @mechanic1 = Mechanic.create!( name:"Joe Meek",
-                                   years_experience: 10,
+                                   years_experience: 10
                                   )
     @mechanic2 = Mechanic.create!( name:"Sara Fix",
-                                     years_experience: 6,
+                                     years_experience: 6
                                   )
   end
   it "can see the mechanics header and a list of all the mechanics and information" do
@@ -16,4 +16,11 @@ RSpec.describe 'mechanics index page', type: :feature do
     expect(page).to have_content(@mechanic1.name)
     expect(page).to have_content(@mechanic2.name)
   end
+
+  it "average years expericne of all mechanics" do
+    visit "/mechanics"
+    save_and_open_page
+    expect(page).to have_content('Average Years Experience: 8')
+  end
+
 end
