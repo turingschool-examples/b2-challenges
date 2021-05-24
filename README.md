@@ -1,5 +1,10 @@
 # B2 Assessments
 
+## This Repo implemented the following <a href="https://gist.github.com/jamisonordway/89b5a31b181eab2f3753797068f6f78d">User Stories</a>
+
+==================================
+
+
 Base repository for B2 assessments and diagnostics.
 
 This repository requires and has been tested on Ruby v2.5.3 and is based on Rails 5.2.4.3.
