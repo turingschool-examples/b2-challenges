@@ -2,3 +2,9 @@
 
 <%= "Mechanic Name: #{@mechanic.name}" %>
 <%= "Mechanic Experience: #{@mechanic.experience} years" %>
+<%= "Mechanic is working on:" %>
+<% @working.each do |ride| %>
+<%= ride.name %>
+<%= ride.thrill_rating %>
+<%= ride.open %>
+<% end %>
