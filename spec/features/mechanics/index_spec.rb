@@ -8,7 +8,7 @@
 
 require 'rails_helper'
 
-Rspec.describe 'mechanic index' do
+RSpec.describe 'mechanic index' do
   before :each do
     @jim = Mechanic.create!(name: "Jim", years_experience: 17)
     @xena = Mechanic.create!(name: "Xena", years_experience: 23)
