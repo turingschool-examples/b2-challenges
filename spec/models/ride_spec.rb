@@ -6,4 +6,9 @@ describe Ride, type: :model do
     it {should validate_presence_of :thrill_rating}
     it {should validate_presence_of :open}
   end
+
+  describe 'Relationships' do
+    it { should have_many :mechanic_rides}
+    it { should have_many :mechanics}
+  end
 end
