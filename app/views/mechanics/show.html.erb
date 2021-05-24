@@ -7,6 +7,10 @@
 <%= "Which has a thrill rating of #{ride.thrill_rating} " %>
 <%= "And is open? #{ride.open} " %>
 <% end %>
-<% form_with url: "mechanics/#{@mechanic.id}", method: :get, local: :true do |f| %>
-<%= f.label '' %>
-<% %>
+<br>
+<%= "Add a ride to #{@mechanic.name}'s workload" %>
+<%= form_with url: "mechanics/#{@mechanic.id}", method: :get, local: :true do |f| %>
+<%= f.label :ride_id, 'Ride Id' %>
+<%= f.number_field :ride_id %>
+<%= f.submit 'Add Ride' %>
+<% end %>
