@@ -10,3 +10,6 @@ mechanic_two = Mechanic.create!(name: 'Ken Johnson', years_of_experience: 10 )
 
 ride_one = Ride.create!(name: "Roller Coaster", thrill_rating: 9, is_open: false)
 ride_two = Ride.create!(name: "Ferris Wheel", thrill_rating: 1, is_open: false)
+
+ride_three = Ride.create!(name: "Merry-Go-Round", thrill_rating: 1, is_open: true)
+ride_four = Ride.create!(name: "Rocket Ship", thrill_rating: 9, is_open: true)

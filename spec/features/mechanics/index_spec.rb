@@ -18,6 +18,7 @@ RSpec.describe 'Mechanics Index Page' do
 
   it "Shows list of mechanics names and years of experience" do
     mechanic_one = Mechanic.create!(name: 'Samantha West', years_of_experience: 5 )
+    
     visit '/mechanics'
     save_and_open_page
     expect(page).to have_content(mechanic_one.name)
@@ -35,11 +36,4 @@ RSpec.describe 'Mechanics Index Page' do
     expect(Mechanic.average_years_of_experience).to eq(7)
   end
 
-  #   Story 2 - Mechanic Show Page
-  #
-  # As a user,
-  # When I visit a mechanic show page
-  # I see their name, years of experience, and the names of all rides they’re working on
-  # And I only see rides that are open
-  # And the rides are listed by thrill rating in descending order (most thrills first)
 end

@@ -14,4 +14,5 @@ class Mechanic < ApplicationRecord
   def self.average_years_of_experience
     (total_years_of_experience / number_of_mechanics)
   end
+
 end

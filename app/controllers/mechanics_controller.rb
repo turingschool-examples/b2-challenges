@@ -5,8 +5,9 @@ class MechanicsController < ApplicationController
 
   def show
     @mechanic = Mechanic.find(params[:id])
-    # @rides = Ride.search(params[:show_rides])
-    # @ride = @mechanic.rides
+    @rides = @mechanic.rides
+    # binding.pry
+    @my_ride_and_open = @rides.where(:is_open => true ).order('thrill_rating Desc')
   end
 
   def new

@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   patch '/mechanics/:id', to: 'mechanics#update'
   delete '/mechanics/:id', to: 'mechanics#destroy'
 
+  get 'mechanics/:id/:ride_id', to: 'applications#show_rides'
 end
