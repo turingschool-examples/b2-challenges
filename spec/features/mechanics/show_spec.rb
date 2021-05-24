@@ -9,7 +9,8 @@ RSpec.describe 'Mechanic Show Page' do
     @ride_1 = Ride.create!(name: 'ThrillHouse', thrill_rating: 4, open: true)
     @ride_2 = Ride.create!(name: 'Thrillinator 500', thrill_rating: 7, open: true)
     @ride_3 = Ride.create!(name: 'Merry-go-round', thrill_rating: 1, open: false)
-    @ride_4 = Ride.create!(name: 'The Closed Ride', thrill_rating: 0, open: false)
+    @ride_4 = Ride.create!(name: 'Scrambled Eggs', thrill_rating: 0, open: true)
+    @ride_5 = Ride.create!(name: 'Log Flume', thrill_rating: 0, open: true)
 
     @r_m_1 = RideMechanic.create!(ride_id: @ride_1.id, mechanic_id: @mech_1.id)
     @r_m_2 = RideMechanic.create!(ride_id: @ride_2.id, mechanic_id: @mech_1.id)
@@ -37,5 +38,18 @@ RSpec.describe 'Mechanic Show Page' do
   it 'shows rides listed by thrill rating in descending order' do
 
     expect('Thrillinator 500').to appear_before('ThrillHouse')
+  end
+
+  it 'has a form to add a ride to their workload' do
+    expect(page).to have_content('Add a Ride to Their Workload')
+    expect(page).to have_content('Ride Id:')
+
+    fill_in :ride_id, with: "#{@ride_5.id}"
+
+    click_on('Submit')
+
+    expect(current_path).to be("mechanics/#{@mech_3.id}")
+
+    expect(page).to have_content(@ride_4.name)
   end
 end
