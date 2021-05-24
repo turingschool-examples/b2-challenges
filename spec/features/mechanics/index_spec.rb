@@ -1,10 +1,10 @@
-# Story 1 - Mechanic Index Page
+# Story 2 - Mechanic Show Page
 #
 # As a user,
-# When I visit the mechanics index page
-# I see a header saying “All Mechanics”
-# And I see a list of all mechanic’s names and their years of experience
-# And I see the average years of experience across all mechanics
+# When I visit a mechanic show page
+# I see their name, years of experience, and the names of all rides they’re working on
+# And I only see rides that are open
+# And the rides are listed by thrill rating in descending order (most thrills first)
 
 require 'rails_helper'
 
