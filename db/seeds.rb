@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Mechanic.destroy_all
+Ride.destroy_all 
+
+mechanic_1 = Mechanic.create!(name: "Ryan", exp_in_years: 11)
+mechanic_2 = Mechanic.create!(name: "Bryan", exp_in_years: 5)
+
+hurler = mechanic_1.rides.create!(name: "The Hurler", thrill_rating: 7, open: true)
+viking = mechanic_1.rides.create!(name: "The Viking", thrill_rating: 2, open: true)
+teacups = mechanic_1.rides.create!(name: "Spinning Teacup", thrill_rating: 3, open: true)
+bouncy_house = mechanic_1.rides.create!(name: "The Bouncy House", thrill_rating: 1, open: false)
+haunted_house = mechanic_2.rides.create!(name: "Haunted House", thrill_rating: 10, open: true)
+fun_house = mechanic_2.rides.create!(name: "Fun House", thrill_rating: 1, open: true)
+twister = mechanic_2.rides.create!(name: "Twister", thrill_rating: 12, open: true)
