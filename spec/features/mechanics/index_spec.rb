@@ -3,10 +3,11 @@ require 'rails_helper'
 RSpec.describe 'mechanics index page' do
 
   before :all do
+    park = AmusementPark.create!(name: "Elitch Gardens", price: 70.00)
     @mech = Mechanic.create!(name: "Marty", years_experience: 3)
     @mech2 = Mechanic.create!(name: "Gregor", years_experience: 15)
     @mech3 = Mechanic.create!(name: "Sarah", years_experience: 7)
-    @ride1 = Ride.create!(name: "Hurly Whirley", open: false, thrill_rating: 10)
+    @ride1 = park.rides.create!(name: "Hurly Whirley", open: false, thrill_rating: 10)
   end
 
   describe 'index etc' do

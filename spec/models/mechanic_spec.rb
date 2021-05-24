@@ -17,10 +17,11 @@ RSpec.describe Mechanic do
     end
 
     it 'returns only open rides sorted by importance' do
+      park = AmusementPark.create!(name: "Elitch Gardens", price: 70.00)
       @mech = Mechanic.create!(name: "Sarah", years_experience: 7)
-      @ride1 = Ride.create!(name: "Hurly Whirley", open: false, thrill_rating: 10)
-      @ride2 = Ride.create!(name: "Top Rock", open: true, thrill_rating: 3)
-      @ride4 = Ride.create!(name: "Boggler", open: true, thrill_rating: 1)
+      @ride1 = park.rides.create!(name: "Hurly Whirley", open: false, thrill_rating: 10)
+      @ride2 = park.rides.create!(name: "Top Rock", open: true, thrill_rating: 3)
+      @ride4 = park.rides.create!(name: "Boggler", open: true, thrill_rating: 1)
       @mech.rides << @ride1
       @mech.rides << @ride2
       @mech.rides << @ride4
