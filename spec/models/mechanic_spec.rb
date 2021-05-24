@@ -5,7 +5,7 @@ RSpec.describe Mechanic, type: :model do
     it {should have_and_belong_to_many :rides}
   end
 
-  describe 'instance method,' do
+  describe 'class method,' do
     describe '#average_experience' do
       it 'returns the average years of experience across all mechanics' do
         Mechanic.create(name: 'Bob', years_experience: 5)
@@ -17,6 +17,16 @@ RSpec.describe Mechanic, type: :model do
 
         expect(Mechanic.average_experience).to eq expected_avg
       end
+    end
+  end
+
+  describe 'instance method,' do
+    describe '#rides_by_thrill_rating_desc' do
+      it 'returns the list of rides the mechanic is working on'
+
+      it 'returns the list in descending order by thrill rating'
+
+      it 'returns the list with rides that are open'
     end
   end
 end
