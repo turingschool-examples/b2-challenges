@@ -30,12 +30,12 @@ RSpec.describe 'The index page for mechanics,' do
       expect(page).to have_selector('#mechanics_list')
 
       within "#mechanic_#{@mech_1.id}" do
-        expect(page).to have_content(@mech_1.name)
+        expect(page).to have_link(@mech_1.name)
         expect(page).to have_content(@mech_1.years_experience)
       end
 
       within "#mechanic_#{@mech_2.id}" do
-        expect(page).to have_content(@mech_2.name)
+        expect(page).to have_link(@mech_2.name)
         expect(page).to have_content(@mech_2.years_experience)
       end
     end
