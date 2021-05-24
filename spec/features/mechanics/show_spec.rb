@@ -30,9 +30,9 @@ describe 'mechanics show page' do
     expect(find('form')).to have_content('Ride Id')
   end
   it 'adds a ride to workload' do
-    @loop = Ride.create!(name:'Loop', open:true, thrill_rating: 10)
-    id = @loop.id
-    fill_in 'Ride Id', with: id
+    loop = Ride.create!(name:'Loop', open:true, thrill_rating: 10)
+    search_id = loop.id
+    fill_in 'Ride Id', with: search_id
     click_button 'Add Ride'
     expect(page).to have_content('Tim is working on: Loop')
   end

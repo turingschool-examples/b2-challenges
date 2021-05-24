@@ -9,8 +9,8 @@
 <% end %>
 <br>
 <%= "Add a ride to #{@mechanic.name}'s workload" %>
-<%= form_with url: "mechanics/#{@mechanic.id}", method: :get, local: :true do |f| %>
-<%= f.label :ride_id, 'Ride Id' %>
-<%= f.number_field :ride_id %>
+<%= form_with url: "/mechanics/#{@mechanic.id}", method: :get, local: :true do |f| %>
+<%= f.label :new_ride_id, 'Ride Id' %>
+<%= f.number_field :new_ride_id %>
 <%= f.submit 'Add Ride' %>
 <% end %>
