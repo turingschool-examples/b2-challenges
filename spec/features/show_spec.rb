@@ -23,17 +23,17 @@ RSpec.describe 'The show page for mechanics,' do
   end
 
   it 'has a header with the name of the mechanic' do
-    expect(page).to have_selector('#mechanic_name', text: "Mechanic: #{@rich.name}")
+    expect(page).to have_selector('h2', text: "Mechanic: #{@rich.name}")
   end
 
   it 'shows years of experience' do
-    expect(page).to have_selector('#years_experience', text: "Years of Experience: #{@rich.years_experience}")
+    expect(page).to have_selector('h3', text: "Years of Experience: #{@rich.years_experience}")
   end
 
   describe 'current rides they are working on,' do
     it 'has a header' do
       within '#rides_list' do
-        expect(page).to have_selector('h3', text: "Current rides they're working on:")
+        expect(page).to have_selector('caption', text: "Current rides they're working on:")
       end
     end
 
@@ -41,6 +41,7 @@ RSpec.describe 'The show page for mechanics,' do
       @rich.rides_working_on.each do |ride|
         within "#ride_#{ride.id}" do
           expect(page).to have_content(ride.name)
+          expect(page).to have_content(ride.thrill_rating)
         end
       end
     end

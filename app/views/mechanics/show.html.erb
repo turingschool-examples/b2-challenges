@@ -1,0 +1,15 @@
+<h2>Mechanic: <%= @mechanic.name %></h2>
+<h3>Years of Experience: <%= @mechanic.years_experience %></h3>
+<table id='rides_list'>
+  <caption>Current rides they're working on:</caption>
+  <tr>
+    <th>Name of Ride</th>
+    <th>Thrill Rating</th>
+  </tr>
+  <% @mechanic.rides_working_on.each do |ride| %>
+    <tr id='ride_<%= ride.id%>'>
+      <td><%= ride.name %></td>
+      <td><%= ride.thrill_rating %></td>
+    </tr>
+  <% end %>
+</table>
