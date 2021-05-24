@@ -1,0 +1,7 @@
+<h2>All Mechanics</h2>
+
+<ul>
+<%= @mechanics.each do |m| %>
+  <li>Name: <%= m.name %> has <%= m.years_experience %> years experience.</li>
+<% end %>
+</ul>
