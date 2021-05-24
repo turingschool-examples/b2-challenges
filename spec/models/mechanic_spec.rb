@@ -16,4 +16,18 @@ RSpec.describe Mechanic do
       end
     end
   end
+
+  describe 'instance methods' do
+    describe '::rides_by_thrill_rating' do
+      it 'returns the rides ordered by thrill rating desc' do
+        jim = Mechanic.create!(name: "Jim", years_experience: 17)
+
+        tea_cups = jim.rides.create!(name: 'The Tea Cups', thrill_rating: 2, open: true)
+        tot = jim.rides.create!(name: 'Tower of Terror', thrill_rating: 8, open: true)
+        swings = jim.rides.create!(name: 'The Swings', thrill_rating: 5, open: false)
+
+        expect(jim.rides_by_thrill_rating).to eq [tot, swings, tea_cups]
+      end
+    end
+  end
 end
