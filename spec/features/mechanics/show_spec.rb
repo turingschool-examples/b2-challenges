@@ -39,7 +39,7 @@ RSpec.describe 'Mechanics show page' do
       expect(@teacups.name).to appear_before(@viking.name)
     end
 
-    it 'adds ride to application' do
+    it 'adds ride to mechanic show page' do
       visit "/mechanics/#{@mechanic_1.id}"
 
       expect(page).to_not have_content(@haunted_house.id)
