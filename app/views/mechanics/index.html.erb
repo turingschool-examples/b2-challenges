@@ -1,6 +1,6 @@
 <h1> All Mechanics </h1>
 <h2> Average Years of Experience: <%= @years_average %>
 <% @mechanics.each do |mechanic| %>
-  <h2>Name: <%= mechanic.name %></h2>
+  <h2>Name: <%= link_to mechanic.name, "/mechanics/#{mechanic.id}"%></h2>
   <h3>Years of Experience: <%= mechanic.exp_in_years %></h3>
 <% end %>
