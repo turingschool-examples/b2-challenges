@@ -15,17 +15,16 @@ RSpec.describe 'the mechanics index', type: :feature do
 
   it 'lists all the mechanics with their attributes' do
     visit "/mechanics"
-save_and_open_page
+    
     expect(page).to have_content(@mechanic_1.name)
     expect(page).to have_content(@mechanic_1.experience)
     expect(page).to have_content(@mechanic_2.name)
     expect(page).to have_content(@mechanic_2.experience)
   end
-end
 
-#
-# As a user,
-# When I visit the mechanics index page
-# I see a header saying “All Mechanics”
-# And I see a list of all mechanic’s names and their years of experience
-# And I see the average years of experience across all mechanics
+  it 'displays the average years of experience across all mechanics' do
+    visit "/mechanics
+
+    expect(page).to have_content(8)
+  end
+end
