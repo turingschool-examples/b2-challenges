@@ -4,6 +4,7 @@ class CreateMechanics < ActiveRecord::Migration[5.2]
       t.string :name
       t.integer :exp_in_years
       
+      t.references :amusement_park 
       t.timestamps
     end
   end
