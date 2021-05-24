@@ -1,0 +1,9 @@
+<h2>Mechanic: <%= @mechanic.name %></h2>
+<h3>Years Experience: <%= @mechanic.years_experience %></h3>
+
+<strong>Rides Currenctly Assigned:</strong>
+<ul>
+<%= @mechanic.open_important_rides.each do |r| %>
+  <li>Ride Name: <%= r.name %> Importance: <%= r.thrill_rating %></li>
+<% end %>
+</ul>
