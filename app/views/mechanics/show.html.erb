@@ -1,0 +1,16 @@
+<h1><%= "Mechanic #{@mechanic.name} details" %> </h1>
+
+<%= "Mechanic Name: #{@mechanic.name}" %>
+<%= "Mechanic Experience: #{@mechanic.experience} years" %>
+<% @working.each do |ride| %>
+<%= "#{@mechanic.name} is working on: #{ride.name}" %>
+<%= "Which has a thrill rating of #{ride.thrill_rating} " %>
+<%= "And is open? #{ride.open} " %>
+<% end %>
+<br>
+<%= "Add a ride to #{@mechanic.name}'s workload" %>
+<%= form_with url: "/mechanics/#{@mechanic.id}", method: :get, local: :true do |f| %>
+<%= f.label :new_ride_id, 'Ride Id' %>
+<%= f.number_field :new_ride_id %>
+<%= f.submit 'Add Ride' %>
+<% end %>
