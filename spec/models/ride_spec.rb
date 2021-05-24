@@ -7,7 +7,7 @@ RSpec.describe Ride, type: :model do
   end
 
   before :each do
-    @yay_world = AmusementPark.create!(name: "Yay World", price: 18.99)
+    @yay_world = AmusementPark.create!(name: "Yay World", price: 18)
     @mechanic_1 = @yay_world.mechanics.create!(name: "Ryan", exp_in_years: 11)
     @hurler = @mechanic_1.rides.create!(name: "The Hurler", thrill_rating: 7, open: true)
     @viking = @mechanic_1.rides.create!(name: "The Viking", thrill_rating: 2, open: true)
@@ -24,6 +24,11 @@ RSpec.describe Ride, type: :model do
     it '::sort_by_thrill_level' do
 
       expect(Ride.sort_by_thrill_level).to eq([@hurler, @teacups, @viking, @bouncy_house])
+    end
+
+    it '::order_alphabetically' do
+
+      expect(Ride.order_alphabetically).to eq([@bouncy_house, @hurler, @teacups, @viking])
     end
   end
 end
