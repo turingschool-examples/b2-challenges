@@ -7,7 +7,7 @@ RSpec.describe 'Mechanics show page' do
     before :each do
       @mechanic_1 = Mechanic.create!(name: "Ryan", exp_in_years: 11)
       @hurler = @mechanic_1.rides.create!(name: "The Hurler", thrill_rating: 7, open: true)
-      @viking = @mechanic_1.rides.create!(name: "The Viking", thrill_rating: 5, open: true)
+      @viking = @mechanic_1.rides.create!(name: "The Viking", thrill_rating: 2, open: true)
       @teacups = @mechanic_1.rides.create!(name: "Spinning Teacup", thrill_rating: 3, open: true)
       @bouncy_house = @mechanic_1.rides.create!(name: "The Bouncy House", thrill_rating: 1, open: false)
     end
@@ -27,6 +27,14 @@ RSpec.describe 'Mechanics show page' do
       expect(page).to have_content(@viking.name)
       expect(page).to have_content(@teacups.name)
       expect(page).to_not have_content(@bouncy_house.name)
+    end
+
+    it 'lists rides from highest thrill level to lowest' do
+      visit "/mechanics/#{@mechanic_1.id}"
+
+      expect(@hurler.name).to appear_before(@teacups.name)
+      expect(@hurler.name).to appear_before(@viking.name)
+      expect(@teacups.name).to appear_before(@viking.name)
     end
   end
 end
