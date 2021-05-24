@@ -29,4 +29,9 @@ RSpec.describe 'mechanic show' do
     expect(page).to have_content(@ride_5.name)
     expect(page).to have_content(@ride_6.name)
   end
+
+  it 'has a link to add a ride' do
+
+    expect(page).to have_content("Add a ride to workload")
+  end
 end
