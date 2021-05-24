@@ -28,5 +28,5 @@ ActiveRecord::Schema.define(version: 2021_05_24_171359) do
     t.index ["mechanics_id"], name: "index_rides_on_mechanics_id"
   end
 
-  add_foreign_key "mechanics", "rides", column: "rides_id"
+  add_foreign_key "rides", "mechanics", column: "mechanics_id"
 end
