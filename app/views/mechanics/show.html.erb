@@ -2,9 +2,8 @@
 
 <%= "Mechanic Name: #{@mechanic.name}" %>
 <%= "Mechanic Experience: #{@mechanic.experience} years" %>
-<%= "Mechanic is working on:" %>
 <% @working.each do |ride| %>
-<%= ride.name %>
-<%= ride.thrill_rating %>
-<%= ride.open %>
+<%= "#{@mechanic.name} is working on: #{ride.name}" %>
+<%= "Which has a thrill rating of #{ride.thrill_rating} " %>
+<%= "And is open? #{ride.open} " %>
 <% end %>
