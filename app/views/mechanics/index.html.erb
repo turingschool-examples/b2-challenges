@@ -1,0 +1,12 @@
+<html>
+<head>
+  <h1>All Mechanics</h1>
+</head>
+
+<body style="font-size:20px">
+  <% @mechanics.each do |mechanic| %>
+    <div>Name: <%= mechanic.name %></div><br>
+    <div>Years of Experience: <%= mechanic.years_experience %></div>
+  <% end %>
+</body>
+</html>
