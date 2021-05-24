@@ -11,7 +11,6 @@ class MechanicsController < ApplicationController
   end
 
   def update
-    # binding.pry
     ride = Ride.find(params[:ride_id])
     ride.update(mechanic_id: params[:id])
     ride.save
