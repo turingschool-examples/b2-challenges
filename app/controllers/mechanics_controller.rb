@@ -1,9 +1,24 @@
 class MechanicsController < ApplicationController
 
   def index
+    @mechanics = Mechanic.all
   end
 
   def show
+    @mechanic = Mechanic.find(params[:id])
   end
 
+  def new
+  end
+
+  def create
+    Mechanic.create!(mechanic_params)
+
+  end
+
+  private
+
+  def mechanic_params
+    params.permit(:name, :years_experience)
+  end
 end
