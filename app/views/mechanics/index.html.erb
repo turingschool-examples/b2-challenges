@@ -4,6 +4,7 @@
 </head>
 
 <body style="font-size:20px">
+  <h2>Average years of experience: <%= @mechanics.avg_years_experience.round(1) %></h2><br>
   <% @mechanics.each do |mechanic| %>
     <div>Name: <%= mechanic.name %></div><br>
     <div>Years of Experience: <%= mechanic.years_experience %></div>
