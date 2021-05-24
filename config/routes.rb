@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get '/', to: 'mechanics#welcome'
 
-  get '/mechanics/index', to: 'mechanics#index'
+  get '/mechanics', to: 'mechanics#index'
   get '/mechanics/:id', to: 'mechanics#show'
 
   get '/rides/new', to: 'rides#new'
