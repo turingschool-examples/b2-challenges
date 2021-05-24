@@ -29,9 +29,19 @@ RSpec.describe 'mechanics show page', type: :feature do
   it 'has a form to add a new ride to that mechanic taking ride id' do
     expect(page).to have_content("Add a ride to workload:")
     expect(page).to have_field(:ride_id)
-    expect(page).to have_button(:submit)
+    expect(page).to have_button("Submit")
   end
 
-  it 'shows the new ride on the mechanic show page upon submission'
+  it 'shows the new ride on the mechanic show page upon submission' do
+    @mechanic2 = Mechanic.create!(name: "Sally Fields", years_experience: 23)
+    @ride4 = @mechanic2.rides.create!(name: "Medusa", thrill_rating: 9, open: true)
+
+    fill_in 'ride_id', with: @ride4.id
+    click_button 'Submit'
+
+    expect(page).to have_content(@ride4.name)
+  end
+
+
   it 'does not show rides added that are not open on show page'
 end
