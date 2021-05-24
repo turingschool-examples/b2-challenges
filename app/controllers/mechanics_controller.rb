@@ -6,8 +6,8 @@ class MechanicsController < ApplicationController
 
   def show
     @mechanic = Mechanic.find(params[:id])
-    require "pry"; binding.pry
-    @mechanic_rides = MechanicRide.first(params[:mechanic_id])
+    # require "pry"; binding.pry
+    @mechanic_rides = @mechanic.rides
   end
 
   def new
