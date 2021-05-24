@@ -19,4 +19,24 @@ RSpec.describe Mechanic do
       end
     end
   end
+
+  describe 'instance methods' do
+    before(:each) do
+      @mechanic = Mechanic.create!(name: 'Bob', years_experience: 3)
+      @ride_1 = @mechanic.rides.create!(name: 'Twister', thrill_rating: 6, open: true)
+      @ride_2 = @mechanic.rides.create!(name: 'Ferris Wheel', thrill_rating: 2, open: true)
+      @ride_3 = @mechanic.rides.create!(name: 'Zipper', thrill_rating: 9, open: true)
+      @ride_4 = @mechanic.rides.create!(name: 'Tower of Doom', thrill_rating: 10, open: false)
+    end
+
+    describe 'open rides by thrills' do
+      it 'returns rides that are open in descending thrill order' do
+        expect(@mechanic.open_rides_by_thrills).to eq([@ride_3, @ride_1, @ride_2])
+      end
+
+      it 'does not returns rides for other mechanic'
+        # expect(@mechanic.open_rides_by_thrills).to eq([@ride_1, @ride_2, @ride_3])
+
+    end
+  end
 end
