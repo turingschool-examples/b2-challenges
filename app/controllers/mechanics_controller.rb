@@ -17,5 +17,10 @@ class MechanicsController < ApplicationController
     @open_rides = rides.map do |ride|
       Ride.names_for_open_rides_ordered_by_thrill_desc
     end.uniq
+
+    if params[:ride_id] != nil
+      RideMechanic.create(ride_id: params[:ride_id], mechanic_id: params[:id])
+      redirect_to "/mechanics/#{params[:id]}"
+    end
   end
 end
