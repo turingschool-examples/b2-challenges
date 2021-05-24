@@ -27,7 +27,7 @@ RSpec.describe 'mechanic show page' do
   it 'shows names of all rides the mechanic is working on, ordered by thrill_rating' do
     visit "/mechanics/#{@jim.id}"
 
-    expect(@tot).to appear_before(@swings)
-    expect(@swings).to appear_before(@tea_cups)
+    expect(@tot.name).to appear_before(@swings.name)
+    expect(@swings.name).to appear_before(@tea_cups.name)
   end
 end
