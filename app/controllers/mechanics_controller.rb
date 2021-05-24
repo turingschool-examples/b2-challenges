@@ -11,7 +11,7 @@ class MechanicsController < ApplicationController
     join_table = RideMechanic.where('mechanic_id = ?', @mechanic.id)
 
     @rides = join_table.map do |table|
-      Ride.where('id = ?', table.ride_id).pluck(:name)
+      Ride.ride_names_for_rides_worked_on(table)
     end
   end
 end

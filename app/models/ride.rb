@@ -4,4 +4,8 @@ class Ride < ApplicationRecord
   validates_presence_of :name, :thrill_rating
   validates :open, inclusion: [true, false]
   validates :open, exclusion: [nil]
+
+  def self.ride_names_for_rides_worked_on(block_variable)
+    where('id = ?', block_variable.ride_id).pluck(:name)
+  end
 end
