@@ -4,14 +4,16 @@ RSpec.describe Ride do
   describe 'relationships' do
     it {should have_many(:ride_mechanics).dependent(:destroy)}
     it {should have_many(:mechanics).through(:ride_mechanics)}
+    it {should belong_to :amusement_park}
   end
 
   describe 'class methods' do
     before :each do
-      @tea_cups = Ride.create!(name: 'The Tea Cups', thrill_rating: 2, open: true)
-      @tot = Ride.create!(name: 'Tower of Terror', thrill_rating: 8, open: true)
-      @swings = Ride.create!(name: 'The Swings', thrill_rating: 5, open: true)
-      @strawberry = Ride.create!(name: 'Strawberry Fields', thrill_rating: 3, open: false)
+      @hershey = AmusementPark.create!(name: 'Hershey Park', price: 50.0)
+      @tea_cups = @hershey.rides.create!(name: 'The Tea Cups', thrill_rating: 2, open: true)
+      @tot = @hershey.rides.create!(name: 'Tower of Terror', thrill_rating: 8, open: true)
+      @swings = @hershey.rides.create!(name: 'The Swings', thrill_rating: 5, open: true)
+      @strawberry = @hershey.rides.create!(name: 'Strawberry Fields', thrill_rating: 3, open: false)
     end
 
     describe '::by_thrill_rating' do

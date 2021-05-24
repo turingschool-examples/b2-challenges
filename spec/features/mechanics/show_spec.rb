@@ -3,11 +3,11 @@ require 'rails_helper'
 RSpec.describe 'mechanic show page' do
   before :each do
     @jim = Mechanic.create!(name: "Jim", years_experience: 17)
-
-    @tea_cups = @jim.rides.create!(name: 'The Tea Cups', thrill_rating: 2, open: true)
-    @tot = @jim.rides.create!(name: 'Tower of Terror', thrill_rating: 8, open: true)
-    @swings = @jim.rides.create!(name: 'The Swings', thrill_rating: 5, open: true)
-    @strawberry = @jim.rides.create!(name: 'Strawberry Fields', thrill_rating: 3, open: false)
+    @hershey = AmusementPark.create!(name: 'Hershey Park', price: 50.0)
+    @tea_cups = @jim.rides.create!(name: 'The Tea Cups', thrill_rating: 2, open: true, amusement_park: @hershey)
+    @tot = @jim.rides.create!(name: 'Tower of Terror', thrill_rating: 8, open: true, amusement_park: @hershey)
+    @swings = @jim.rides.create!(name: 'The Swings', thrill_rating: 5, open: true, amusement_park: @hershey)
+    @strawberry = @jim.rides.create!(name: 'Strawberry Fields', thrill_rating: 3, open: false, amusement_park: @hershey)
   end
 
   it 'displays the mechanics name and years experience' do
@@ -31,7 +31,7 @@ RSpec.describe 'mechanic show page' do
   end
 
   it 'can add a ride to mechanic workload' do
-    new_ride = Ride.create!(name: 'Scrambler', thrill_rating: 4, open: true)
+    new_ride = Ride.create!(name: 'Scrambler', thrill_rating: 4, open: true, amusement_park: @hershey)
 
     visit "/mechanics/#{@jim.id}"
 

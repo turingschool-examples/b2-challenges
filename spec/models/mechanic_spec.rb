@@ -21,11 +21,12 @@ RSpec.describe Mechanic do
     describe '::open_rides_by_thrill_rating' do
       it 'returns the rides ordered by thrill rating desc' do
         jim = Mechanic.create!(name: "Jim", years_experience: 17)
+        hershey = AmusementPark.create!(name: 'Hershey Park', price: 50.0)
 
-        tea_cups = jim.rides.create!(name: 'The Tea Cups', thrill_rating: 2, open: true)
-        tot = jim.rides.create!(name: 'Tower of Terror', thrill_rating: 8, open: true)
-        swings = jim.rides.create!(name: 'The Swings', thrill_rating: 5, open: true)
-        strawberry = jim.rides.create!(name: 'Strawberry Fields', thrill_rating: 3, open: false)
+        tea_cups = jim.rides.create!(name: 'The Tea Cups', thrill_rating: 2, open: true, amusement_park: hershey)
+        tot = jim.rides.create!(name: 'Tower of Terror', thrill_rating: 8, open: true, amusement_park: hershey)
+        swings = jim.rides.create!(name: 'The Swings', thrill_rating: 5, open: true, amusement_park: hershey)
+        strawberry = jim.rides.create!(name: 'Strawberry Fields', thrill_rating: 3, open: false, amusement_park: hershey)
 
         expect(jim.open_rides_by_thrill_rating).to eq [tot, swings, tea_cups]
       end

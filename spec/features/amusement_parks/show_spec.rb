@@ -18,10 +18,14 @@ require 'rails_helper'
 RSpec.describe 'amusement park show' do
   before :each do
     @hershey = AmusementPark.create!(name: 'Hershey Park', price: 50.0)
+    @tea_cups = @hershey.rides.create!(name: 'The Tea Cups', thrill_rating: 2, open: true)
+    @tot = @hershey.rides.create!(name: 'Tower of Terror', thrill_rating: 8, open: true)
+    @swings = @hershey.rides.create!(name: 'The Swings', thrill_rating: 5, open: true)
+    @strawberry = @hershey.rides.create!(name: 'Strawberry Fields', thrill_rating: 3, open: false)
   end
 
   it 'displays the name of the park and admission price' do
-    visit "/amusment_parks/#{@hershey.id}"
+    visit "/amusement_parks/#{@hershey.id}"
 
     expect(page).to have_content 'Hershey Park'
     expect(page).to have_content 'Admissions: $50.00'
