@@ -1,0 +1,27 @@
+<h1><%= "#{@park.name} Park Details" %></h1>
+
+<table style='width:100%'>
+  <tr>
+    <th>Detail</th>
+    <th>Value</th>
+  </tr>
+  <tr>
+    <td>Name</td>
+    <td><%= @park.name %></td>
+  </tr>
+  <tr>
+    <td>Admission Price</td>
+    <td><%= "$#{@park.admission_price}" %></td>
+  </tr>
+  <tr>
+    <td>Rides</td>
+    <td><ul><% @rides.each do |ride| %>
+      <li><%= ride.name %></li>
+      <% end %></ul></td>
+  </tr>
+  <tr>
+    <td>Average Ride Thrill Rating</td>
+    <td><%= @park.average_thrill_rating %></td>
+  </tr>
+</table>
+    <br><br>

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'the mechanics index' do
+RSpec.describe 'the mechanics show page' do
   before (:each) do
     @park_1 = Park.create!(name: 'Elitches', admission_price: 20)
 

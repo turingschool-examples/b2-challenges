@@ -24,6 +24,18 @@ RSpec.describe Park, type: :model do
   end
 
   describe 'instance methods' do
+    describe '#rides_ordered_alphabetically' do
+      it 'returns all rides for a park ordered alphabetically' do
+
+        expect(@park_1.rides_ordered_alphabetically).to eq([@ride_3, @ride_1, @ride_2, @ride_4])
+      end
+    end
+    describe '#average_thrill_rating' do
+      it 'returns the average thrill rating for all rides for a park' do
+
+        expect(@park_1.average_thrill_rating).to eq(6.0)
+      end
+    end
   end
 
   describe 'class methods' do
